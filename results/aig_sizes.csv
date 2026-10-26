@@ -1,0 +1,7 @@
+design,flipflops,and_nodes_raw,and_nodes_after_abc
+cpu8,82,932,
+dsp8,72,1661,
+arlet6502,143,2464,
+uart_apb,330,3550,
+risc8,696,5485,
+fir10,176,8173,
