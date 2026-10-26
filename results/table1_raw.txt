@@ -1,0 +1,30 @@
+== cpu8 (cpu8)
+   Chip area for module '\cpu8': 4206.534400
+   Chip area for module '\cpu8': 4206.534400
+   Chip area for module '\cpu8': 4265.340800
+   Chip area for module '\cpu8': 4259.084800
+== dsp8 (dsp8)
+   Chip area for module '\dsp8': 5843.104000
+   Chip area for module '\dsp8': 5846.857600
+   Chip area for module '\dsp8': 6040.793600
+   Chip area for module '\dsp8': 6040.793600
+== arlet6502 (cpu)
+   Chip area for module '\cpu': 9303.923200
+   Chip area for module '\cpu': 9310.179200
+   Chip area for module '\cpu': 9559.168000
+   Chip area for module '\cpu': 9572.931200
+== uart_apb (uart_apb_master)
+   Chip area for module '\uart_apb_master': 12655.888000
+   Chip area for module '\uart_apb_master': 12655.888000
+   Chip area for module '\uart_apb_master': 13057.523200
+   Chip area for module '\uart_apb_master': 13057.523200
+== risc8 (cpu)
+   Chip area for module '\cpu': 28168.265600
+   Chip area for module '\cpu': 28170.768000
+   Chip area for module '\cpu': 28121.971200
+   Chip area for module '\cpu': 28133.232000
+== fir10 (fir10)
+   Chip area for module '\fir10': 25449.408000
+   Chip area for module '\fir10': 25449.408000
+   Chip area for module '\fir10': 29015.328000
+   Chip area for module '\fir10': 29015.328000
