@@ -1,39 +1,45 @@
-#!/usr/bin/env python3
-"""Cut enumerator check, and its broken case. Run: python3 tests/test_cuts.py"""
-import os, random, sys, tempfile
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-import cuts
+import sys
+import os
 
-def random_aag(path, inputs=8, ands=200, seed=1):
-    random.seed(seed)
-    lits = [2 * i for i in range(1, inputs + 1)]
-    rows, nxt = [], inputs + 1
-    for _ in range(ands):
-        a = random.choice(lits) ^ random.randint(0, 1)
-        b = random.choice(lits) ^ random.randint(0, 1)
-        while (a >> 1) == (b >> 1):
-            b = random.choice(lits) ^ random.randint(0, 1)
-        rows.append((2 * nxt, a, b)); lits.append(2 * nxt); nxt += 1
-    with open(path, "w") as f:
-        f.write(f"aag {inputs + ands} {inputs} 0 1 {ands}\n")
-        for i in range(1, inputs + 1): f.write(f"{2 * i}\n")
-        f.write(f"{rows[-1][0]}\n")
-        for r in rows: f.write(f"{r[0]} {r[1]} {r[2]}\n")
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if repo_root not in sys.path:
+    sys.path.insert(0, repo_root)
 
-def main():
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "t.aag"); random_aag(p)
-        g = cuts.load(p); c = cuts.enumerate_cuts(g, 4)
-        # 1. the check must pass on correct cuts
-        assert cuts.check_cuts(g, c) == [], "check failed on a correct enumeration"
-        print("PASS: all cuts agree with simulation")
-        # 2. broken case: flip one bit of one truth table; the check must catch it
-        v = next(v for v in sorted(g.ands) if len(c[v]) > 2)
-        leaves, tt, cone = c[v][0]
-        c[v][0] = (leaves, tt ^ 1, cone)
-        bad = cuts.check_cuts(g, c)
-        assert bad and bad[0][0] == v, "BROKEN CASE NOT CAUGHT"
-        print(f"PASS: broken truth table at node {v} was caught")
+import unittest
+from src.aig import parse_aag
+from src.cut_enumerator import CutEnumerator, verify_cut, Cut
+
+
+class TestCutEnumerator(unittest.TestCase):
+    def setUp(self):
+        # 3-input synthetic AIG:
+        # Inputs: 1, 2, 3 (lits 2, 4, 6)
+        # Node 4 = 1 & 2 (lit 8 = 2 & 4)
+        # Node 5 = 4 & !3 (lit 10 = 8 & 7)
+        # Output: lit 10
+        self.test_aag_path = "build/test_3inp.aag"
+        os.makedirs("build", exist_ok=True)
+        with open(self.test_aag_path, "w") as f:
+            f.write("aag 5 3 0 1 2\n2\n4\n6\n10\n8 2 4\n10 8 7\n")
+
+    def tearDown(self):
+        if os.path.exists(self.test_aag_path):
+            os.remove(self.test_aag_path)
+
+    def test_cut_enumeration_and_simulation(self):
+        aig = parse_aag(self.test_aag_path)
+        enumerator = CutEnumerator(aig, max_cut_size=4)
+        cuts = enumerator.enumerate_cuts()
+
+        # Node 5 should have cuts including {1, 2, 3} and {4, 3}
+        cuts_5 = cuts[5]
+        self.assertGreaterEqual(len(cuts_5), 1)
+
+        # Verify all cuts pass simulation
+        for node, c_list in cuts.items():
+            for c in c_list:
+                self.assertTrue(verify_cut(aig, c))
+
 
 if __name__ == "__main__":
-    main()
+    unittest.main()

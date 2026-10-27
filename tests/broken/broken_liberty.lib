@@ -1,0 +1,17 @@
+/* Deliberately broken Liberty file missing closing braces and containing illegal syntax */
+library (broken_test) {
+    technology (cmos);
+    delay_model : table_lookup;
+    time_unit : "1ns";
+    voltage_unit : "1V";
+    current_unit : "1mA";
+    pulling_resistance_unit : "1kohm";
+    leakage_power_unit : "1nW";
+    capacitive_load_unit (1, pf);
+
+    cell (broken_cell) {
+        area : ILLEGAL_STRING_WITHOUT_VALUE;
+        pin (A) {
+            direction : "invalid_direction";
+        }
+        /* Missing closing braces to trigger fatal parse error */

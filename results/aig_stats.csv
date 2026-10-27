@@ -1,0 +1,7 @@
+design,top,inputs,latches,outputs,orig_ands,dch_ands,and_reduction_pct,ref_ff,ref_and
+cpu8,cpu8,10,82,13,932,849,8.91,82,1265
+dsp8,dsp8,22,72,26,1661,1293,22.16,72,1973
+arlet6502,cpu,13,143,25,2464,2091,15.14,143,3221
+uart_apb,uart_apb_master,37,330,69,3550,1770,50.14,330,4673
+risc8,cpu,30,696,83,5485,4876,11.1,696,7750
+fir10,fir10,11,176,16,8173,6390,21.82,176,8795

@@ -1,0 +1,106 @@
+# Class Table of the SkyWater 130nm HD Library (`sky130_fd_sc_hd`)
+
+## 1. Library Summary
+
+- **Total combinational cell families in `hd_usable.lib` / `hd_reduced.lib`**: **86 families**
+  - **Single-output combinational logic families (1 to 6 inputs)**: **83 families** (264 cells in `hd_usable.lib`, 169 cells in `hd_reduced.lib`)
+  - **Multi-output / constant combinational families (`conb`, `ha`, `fa`)**: **3 families** (6 cells in `hd_usable.lib`, 3 cells in `hd_reduced.lib`)
+- **Sequential cell families (flip-flops and latches)**: **17 families** (37 cells in `hd_usable.lib`, 17 cells at `x1` in `hd_reduced.lib`)
+- **Distinct 4-input equivalence classes among the 28 four-input HD families**: **24 P-classes**, **12 P+N_out classes**, **4 NPN classes**
+- **Distinct equivalence classes across all 61 HD families with $\le 4$ inputs**: **55 P-classes**, **28 P+N_out classes**, **12 NPN classes**
+
+## 2. Single-Output Combinational Cell Families (83 Families)
+
+| Family | Inputs | Function | Truth Table | P-Class | P+N_out Class | NPN Class | Drives | Area x1 (um2) | Width (Sites) | Stages | Transistors | In Reduced |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `buf` | 1 | `(A)` | `0xAAAA` | `0xAAAA` | `0x00FF` | `0x00FF` | x1,x2,x4,x6,x8,x12,x16 | 3.7536 | 3 | 2 | 4 | yes |
+| `inv` | 1 | `(!A)` | `0x5555` | `0x00FF` | `0x00FF` | `0x00FF` | x1,x2,x4,x6,x8,x12,x16 | 3.7536 | 3 | 1 | 2 | yes |
+| `and2` | 2 | `(A&B)` | `0x8888` | `0x8888` | `0x0FFF` | `0x000F` | x0,x1,x2,x4 | 6.256 | 5 | 2 | 6 | yes |
+| `and2b` | 2 | `(!A_N&B)` | `0x4444` | `0x00AA` | `0x00AA` | `0x000F` | x1,x2,x4 | 7.5072 | 6 | 3 | 8 | yes |
+| `nand2` | 2 | `(!A) | (!B)` | `0x7777` | `0x0FFF` | `0x0FFF` | `0x000F` | x1,x2,x4,x8 | 3.7536 | 3 | 1 | 4 | yes |
+| `nand2b` | 2 | `(A_N) | (!B)` | `0xBBBB` | `0xAAFF` | `0x00AA` | `0x000F` | x1,x2,x4 | 6.256 | 5 | 2 | 6 | yes |
+| `nor2` | 2 | `(!A&!B)` | `0x1111` | `0x000F` | `0x000F` | `0x000F` | x1,x2,x4,x8 | 3.7536 | 3 | 1 | 4 | yes |
+| `nor2b` | 2 | `(!A&B_N)` | `0x4444` | `0x00AA` | `0x00AA` | `0x000F` | x1,x2,x4 | 6.256 | 5 | 2 | 6 | yes |
+| `or2` | 2 | `(A) | (B)` | `0xEEEE` | `0xEEEE` | `0x000F` | `0x000F` | x0,x1,x2,x4 | 6.256 | 5 | 2 | 6 | yes |
+| `or2b` | 2 | `(A) | (!B_N)` | `0xBBBB` | `0xAAFF` | `0x00AA` | `0x000F` | x1,x2,x4 | 7.5072 | 6 | 3 | 8 | yes |
+| `xnor2` | 2 | `(!A&!B) | (A&B)` | `0x9999` | `0x9999` | `0x0FF0` | `0x0FF0` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `xor2` | 2 | `(A&!B) | (!A&B)` | `0x6666` | `0x0FF0` | `0x0FF0` | `0x0FF0` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `a21bo` | 3 | `(A1&A2) | (!B1_N)` | `0x8F8F` | `0x88FF` | `0x0AAA` | `0x003F` | x1,x2,x4 | 10.0096 | 8 | 3 | 10 | yes |
+| `a21boi` | 3 | `(!A1&B1_N) | (!A2&B1_N)` | `0x7070` | `0x0AAA` | `0x0AAA` | `0x003F` | x0,x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `a21o` | 3 | `(A1&A2) | (B1)` | `0xF8F8` | `0xEAEA` | `0x003F` | `0x003F` | x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `a21oi` | 3 | `(!A1&!B1) | (!A2&!B1)` | `0x0707` | `0x003F` | `0x003F` | `0x003F` | x1,x2,x4 | 5.0048 | 4 | 1 | 6 | yes |
+| `and3` | 3 | `(A&B&C)` | `0x8080` | `0x8080` | `0x3FFF` | `0x0003` | x1,x2,x4 | 6.256 | 5 | 2 | 8 | yes |
+| `and3b` | 3 | `(!A_N&B&C)` | `0x4040` | `0x0088` | `0x0088` | `0x0003` | x1,x2,x4 | 8.7584 | 7 | 3 | 10 | yes |
+| `maj3` | 3 | `(A&B) | (A&C) | (B&C)` | `0xE8E8` | `0xE8E8` | `0x033F` | `0x033F` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `mux2` | 3 | `(A0&!S) | (A1&S)` | `0xCACA` | `0xAACC` | `0x03CF` | `0x03CF` | x1,x2,x4,x8 | 11.2608 | 9 | 3 | 12 | yes |
+| `mux2i` | 3 | `(!A0&!S) | (!A1&S)` | `0x3535` | `0x03CF` | `0x03CF` | `0x03CF` | x1,x2,x4 | 10.0096 | 8 | 2 | 10 | yes |
+| `nand3` | 3 | `(!A) | (!B) | (!C)` | `0x7F7F` | `0x3FFF` | `0x3FFF` | `0x0003` | x1,x2,x4 | 5.0048 | 4 | 1 | 6 | yes |
+| `nand3b` | 3 | `(A_N) | (!B) | (!C)` | `0xBFBF` | `0xAFFF` | `0x0088` | `0x0003` | x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `nor3` | 3 | `(!A&!B&!C)` | `0x0101` | `0x0003` | `0x0003` | `0x0003` | x1,x2,x4 | 5.0048 | 4 | 1 | 6 | yes |
+| `nor3b` | 3 | `(!A&!B&C_N)` | `0x1010` | `0x000A` | `0x000A` | `0x0003` | x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `o21a` | 3 | `(A1&B1) | (A2&B1)` | `0xE0E0` | `0xA8A8` | `0x03FF` | `0x003F` | x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `o21ai` | 3 | `(!A1&!A2) | (!B1)` | `0x1F1F` | `0x03FF` | `0x03FF` | `0x003F` | x0,x1,x2,x4 | 5.0048 | 4 | 1 | 6 | yes |
+| `o21ba` | 3 | `(A1&!B1_N) | (A2&!B1_N)` | `0x0E0E` | `0x00EE` | `0x00EE` | `0x003F` | x1,x2,x4 | 10.0096 | 8 | 3 | 10 | yes |
+| `o21bai` | 3 | `(!A1&!A2) | (B1_N)` | `0xF1F1` | `0xAAAF` | `0x00EE` | `0x003F` | x1,x2,x4 | 7.5072 | 6 | 2 | 8 | yes |
+| `or3` | 3 | `(A) | (B) | (C)` | `0xFEFE` | `0xFEFE` | `0x0003` | `0x0003` | x1,x2,x4 | 6.256 | 5 | 2 | 8 | yes |
+| `or3b` | 3 | `(A) | (B) | (!C_N)` | `0xEFEF` | `0xEEFF` | `0x000A` | `0x0003` | x1,x2,x4 | 8.7584 | 7 | 3 | 10 | yes |
+| `xnor3` | 3 | `(!A&!B&!C) | (A&B&!C) | (A&!B&C) | (!A&B&C)` | `0x6969` | `0x3CC3` | `0x3CC3` | `0x3CC3` | x1,x2,x4 | 22.5216 | 18 | 3 | 20 | yes |
+| `xor3` | 3 | `(A&!B&!C) | (!A&B&!C) | (!A&!B&C) | (A&B&C)` | `0x9696` | `0x9696` | `0x3CC3` | `0x3CC3` | x1,x2,x4 | 23.7728 | 19 | 3 | 20 | yes |
+| `a211o` | 4 | `(A1&A2) | (B1) | (C1)` | `0xFFF8` | `0xFEEE` | `0x0007` | `0x0007` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `a211oi` | 4 | `(!A1&!B1&!C1) | (!A2&!B1&!C1)` | `0x0007` | `0x0007` | `0x0007` | `0x0007` | x1,x2,x4 | 7.5072 | 6 | 1 | 8 | yes |
+| `a22o` | 4 | `(B1&B2) | (A1&A2)` | `0xF888` | `0xEAC0` | `0x0777` | `0x0357` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `a22oi` | 4 | `(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2)` | `0x0777` | `0x0777` | `0x0777` | `0x0357` | x1,x2,x4 | 7.5072 | 6 | 1 | 8 | yes |
+| `a2bb2o` | 4 | `(B1&B2) | (!A1_N&!A2_N)` | `0xF111` | `0x888F` | `0x0EEE` | `0x0357` | x1,x2,x4 | 10.0096 | 8 | 3 | 14 | yes |
+| `a2bb2oi` | 4 | `(A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2)` | `0x0EEE` | `0x0EEE` | `0x0EEE` | `0x0357` | x1,x2,x4 | 8.7584 | 7 | 2 | 12 | yes |
+| `a31o` | 4 | `(A1&A2&A3) | (B1)` | `0xFF80` | `0xEAAA` | `0x007F` | `0x007F` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `a31oi` | 4 | `(!A1&!B1) | (!A2&!B1) | (!A3&!B1)` | `0x007F` | `0x007F` | `0x007F` | `0x007F` | x1,x2,x4 | 6.256 | 5 | 1 | 8 | yes |
+| `and4` | 4 | `(A&B&C&D)` | `0x8000` | `0x8000` | `0x7FFF` | `0x0001` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `and4b` | 4 | `(!A_N&B&C&D)` | `0x4000` | `0x0080` | `0x0080` | `0x0001` | x1,x2,x4 | 10.0096 | 8 | 3 | 12 | yes |
+| `and4bb` | 4 | `(!A_N&!B_N&C&D)` | `0x1000` | `0x0008` | `0x0008` | `0x0001` | x1,x2,x4 | 12.512 | 10 | 3 | 14 | yes |
+| `nand4` | 4 | `(!A) | (!B) | (!C) | (!D)` | `0x7FFF` | `0x7FFF` | `0x7FFF` | `0x0001` | x1,x2,x4 | 6.256 | 5 | 1 | 8 | yes |
+| `nand4b` | 4 | `(A_N) | (!B) | (!C) | (!D)` | `0xBFFF` | `0xBFFF` | `0x0080` | `0x0001` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `nand4bb` | 4 | `(A_N) | (B_N) | (!C) | (!D)` | `0xEFFF` | `0xEFFF` | `0x0008` | `0x0001` | x1,x2,x4 | 11.2608 | 9 | 2 | 12 | yes |
+| `nor4` | 4 | `(!A&!B&!C&!D)` | `0x0001` | `0x0001` | `0x0001` | `0x0001` | x1,x2,x4 | 6.256 | 5 | 1 | 8 | yes |
+| `nor4b` | 4 | `(!A&!B&!C&D_N)` | `0x0100` | `0x0002` | `0x0002` | `0x0001` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `nor4bb` | 4 | `(!A&!B&C_N&D_N)` | `0x1000` | `0x0008` | `0x0008` | `0x0001` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `o211a` | 4 | `(A1&B1&C1) | (A2&B1&C1)` | `0xE000` | `0x8880` | `0x1FFF` | `0x0007` | x1,x2,x4 | 10.0096 | 8 | 2 | 10 | yes |
+| `o211ai` | 4 | `(!A1&!A2) | (!B1) | (!C1)` | `0x1FFF` | `0x1FFF` | `0x1FFF` | `0x0007` | x1,x2,x4 | 7.5072 | 6 | 1 | 8 | yes |
+| `o22a` | 4 | `(A1&B1) | (A2&B1) | (A1&B2) | (A2&B2)` | `0xEEE0` | `0xEEE0` | `0x0357` | `0x0357` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `o22ai` | 4 | `(!B1&!B2) | (!A1&!A2)` | `0x111F` | `0x0357` | `0x0357` | `0x0357` | x1,x2,x4 | 6.256 | 5 | 1 | 8 | yes |
+| `o2bb2a` | 4 | `(!A1_N&B1) | (!A2_N&B1) | (!A1_N&B2) | (!A2_N&B2)` | `0x7770` | `0x0EEE` | `0x0EEE` | `0x0357` | x1,x2,x4 | 10.0096 | 8 | 3 | 14 | yes |
+| `o2bb2ai` | 4 | `(!B1&!B2) | (A1_N&A2_N)` | `0x888F` | `0x888F` | `0x0EEE` | `0x0357` | x1,x2,x4 | 8.7584 | 7 | 2 | 12 | yes |
+| `o31a` | 4 | `(A1&B1) | (A2&B1) | (A3&B1)` | `0xFE00` | `0xAAA8` | `0x01FF` | `0x007F` | x1,x2,x4 | 8.7584 | 7 | 2 | 10 | yes |
+| `o31ai` | 4 | `(!A1&!A2&!A3) | (!B1)` | `0x01FF` | `0x01FF` | `0x01FF` | `0x007F` | x1,x2,x4 | 7.5072 | 6 | 1 | 8 | yes |
+| `or4` | 4 | `(A) | (B) | (C) | (D)` | `0xFFFE` | `0xFFFE` | `0x0001` | `0x0001` | x1,x2,x4 | 7.5072 | 6 | 2 | 10 | yes |
+| `or4b` | 4 | `(A) | (B) | (C) | (!D_N)` | `0xFEFF` | `0xFEFF` | `0x0002` | `0x0001` | x1,x2,x4 | 10.0096 | 8 | 3 | 12 | yes |
+| `or4bb` | 4 | `(A) | (B) | (!C_N) | (!D_N)` | `0xEFFF` | `0xEFFF` | `0x0008` | `0x0001` | x1,x2,x4 | 11.2608 | 9 | 3 | 14 | yes |
+| `a2111o` | 5 | `(A1&A2) | (B1) | (C1) | (D1)` | `0xFFFFFFF8` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 11.2608 | 9 | 2 | 12 | yes |
+| `a2111oi` | 5 | `(!A1&!B1&!C1&!D1) | (!A2&!B1&!C1&!D1)` | `0x00000007` | `5-input` | `5-input` | `5-input` | x0,x1,x2,x4 | 10.0096 | 8 | 1 | 10 | yes |
+| `a221o` | 5 | `(B1&B2) | (A1&A2) | (C1)` | `0xFFFFF888` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `a221oi` | 5 | `(!A1&!B1&!C1) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A2&!B2&!C1)` | `0x00000777` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `a311o` | 5 | `(A1&A2&A3) | (B1) | (C1)` | `0xFFFFFF80` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `a311oi` | 5 | `(!A1&!B1&!C1) | (!A2&!B1&!C1) | (!A3&!B1&!C1)` | `0x0000007F` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `a32o` | 5 | `(A1&A2&A3) | (B1&B2)` | `0xFF808080` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `a32oi` | 5 | `(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A3&!B1) | (!A2&!B2) | (!A3&!B2)` | `0x007F7F7F` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `a41o` | 5 | `(A1&A2&A3&A4) | (B1)` | `0xFFFF8000` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `a41oi` | 5 | `(!A1&!B1) | (!A2&!B1) | (!A3&!B1) | (!A4&!B1)` | `0x00007FFF` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `o2111a` | 5 | `(A1&B1&C1&D1) | (A2&B1&C1&D1)` | `0xE0000000` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 11.2608 | 9 | 2 | 12 | yes |
+| `o2111ai` | 5 | `(!A1&!A2) | (!B1) | (!C1) | (!D1)` | `0x1FFFFFFF` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `o221a` | 5 | `(A1&B1&C1) | (A2&B1&C1) | (A1&B2&C1) | (A2&B2&C1)` | `0xEEE00000` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 11.2608 | 9 | 2 | 12 | yes |
+| `o221ai` | 5 | `(!B1&!B2) | (!A1&!A2) | (!C1)` | `0x111FFFFF` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `o311a` | 5 | `(A1&B1&C1) | (A2&B1&C1) | (A3&B1&C1)` | `0xFE000000` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `o311ai` | 5 | `(!A1&!A2&!A3) | (!B1) | (!C1)` | `0x01FFFFFF` | `5-input` | `5-input` | `5-input` | x0,x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `o32a` | 5 | `(A1&B1) | (A1&B2) | (A2&B1) | (A3&B1) | (A2&B2) | (A3&B2)` | `0xFEFEFE00` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 10.0096 | 8 | 2 | 12 | yes |
+| `o32ai` | 5 | `(!A1&!A2&!A3) | (!B1&!B2)` | `0x010101FF` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `o41a` | 5 | `(A1&B1) | (A2&B1) | (A3&B1) | (A4&B1)` | `0xFFFE0000` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 11.2608 | 9 | 2 | 12 | yes |
+| `o41ai` | 5 | `(!A1&!A2&!A3&!A4) | (!B1)` | `0x0001FFFF` | `5-input` | `5-input` | `5-input` | x1,x2,x4 | 8.7584 | 7 | 1 | 10 | yes |
+| `a222oi` | 6 | `(!A1&!B1&!C1) | (!A1&!B1&!C2) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A1&!B2&!C2) | (!A2&!B1&!C2) | (!A2&!B2&!C1) | (!A2&!B2&!C2)` | `0x0000077707770777` | `6-input` | `6-input` | `6-input` | x1 | 10.0096 | 8 | 1 | 12 | yes |
+| `mux4` | 6 | `(A0&!S0&!S1) | (A1&S0&!S1) | (A2&!S0&S1) | (A3&S0&S1)` | `0xFF00F0F0CCCCAAAA` | `6-input` | `6-input` | `6-input` | x1,x2,x4 | 26.2752 | 21 | 3 | 26 | yes |
+
+## 3. Multi-Output and Constant Combinational Families (3 Families)
+
+| Family | Inputs | Outputs | Pin Functions | Drives | Area x1 (um2) | Width (Sites) | Transistors | In Reduced |
+|---|---|---|---|---|---|---|---|---|
+| `conb` | 0 | 2 | `HI=1; LO=0` | x1 | 3.7536 | 3 | 4 | yes |
+| `fa` | 3 | 2 | `COUT=(A&B) | (A&CIN) | (B&CIN); SUM=(A&!B&!CIN) | (!A&B&!CIN) | (!A&!B&CIN) | (A&B&CIN)` | x1,x2,x4 | 20.0192 | 16 | 28 | yes |
+| `ha` | 2 | 2 | `COUT=(A&B); SUM=(A&!B) | (!A&B)` | x1,x2,x4 | 12.512 | 10 | 14 | yes |
