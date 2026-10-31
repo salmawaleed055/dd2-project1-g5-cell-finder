@@ -1,4 +1,4 @@
-aag 6577 11 176 16 6390
+aag 6577 11 176 0 6390 16
 2
 4
 6
@@ -6594,5 +6594,5 @@ aag 6577 11 176 16 6390
 13154 13152 13149
 c
 build/aigs/fir10_orig
-This file was written by ABC on Tue Oct 27 20:29:07 2026
+This file was written by ABC on Sat Oct 31 10:47:13 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger

@@ -1,0 +1,15 @@
+{
+  "request_id": "G5-006",
+  "name": "dd2_g5__f80a8_1",
+  "inputs": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "output": "Y",
+  "expression": "!(!(A&((B&C)|(!D&(B|C)))))",
+  "truth_table": "0x80A8",
+  "sizing": "hd",
+  "estimated_area_um2": 12.512
+}

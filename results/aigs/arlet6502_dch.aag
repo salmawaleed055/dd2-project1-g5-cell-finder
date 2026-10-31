@@ -1,4 +1,4 @@
-aag 2247 13 143 25 2091
+aag 2247 13 143 0 2091 25
 2
 4
 6
@@ -2273,5 +2273,5 @@ aag 2247 13 143 25 2091
 4494 4493 4491
 c
 build/aigs/arlet6502_orig
-This file was written by ABC on Tue Oct 27 20:29:02 2026
+This file was written by ABC on Sat Oct 31 10:47:07 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger

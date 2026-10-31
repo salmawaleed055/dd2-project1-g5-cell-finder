@@ -1,0 +1,394 @@
+rank,p_class,p_nout_class,npn_class,redundancy_class,matched_hd_cell,kept,keep_reason,occurrences,designs,mean_cone_ands,stages,inverters,transistors,construction,structure,est_sites,est_area_um2,replaced_area_um2,est_saving_um2,occ_cpu8,occ_dsp8,occ_arlet6502,occ_uart_apb,occ_risc8,occ_fir10
+1,0x011F,0x011F,0x011F,New,-,True,not in HD,294,4,5.99,1,0,12,one complex gate,!((C&D)|((A|B)&(C|D))),8,10.0096,6265.87,3323.05,3,29,0,0,4,258
+2,0x000B,0x000B,0x0007,Exists with an inverter,sky130_fd_sc_hd__a211oi_1,True,est. 8.76 vs HD cell + inverter 11.26,1477,6,3.28,2,1,10,one complex gate,!(C|(D|(!A&B))),7,8.7584,16234.12,3297.97,85,157,165,12,315,743
+3,0x001F,0x001F,0x001F,Contained,sky130_fd_sc_hd__a221oi_1,True,est. 7.51 vs containing HD cell 8.76,1177,6,3.14,1,0,8,one complex gate,!(D|(C&(A|B))),6,7.5072,12095.37,3259.39,95,80,172,61,231,538
+4,0x82EB,0x28BE,0x066F,New,-,True,not in HD,254,4,8.0,2,3,22,one complex gate,!((!A&D)|((!A|D)&((B|C)&(!B|!C)))),13,16.2656,7262.04,3130.58,1,16,0,0,1,236
+5,0x002B,0x002B,0x0017,New,-,True,not in HD,295,4,5.99,2,1,14,one complex gate,!(D|((!A|B)&(C|(!A&B)))),9,11.2608,6274.66,2952.72,3,35,0,0,6,251
+6,0x80A8,0x2BFF,0x0017,New,-,True,not in HD,291,4,5.99,3,2,16,complex gate + output inverter,!(!(A&((B&C)|(!D&(B|C))))),10,12.512,6188.88,2547.89,3,32,0,0,6,250
+7,0x0EE0,0x0EE0,0x0666,New,-,True,not in HD,624,5,5.0,3,3,18,complex gate + output inverter,!(!((A|B)&((C|D)&(!C|!D)))),11,13.7632,11092.06,2503.83,10,43,5,0,10,556
+8,0xA8FE,0x02AB,0x011F,New,-,True,not in HD,284,4,5.98,3,2,16,complex gate + output inverter,!(!((A&!D)|((A|!D)&(B|C)))),10,12.512,6038.07,2484.66,3,25,0,0,5,251
+9,0x00EB,0x00EB,0x006F,New,-,True,not in HD,407,5,5.27,2,3,18,one complex gate,!(D|(!A&((B|C)&(!B|!C)))),11,13.7632,7597.71,1996.08,11,21,5,0,12,358
+10,0x0009,0x0009,0x0006,New,-,True,not in HD,641,5,5.0,3,3,20,two gates + nand2/nor2,!(C|!(!D&((A&B)|(!A&!B)))),12,15.0144,11364.88,1740.65,10,52,3,0,19,557
+11,0x9990,0x1FF1,0x0666,New,-,True,not in HD,424,5,5.0,3,3,18,complex gate + output inverter,!(!((A|!B)&((!A|B)&(C|D)))),11,13.7632,7536.86,1701.26,10,36,2,0,3,373
+12,0x28BE,0x28BE,0x066F,New,-,True,not in HD,139,4,7.99,2,3,22,one complex gate,!((!A&D)|((!A|D)&((B&C)|(!B&!C)))),13,16.2656,3934.77,1673.85,5,1,0,0,6,127
+13,0x00FE,0x00FE,0x007F,Exists with an inverter,sky130_fd_sc_hd__o31a_1,True,est. 8.76 vs HD cell + inverter 12.51,930,6,3.21,2,0,10,two gates + nand2/nor2,!(D|!(A|(B|C))),7,8.7584,9795.03,1649.72,43,71,55,41,297,423
+14,0x009F,0x009F,0x006F,New,-,True,not in HD,307,5,5.0,2,2,16,one complex gate,!(D|(C&((A|B)&(!A|!B)))),10,12.512,5407.57,1566.39,3,27,25,0,2,250
+15,0x02AB,0x02AB,0x011F,New,-,True,not in HD,146,4,6.0,2,1,14,one complex gate,!((!A&D)|((!A|D)&(B|C))),9,11.2608,3110.39,1466.31,3,15,0,0,2,126
+16,0x00AB,0x00AB,0x001F,New,-,True,not in HD,630,6,3.33,2,1,10,one complex gate,!(D|(!A&(B|C))),7,8.7584,6975.68,1457.89,19,76,73,10,155,297
+17,0xEEE8,0x011F,0x011F,New,-,True,not in HD,140,4,6.0,2,1,14,complex gate + output inverter,!(!((A&B)|((A|B)&(C|D)))),9,11.2608,2987.8,1411.28,3,10,0,0,2,125
+18,0x008E,0x008E,0x0017,New,-,True,not in HD,160,5,5.99,2,2,16,one complex gate,!(D|((!A|!B)&(C|(!A&!B)))),10,12.512,3389.66,1387.74,3,21,1,0,3,132
+19,0x088A,0x088A,0x0017,New,-,True,not in HD,155,4,5.97,2,2,16,one complex gate,!(!A|((!B|C)&(D|(!B&C)))),10,12.512,3289.68,1350.32,3,19,0,0,1,132
+20,0x00BF,0x00BF,0x007F,Exists with an inverter,sky130_fd_sc_hd__a31oi_1,True,est. 8.76 vs HD cell + inverter 10.01,1731,6,3.13,2,1,10,one complex gate,!(D|(!A&(B&C))),7,8.7584,16434.32,1273.53,127,70,270,250,744,270
+21,0x0017,0x0017,0x0017,New,-,True,not in HD,109,3,5.98,1,0,12,one complex gate,!(D|((A|B)&(C|(A&B)))),8,10.0096,2337.98,1246.94,0,2,1,0,0,106
+22,0x0006,0x0006,0x0006,New,-,True,not in HD,445,5,5.02,3,3,20,two gates + nand2/nor2,!(C|!(!D&((A|B)&(!A|!B)))),12,15.0144,7889.09,1207.69,13,40,2,0,16,374
+23,0x0990,0x0990,0x0660,New,-,True,not in HD,234,2,7.0,3,4,28,two gates + nand2/nor2,!(!((A&B)|(!A&!B))|!((C|D)&(!C|!D))),16,20.0192,5862.83,1178.33,0,16,0,0,0,218
+24,0x000E,0x000E,0x0007,New,-,True,not in HD,1937,6,3.1,2,2,12,one complex gate,!(C|(D|(!A&!B))),8,10.0096,20547.44,1158.84,84,158,95,5,290,1305
+25,0x00BE,0x00BE,0x006F,New,-,True,not in HD,190,5,5.51,2,3,18,one complex gate,!(D|(!A&((B&C)|(!B&!C)))),11,13.7632,3733.98,1118.97,1,13,2,0,2,172
+26,0xE88E,0x066F,0x066F,New,-,True,not in HD,90,2,8.0,3,3,22,complex gate + output inverter,!(!((A&B)|((A|B)&((C&D)|(!C&!D))))),13,16.2656,2580.98,1117.08,0,4,0,0,0,86
+27,0x077F,0x077F,0x011F,New,-,True,not in HD,98,3,5.98,1,0,12,one complex gate,!((C&D)|(A&(B&(C|D)))),8,10.0096,2097.62,1116.68,0,2,2,0,0,94
+28,0xA880,0x17FF,0x0017,New,-,True,not in HD,108,3,5.98,2,1,14,complex gate + output inverter,!(!(A&((B&C)|(D&(B|C))))),9,11.2608,2316.41,1100.25,0,2,1,0,0,105
+29,0xA888,0x07FF,0x001F,Contained,sky130_fd_sc_hd__a32o_1,True,est. 8.76 vs containing HD cell 10.01,924,6,3.01,2,1,10,complex gate + output inverter,!(!(A&(B|(C&D)))),7,8.7584,9093.71,1000.95,9,91,135,125,101,463
+30,0x0999,0x0999,0x0666,New,-,True,not in HD,171,4,5.0,2,2,16,one complex gate,!((A&!B)|((!A&B)|(C&D))),10,12.512,3041.09,901.54,0,6,2,0,6,157
+31,0x006F,0x006F,0x006F,New,-,True,not in HD,163,5,5.02,2,2,16,one complex gate,!(D|(C&((A&B)|(!A&!B)))),10,12.512,2859.7,820.24,8,19,6,0,6,124
+32,0x099F,0x099F,0x066F,New,-,True,not in HD,56,1,7.98,2,2,20,one complex gate,!((C&D)|((A|B)&((!A|!B)&(C|D)))),12,15.0144,1606.88,766.07,0,0,0,0,0,56
+33,0x0660,0x0660,0x0660,New,-,True,not in HD,144,3,7.0,3,4,28,two gates + nand2/nor2,!(!((A|B)&(!A|!B))|!((C|D)&(!C|!D))),16,20.0192,3611.12,728.35,0,1,3,0,0,140
+34,0x8241,0x6FF6,0x0660,New,-,True,not in HD,142,3,7.0,3,4,28,two gates + nand2/nor2,!(!((A&D)|(!A&!D))|!((B&C)|(!B&!C))),16,20.0192,3568.02,725.3,0,1,1,0,0,140
+35,0x00AC,0x00AC,0x001B,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,425,6,4.0,3,1,14,two gates + nand2/nor2,!(D|!((A&C)|(B&!C))),9,11.2608,5493.42,707.58,34,11,44,1,160,175
+36,0x0BBB,0x0BBB,0x0357,Exists with an inverter,sky130_fd_sc_hd__a22oi_1,True,est. 8.76 vs HD cell + inverter 11.26,332,6,3.33,2,1,10,one complex gate,!((!A&B)|(C&D)),7,8.7584,3567.3,659.51,5,36,90,35,58,108
+37,0x2ABF,0x2ABF,0x011F,New,-,True,not in HD,65,2,5.98,2,1,14,one complex gate,!((!A&D)|(B&(C&(!A|D)))),9,11.2608,1383.38,651.42,0,11,0,0,0,54
+38,0x888A,0x0EFF,0x001F,New,-,True,not in HD,516,6,3.45,2,2,12,one complex gate,!(!A|(!B&(C|D))),8,10.0096,5765.07,600.12,26,50,100,18,149,173
+39,0x0880,0x0880,0x0006,New,-,True,not in HD,206,6,5.04,3,2,20,two gates + nand2/nor2,!(!A|!(B&((C|D)&(!C|!D)))),12,15.0144,3684.02,591.05,1,23,2,1,2,177
+40,0x00EA,0x00EA,0x001F,New,-,True,not in HD,1351,6,3.0,2,0,10,two gates + nand2/nor2,!(D|!(A|(B&C))),7,8.7584,12421.65,589.05,68,51,93,51,827,261
+41,0x0EEF,0x0EEF,0x011F,New,-,True,not in HD,63,2,5.98,2,2,16,one complex gate,!((C&D)|(!A&(!B&(C|D)))),10,12.512,1353.88,565.62,0,1,0,0,0,62
+42,0x8EE8,0x099F,0x066F,New,-,True,not in HD,44,2,8.0,3,3,22,complex gate + output inverter,!(!((A&B)|((A|B)&((C|D)&(!C|!D))))),13,16.2656,1254.46,538.77,0,6,0,0,0,38
+43,0x6AC0,0x6AC0,0x0356,New,-,True,not in HD,233,3,6.18,3,4,28,two gates + nand2/nor2,!(!(A&(D&(!B|!C)))&!(B&(C&(!A|!D)))),16,20.0192,5140.93,476.46,0,17,0,1,0,215
+44,0x00A8,0x00A8,0x0007,Exists with an inverter,sky130_fd_sc_hd__o211a_1,True,est. 8.76 vs HD cell + inverter 13.76,927,6,3.04,2,0,10,two gates + nand2/nor2,!(D|!(A&(B|C))),7,8.7584,8491.0,371.96,62,53,136,145,388,143
+45,0x002A,0x002A,0x0007,Exists with an inverter,sky130_fd_sc_hd__a211oi_1,True,est. 8.76 vs HD cell + inverter 11.26,869,6,3.0,2,1,10,one complex gate,!(!A|(D|(B&C))),7,8.7584,7960.92,349.87,21,129,172,178,223,146
+46,0x02AA,0x02AA,0x001F,New,-,True,not in HD,398,6,3.21,2,1,10,one complex gate,!(!A|(D&(B|C))),7,8.7584,3823.19,337.35,12,67,98,51,159,11
+47,0x07FF,0x07FF,0x001F,Contained,sky130_fd_sc_hd__a32oi_1,True,est. 7.51 vs containing HD cell 8.76,75,5,4.0,1,0,8,one complex gate,!(D&(C|(A&B))),6,7.5072,887.58,324.54,0,1,27,14,27,6
+48,0x1BFF,0x1BFF,0x001B,New,-,True,not in HD,92,3,5.0,2,1,12,one complex gate,!(D&((A|B)&(!A|C))),8,10.0096,1237.93,317.05,0,0,16,58,18,0
+49,0x0666,0x0666,0x0666,New,-,True,not in HD,57,4,5.0,2,2,16,one complex gate,!((A&B)|((!A&!B)|(C&D))),10,12.512,994.86,281.67,0,11,4,0,2,40
+50,0x0028,0x0028,0x0006,New,-,True,not in HD,93,6,5.17,3,2,18,two gates + nand2/nor2,!(D|!(A&((B|C)&(!B|!C)))),11,13.7632,1546.68,266.7,9,4,2,21,8,49
+51,0x001B,0x001B,0x001B,New,-,True,not in HD,121,6,4.0,2,1,12,one complex gate,!(D|((A|B)&(!A|C))),8,10.0096,1476.13,264.97,2,15,56,1,46,1
+52,0x066F,0x066F,0x066F,New,-,True,not in HD,19,2,8.0,2,2,20,one complex gate,!((C&D)|((A|!B)&((!A|B)&(C|D)))),12,15.0144,544.59,259.32,0,1,0,0,0,18
+53,0x0BBF,0x0BBF,0x011F,New,-,True,not in HD,25,2,6.0,2,1,14,one complex gate,!((C&D)|(!A&(B&(C|D)))),9,11.2608,533.02,251.5,0,0,2,0,0,23
+54,0x8AEF,0x08AE,0x011F,New,-,True,not in HD,28,2,5.89,2,2,16,one complex gate,!((!A&D)|(!B&(C&(!A|D)))),10,12.512,587.01,236.67,0,5,0,0,0,23
+55,0x8008,0x6FFF,0x0006,New,-,True,not in HD,94,5,5.09,3,2,20,two gates + nand2/nor2,!(!A|!(B&((C&D)|(!C&!D)))),12,15.0144,1641.32,229.97,1,32,5,0,7,49
+56,0x002F,0x002F,0x001F,New,-,True,not in HD,507,6,3.07,2,1,10,one complex gate,!(D|(C&(!A|B))),7,8.7584,4642.04,201.53,51,26,159,25,244,2
+57,0x0EF1,0x0EF1,0x07F8,New,-,True,not in HD,181,4,5.91,3,4,28,two gates + nand2/nor2,!(!(C|(D|(!A&!B)))|!(!D|(!C&(A|B)))),16,20.0192,3801.73,178.25,3,13,7,0,0,158
+58,0x88A0,0x1BFF,0x001B,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,298,5,4.12,3,2,14,complex gate + output inverter,!(!(A&((B&D)|(C&!D)))),9,11.2608,3529.21,173.49,32,28,40,81,117,0
+59,0x82C3,0x2FF2,0x0666,New,-,True,not in HD,44,4,5.0,2,3,18,one complex gate,!((!A&D)|((B|C)&(!B|!C))),11,13.7632,769.27,163.69,1,12,2,0,0,29
+60,0xA88A,0x06FF,0x006F,New,-,True,not in HD,52,5,5.15,3,3,18,complex gate + output inverter,!(!(A&(B|((C&D)|(!C&!D))))),11,13.7632,870.65,154.96,6,15,12,0,7,12
+61,0x0BB0,0x0BB0,0x0666,New,-,True,not in HD,38,4,5.21,2,3,18,one complex gate,!((!A&B)|((C&D)|(!C&!D))),11,13.7632,676.73,153.73,0,6,8,0,1,23
+62,0x02A8,0x02A8,0x001E,New,-,True,not in HD,695,5,5.0,3,3,24,two gates + nand2/nor2,!(!(B|(C|D))|!(A&(!D|(!B&!C)))),14,17.5168,12313.95,139.77,10,69,4,0,18,594
+63,0x8882,0x1EFF,0x001E,New,-,True,not in HD,562,5,5.01,3,3,24,two gates + nand2/nor2,!(!(B|(!C&!D))|!(A&(!B|(C|D)))),14,17.5168,9983.56,139.12,6,50,9,0,13,484
+64,0x1BBB,0x1BBB,0x01AB,New,-,True,not in HD,114,5,4.04,2,1,12,one complex gate,!((A|B)&(!A|(C&D))),8,10.0096,1279.26,138.16,1,1,39,57,16,0
+65,0x028A,0x028A,0x001B,New,-,True,not in HD,131,5,4.0,2,2,14,one complex gate,!(!A|((B|C)&(!B|D))),9,11.2608,1602.79,127.63,9,25,57,7,33,0
+66,0x0082,0x0082,0x0006,New,-,True,not in HD,33,5,5.09,3,2,18,two gates + nand2/nor2,!(D|!(A&((B&C)|(!B&!C)))),11,13.7632,577.81,123.63,5,1,1,0,2,24
+67,0x28AA,0x28AA,0x006F,New,-,True,not in HD,55,5,5.0,2,3,18,one complex gate,!(!A|(D&((B&C)|(!B&!C)))),11,13.7632,869.0,112.02,4,24,5,0,20,2
+68,0x0257,0x0257,0x01AB,New,-,True,not in HD,45,1,4.02,2,1,12,one complex gate,!((A|D)&(!A|(B|C))),8,10.0096,557.12,106.69,0,0,45,0,0,0
+69,0x82AA,0x28FF,0x006F,New,-,True,not in HD,37,5,5.22,2,3,18,one complex gate,!(!A|(D&((B|C)&(!B|!C)))),11,13.7632,615.37,106.13,2,18,1,0,13,3
+70,0x00E8,0x00E8,0x0017,New,-,True,not in HD,10,2,6.0,2,0,14,two gates + nand2/nor2,!(D|!((A&B)|(C&(A|B)))),9,11.2608,212.59,99.98,0,0,1,0,0,9
+71,0x022A,0x022A,0x0017,New,-,True,not in HD,10,2,6.0,2,1,14,one complex gate,!(!A|((B|C)&(D|(B&C)))),9,11.2608,212.59,99.98,0,0,1,0,0,9
+72,0x8AA8,0x09FF,0x006F,New,-,True,not in HD,40,5,5.0,3,3,18,complex gate + output inverter,!(!(A&(B|((C|D)&(!C|!D))))),11,13.7632,650.31,99.78,8,16,3,0,6,7
+73,0x0BFF,0x0BFF,0x001F,New,-,True,not in HD,29,5,4.1,2,1,10,one complex gate,!(D&(C|(!A&B))),7,8.7584,348.29,94.3,1,0,9,6,12,1
+74,0x03AA,0x03AA,0x01AB,New,-,True,not in HD,100,3,4.0,2,2,14,one complex gate,!((!A|D)&(B|(C|!D))),9,11.2608,1218.53,92.45,64,0,32,0,4,0
+75,0xABFF,0x00A8,0x0007,Exists with an inverter,sky130_fd_sc_hd__o211ai_1,True,est. 8.76 vs HD cell + inverter 11.26,27,5,4.04,2,1,10,one complex gate,!(!A&(D&(B|C))),7,8.7584,327.75,91.27,1,2,11,1,12,0
+76,0x888E,0x0EEF,0x011F,New,-,True,not in HD,10,1,6.0,2,2,16,one complex gate,!((!A&!B)|((!A|!B)&(C|D))),10,12.512,215.69,90.57,0,0,0,0,0,10
+77,0xACFF,0x028A,0x001B,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,19,5,5.11,3,1,14,two gates + nand2/nor2,!(D&!((A&C)|(B&!C))),9,11.2608,290.08,76.13,1,1,9,1,7,0
+78,0x0BF4,0x0BF4,0x07F8,New,-,True,not in HD,643,5,5.66,3,4,28,two gates + nand2/nor2,!(!(C|(D|(!A&B)))|!(!D|(!C&(A|!B)))),16,20.0192,12939.52,67.18,8,54,9,0,8,564
+79,0x0019,0x0019,0x0019,New,-,True,not in HD,9,3,6.0,3,3,20,two gates + nand2/nor2,!(D|!((A|!B)&(!A|(B&!C)))),12,15.0144,188.66,53.53,0,1,0,0,1,7
+80,0x037F,0x037F,0x013F,New,-,True,not in HD,5,3,6.2,1,0,12,one complex gate,!((B&D)|(C&(D|(A&B)))),8,10.0096,102.84,52.79,0,1,2,0,0,2
+81,0x03AF,0x03AF,0x035F,New,-,True,not in HD,8,2,5.75,2,1,12,one complex gate,!((!A&C)|(D&(B|C))),8,10.0096,132.38,52.3,0,0,0,1,7,0
+82,0x07F7,0x07F7,0x01AB,New,-,True,not in HD,128,2,4.0,2,1,12,one complex gate,!((C&D)|(A&(B&!C))),8,10.0096,1333.08,51.85,0,0,20,108,0,0
+83,0x99F0,0x1BB1,0x06F6,New,-,True,not in HD,21,1,6.0,2,4,22,one complex gate,!((!C|D)&(!D|((A|B)&(!A|!B)))),13,16.2656,387.83,46.25,0,0,21,0,0,0
+84,0x0AE0,0x0AE0,0x0199,New,-,True,not in HD,7,2,6.0,3,3,20,complex gate + output inverter,!(!((C|D)&((A&!C)|(!D&(A|B))))),12,15.0144,149.62,44.52,0,1,0,0,0,6
+85,0x8002,0x7EFF,0x0018,New,-,True,not in HD,1,1,18.0,3,3,24,two gates + nand2/nor2,!(!(B|!C)|!(A&((!B|D)&(C|!D)))),14,17.5168,60.61,43.1,0,1,0,0,0,0
+86,0x19BF,0x19BF,0x019B,New,-,True,not in HD,2,1,10.0,2,2,20,one complex gate,!((A|B)&((!A&D)|((!A|D)&(!B|C)))),12,15.0144,71.9,41.87,0,0,0,0,0,2
+87,0x02FF,0x02FF,0x007F,Exists with an inverter,sky130_fd_sc_hd__o31ai_1,True,est. 8.76 vs HD cell + inverter 11.26,9,3,4.44,2,1,10,one complex gate,!(D&(!A|(B|C))),7,8.7584,118.49,39.66,0,0,6,1,2,0
+88,0x038B,0x038B,0x01AB,New,-,True,not in HD,82,4,4.0,2,2,14,one complex gate,!((B|C)&(!A|(!B|D))),9,11.2608,962.08,38.7,1,0,12,1,68,0
+89,0xEBFF,0x0028,0x0006,New,-,True,not in HD,5,2,7.0,3,2,18,two gates + nand2/nor2,!(D&!(A|((B&C)|(!B&!C)))),11,13.7632,106.57,37.75,0,0,4,0,1,0
+90,0x2AFF,0x2AFF,0x001F,New,-,True,not in HD,14,4,4.07,2,1,10,one complex gate,!(D&(!A|(B&C))),7,8.7584,158.24,35.62,0,1,4,8,1,0
+91,0x88AE,0x0AEF,0x013F,New,-,True,not in HD,7,1,5.71,2,2,16,one complex gate,!((!A|!B)&(D|(!A&(!B|C)))),10,12.512,123.12,35.54,0,0,7,0,0,0
+92,0x0ABB,0x0ABB,0x035F,New,-,True,not in HD,9,2,4.0,2,1,12,one complex gate,!((!A&B)|(D&(!A|C))),8,10.0096,123.95,33.87,0,0,0,0,2,7
+93,0x022F,0x022F,0x011F,New,-,True,not in HD,4,2,6.0,2,1,14,one complex gate,!((C&D)|((!A|B)&(C|D))),9,11.2608,78.09,33.04,0,3,0,0,1,0
+94,0x035F,0x035F,0x035F,Contained,sky130_fd_sc_hd__a222oi_1,True,est. 8.76 vs containing HD cell 10.01,4,3,4.75,1,0,10,one complex gate,!((A&C)|(D&(B|C))),7,8.7584,64.58,29.55,0,1,1,0,0,2
+95,0x8782,0x3CDD,0x035A,New,-,True,not in HD,7,1,6.0,2,4,24,one complex gate,!((A&(B&!C))|((!A|!B)&(C|(!A&!D)))),14,17.5168,150.98,28.36,0,0,0,0,0,7
+96,0x802A,0x6AFF,0x001E,New,-,True,not in HD,179,5,5.0,3,3,24,two gates + nand2/nor2,!(!(!B|(!C|D))|!(A&(!D|(B&C)))),14,17.5168,3163.72,28.21,2,16,1,0,8,152
+97,0x2DDD,0x2DDD,0x0356,New,-,True,not in HD,13,2,6.85,3,4,28,two gates + nand2/nor2,!(!(!A|(B|(C&D)))|!(!C|(!D|(A&!B)))),16,20.0192,286.86,26.61,0,0,8,0,0,5
+98,0x009B,0x009B,0x003D,New,-,True,not in HD,5,2,5.0,2,2,16,one complex gate,!(D|((A|B)&(!A|(!B&C)))),10,12.512,88.73,26.17,0,1,0,0,0,4
+99,0xEEEA,0x001F,0x001F,Contained,sky130_fd_sc_hd__a221o_1,True,est. 8.76 vs containing HD cell 10.01,2,2,7.0,2,1,10,complex gate + output inverter,!(!(A|(B&(C|D)))),7,8.7584,41.28,23.76,1,0,0,0,1,0
+100,0x9899,0x0FF2,0x07F0,New,-,True,not in HD,3,1,6.0,2,3,18,one complex gate,!((A&!B)|(!A&(B|(!C&D)))),11,13.7632,64.71,23.42,0,0,0,0,0,3
+101,0x8999,0x0FF8,0x07F0,New,-,True,not in HD,8,1,5.0,2,2,16,one complex gate,!((A&!B)|(!A&(B|(C&D)))),10,12.512,123.12,23.03,0,0,8,0,0,0
+102,0xA8EC,0x03AF,0x035F,New,-,True,not in HD,7,1,4.71,3,2,14,complex gate + output inverter,!(!((A&C)|(B&(A|!D)))),9,11.2608,101.58,22.75,0,0,7,0,0,0
+103,0xEAAB,0x007E,0x007E,New,-,True,not in HD,2,1,9.0,2,4,22,one complex gate,!(!A&((B&!C)|((!B&D)|(C&!D)))),13,16.2656,54.7,22.17,2,0,0,0,0,0
+104,0x025F,0x025F,0x01AF,New,-,True,not in HD,6,2,4.67,2,1,12,one complex gate,!((A&C)|(D&(!A|B))),8,10.0096,82.05,21.99,1,0,0,0,5,0
+105,0xAAFC,0x01AB,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,25,3,4.0,3,2,14,complex gate + output inverter,!(!((A&D)|(!D&(B|C)))),9,11.2608,302.85,21.33,2,0,16,0,7,0
+106,0x2BFF,0x2BFF,0x0017,New,-,True,not in HD,1,1,9.0,2,1,14,one complex gate,!(D&((!A&B)|(C&(!A|B)))),9,11.2608,32.35,21.09,0,0,0,0,0,1
+107,0x01AB,0x01AB,0x01AB,New,-,True,not in HD,7,2,4.29,2,1,12,one complex gate,!((A&D)|(!A&(B|C))),8,10.0096,91.01,20.95,0,0,5,0,2,0
+108,0x0199,0x0199,0x0199,New,-,True,not in HD,3,2,6.33,2,2,18,one complex gate,!((A&!B)|((!A|D)&(B|(C&D)))),11,13.7632,62.1,20.81,0,0,2,0,0,1
+109,0x002E,0x002E,0x001B,New,-,True,not in HD,43,5,4.0,2,2,14,one complex gate,!(D|((!A|B)&(!B|C))),9,11.2608,504.76,20.55,0,2,1,2,37,1
+110,0xAEFF,0x008A,0x0007,New,-,True,not in HD,3,2,5.67,2,2,12,one complex gate,!(!A&(D&(!B|C))),8,10.0096,50.34,20.31,0,0,1,0,2,0
+111,0x039F,0x039F,0x036F,New,-,True,not in HD,2,1,7.0,2,2,20,one complex gate,!((A|(B|D))&((B&D)|(C&(!A|!B)))),12,15.0144,50.33,20.3,0,0,0,0,0,2
+112,0x008B,0x008B,0x001B,New,-,True,not in HD,16,4,4.0,2,2,14,one complex gate,!(D|((!A&B)|(!B&C))),9,11.2608,200.45,20.28,0,1,2,0,9,4
+113,0x8AAB,0x08FE,0x01BF,New,-,True,not in HD,1,1,10.0,2,2,18,one complex gate,!((!A&C)|((B|D)&(!A|(!B&C)))),11,13.7632,33.67,19.91,0,1,0,0,0,0
+114,0xAABF,0x00EA,0x001F,New,-,True,not in HD,4,2,4.25,2,1,10,one complex gate,!(!A&(D|(B&C))),7,8.7584,54.93,19.9,0,2,2,0,0,0
+115,0x9AFF,0x08A2,0x001E,New,-,True,not in HD,5,1,7.8,3,4,26,two gates + nand2/nor2,!(!(A&(B|!C))&!(!D|(!A&(!B&C)))),15,18.768,113.58,19.74,0,0,0,0,5,0
+116,0x3DFD,0x3DFD,0x0189,New,-,True,not in HD,8,3,5.0,2,2,16,one complex gate,!((B|!C)&((A&!B)|(C&D))),10,12.512,119.59,19.5,0,1,1,0,6,0
+117,0xEBEF,0x002C,0x0019,New,-,True,not in HD,1,1,10.0,4,3,20,two gates + nand2/nor2 + output inverter,!!(A|!((B|C)&(!B|(!C&D)))),12,15.0144,33.67,18.66,0,1,0,0,0,0
+118,0x08FF,0x08FF,0x007F,New,-,True,not in HD,5,3,4.2,2,2,12,one complex gate,!(D&(!A|(!B|C))),8,10.0096,66.29,16.24,0,2,2,0,1,0
+119,0x0117,0x0117,0x0117,New,-,True,not in HD,1,1,9.0,3,1,22,two gates + nand2/nor2 + output inverter,!!(!(A|(B|(C&D)))|!(C|(D|(A&B)))),13,16.2656,32.35,16.09,0,0,0,0,0,1
+120,0x9998,0x0FF1,0x07F0,New,-,True,not in HD,2,1,6.0,3,3,18,complex gate + output inverter,!(!((A&B)|(!A&(!B&(C|D))))),11,13.7632,43.14,15.61,0,0,0,0,0,2
+121,0x07BB,0x07BB,0x035B,New,-,True,not in HD,2,1,6.0,2,2,18,one complex gate,!((!A|D)&((C&D)|(B&(A|!D)))),11,13.7632,43.14,15.61,0,0,0,0,0,2
+122,0xEBEA,0x003D,0x003D,New,-,True,not in HD,2,1,7.0,3,3,18,complex gate + output inverter,!(!(A|((B&C)|(!B&(!C&D))))),11,13.7632,42.54,15.02,2,0,0,0,0,0
+123,0x8187,0x3EEC,0x03D4,New,-,True,not in HD,2,1,8.0,4,4,30,two gates + nand2/nor2 + output inverter,!!(!(A&(!C&(B|D)))&!((!A|!B)&(C|(B&D)))),17,21.2704,57.52,14.98,0,0,0,0,0,2
+124,0x8781,0x3DDC,0x03D4,New,-,True,not in HD,2,1,8.0,3,4,30,two gates + nand2/nor2,!(!(!A|(C|(!B&D)))|!((A&B)|(!C&(!B|D)))),17,21.2704,57.52,14.98,0,0,0,0,0,2
+125,0x2FFF,0x2FFF,0x0007,Exists with an inverter,sky130_fd_sc_hd__o211ai_1,True,est. 8.76 vs HD cell + inverter 11.26,3,3,4.33,2,1,10,one complex gate,!(C&(D&(!A|B))),7,8.7584,40.8,14.52,0,1,1,0,1,0
+126,0x08EE,0x08EE,0x013F,New,-,True,not in HD,1,1,8.0,2,2,16,one complex gate,!((!A|D)&(!B|(D&(!A|C)))),10,12.512,26.94,14.43,0,1,0,0,0,0
+127,0x0018,0x0018,0x0018,New,-,True,not in HD,2,1,8.5,3,4,26,two gates + nand2/nor2,!(!(A|!B)|!(!D&((!A&C)|(B&!C)))),15,18.768,51.66,14.12,2,0,0,0,0,0
+128,0xABEF,0x00AC,0x001B,New,-,True,not in HD,4,2,5.0,2,2,14,one complex gate,!(!A&((B|C)&(!B|D))),9,11.2608,59.07,14.03,0,0,1,0,3,0
+129,0x0AA8,0x0AA8,0x003D,New,-,True,not in HD,7,2,5.0,3,3,18,complex gate + output inverter,!(!(A&((C&!D)|(!C&(B|D))))),11,13.7632,110.32,13.97,0,0,6,0,0,1
+130,0xEEEF,0x000E,0x0007,New,-,True,not in HD,6,1,4.0,2,2,12,one complex gate,!(!A&(!B&(C|D))),8,10.0096,73.87,13.82,0,0,6,0,0,0
+131,0x17FF,0x17FF,0x0017,New,-,True,not in HD,1,1,7.0,1,0,12,one complex gate,!(D&((A&B)|(C&(A|B)))),8,10.0096,23.57,13.56,0,1,0,0,0,0
+132,0xA8FF,0x02AA,0x001F,New,-,True,not in HD,4,2,4.0,2,0,10,two gates + nand2/nor2,!(D&!(A&(B|C))),7,8.7584,48.59,13.55,0,0,3,0,1,0
+133,0x08AE,0x08AE,0x011F,New,-,True,not in HD,2,2,6.0,2,2,16,one complex gate,!((!A&D)|((!A|D)&(!B|C))),10,12.512,38.44,13.41,1,1,0,0,0,0
+134,0xEEFA,0x001B,0x001B,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,4,1,5.0,3,2,14,complex gate + output inverter,!(!(A|((B&D)|(C&!D)))),9,11.2608,58.24,13.2,0,0,0,0,4,0
+135,0x8ADF,0x0ACA,0x01AB,New,-,True,not in HD,24,4,4.04,2,2,14,one complex gate,!((A|D)&(!A|(!B&C))),9,11.2608,283.17,12.91,6,0,9,5,4,0
+136,0x0FF1,0x0FF1,0x07F0,New,-,True,not in HD,1,1,7.0,2,2,16,one complex gate,!((C&D)|(!C&(!D&(A|B)))),10,12.512,25.16,12.65,0,0,0,0,0,1
+137,0x038F,0x038F,0x01AF,New,-,True,not in HD,6,2,4.17,2,2,14,one complex gate,!((B&D)|(C&(!A|!B))),9,11.2608,80.16,12.59,0,0,0,2,0,4
+138,0x01AF,0x01AF,0x01AF,New,-,True,not in HD,5,3,4.0,2,1,12,one complex gate,!((!A&C)|(D&(A|B))),8,10.0096,62.25,12.2,3,1,1,0,0,0
+139,0x89AF,0x0AEC,0x035B,New,-,True,not in HD,2,2,6.0,2,2,18,one complex gate,!((!A|!B)&((!A&C)|(D&(A|B)))),11,13.7632,39.04,11.52,0,0,0,0,1,1
+140,0x88AF,0x0AEE,0x035F,New,-,True,not in HD,3,2,5.33,2,2,14,one complex gate,!((!A|!B)&(D|(!A&C))),9,11.2608,45.01,11.23,0,0,0,1,2,0
+141,0x02CE,0x02CE,0x01AB,New,-,True,not in HD,3,2,4.33,2,2,14,one complex gate,!((B&D)|(!B&(!A|C))),9,11.2608,44.91,11.13,0,2,0,0,0,1
+142,0x002C,0x002C,0x0019,New,-,True,not in HD,3,2,6.0,3,2,18,two gates + nand2/nor2,!(D|!((B|C)&(!C|(A&!B)))),11,13.7632,52.08,10.79,2,0,0,1,0,0
+143,0x0282,0x0282,0x0019,New,-,True,not in HD,4,2,6.0,4,3,20,two gates + nand2/nor2 + output inverter,!!(A&!((B|C)&(!B|(!C|D)))),12,15.0144,70.65,10.59,1,0,0,0,3,0
+144,0x8284,0x3DEF,0x012C,New,-,True,not in HD,2,1,9.0,3,4,32,two gates + nand2/nor2,!(!(C|((A&!B)|(!A&!D)))|!((A&B)|(!C&(B|D)))),18,22.5216,55.4,10.36,0,0,2,0,0,0
+145,0xEAFF,0x002A,0x0007,Exists with an inverter,sky130_fd_sc_hd__a211o_1,True,est. 8.76 vs HD cell + inverter 12.51,2,1,4.5,2,0,10,two gates + nand2/nor2,!(D&!(A|(B&C))),7,8.7584,27.7,10.19,0,0,2,0,0,0
+146,0xAAEF,0x00AE,0x001F,New,-,True,not in HD,3,1,4.33,2,2,12,one complex gate,!(!A&(D|(!B&C))),8,10.0096,40.01,9.99,0,0,3,0,0,0
+147,0x3DDC,0x3DDC,0x03D4,New,-,True,not in HD,1,1,9.0,3,5,32,two gates + nand2/nor2,!(!(!B&(C&(!A|D)))&!((!C|!D)&(B|(!A&D)))),18,22.5216,32.35,9.83,0,0,0,0,0,1
+148,0xACF3,0x06A6,0x035A,New,-,True,not in HD,1,1,8.0,2,4,24,one complex gate,!((!A&(C&D))|(!C&((B|D)&(!B|!D)))),14,17.5168,26.94,9.42,0,1,0,0,0,0
+149,0x8EEE,0x088F,0x011F,New,-,True,not in HD,1,1,6.0,2,2,16,one complex gate,!((!A&!B)|(C&(D&(!A|!B)))),10,12.512,21.57,9.06,0,0,0,0,0,1
+150,0x3DFF,0x3DFF,0x0019,New,-,True,not in HD,3,2,6.0,3,3,20,two gates + nand2/nor2,!(D&!((B&!C)|(!B&(!A|C)))),12,15.0144,53.94,8.9,2,0,0,0,1,0
+151,0xAAC3,0x06F6,0x06F6,New,-,True,not in HD,4,1,6.0,2,4,22,one complex gate,!((!A&D)|(!D&((B|C)&(!B|!C)))),13,16.2656,73.87,8.81,0,0,4,0,0,0
+152,0x2EFF,0x2EFF,0x001B,New,-,True,not in HD,3,3,5.0,2,2,14,one complex gate,!(D&((!A|B)&(!B|C))),9,11.2608,42.53,8.75,0,0,1,1,1,0
+153,0x3EEC,0x3EEC,0x03D4,New,-,True,not in HD,1,1,8.0,3,3,28,two gates + nand2/nor2,!(!(!B&(C&(A|D)))&!((!C|!D)&(B|(A&D)))),16,20.0192,28.76,8.74,0,0,0,0,0,1
+154,0xAEE0,0x03D7,0x03D7,New,-,True,not in HD,6,1,5.0,3,3,18,complex gate + output inverter,!(!((C|D)&(A|(B&(!C|!D))))),11,13.7632,91.17,8.59,6,0,0,0,0,0
+155,0x7EE8,0x7EE8,0x177E,New,-,True,not in HD,1,1,11.0,3,4,48,two-level,(!A&B&D) | (A&B&!D) | (B&C&!D) | (A&!C&D) | (!A&C&D) | (A&!B&C),25,31.28,39.54,8.26,0,0,0,0,0,1
+156,0x8AFF,0x08AA,0x001F,New,-,True,not in HD,4,2,4.5,2,2,12,one complex gate,!(D&(!A|(!B&C))),8,10.0096,48.1,8.06,0,0,1,3,0,0
+157,0x0FF2,0x0FF2,0x07F0,New,-,True,not in HD,1,1,6.0,2,3,18,one complex gate,!((C&D)|(!C&(!D&(!A|B)))),11,13.7632,21.57,7.81,0,0,0,0,0,1
+158,0x89FF,0x0AA8,0x003D,New,-,True,not in HD,1,1,6.0,2,2,16,one complex gate,!(D&((A&!B)|(!A&(B|C)))),10,12.512,20.2,7.69,0,1,0,0,0,0
+159,0x07A1,0x07A1,0x03D4,New,-,True,not in HD,1,1,8.0,4,4,30,two gates + nand2/nor2 + output inverter,!!(!(!C&(!D&(A|B)))&!((!A|D)&(C|(A&B)))),17,21.2704,28.76,7.49,0,0,0,0,0,1
+160,0x003E,0x003E,0x003D,New,-,True,not in HD,3,2,5.0,2,3,18,one complex gate,!(D|((B&C)|(!A&(!B&!C)))),11,13.7632,48.75,7.46,0,0,2,0,0,1
+161,0x2AC0,0x2AC0,0x01A9,New,-,True,not in HD,5,2,5.0,2,4,22,one complex gate,!((B&(C&D))|((!A|!D)&(!B|!C))),13,16.2656,88.73,7.41,0,1,0,0,0,4
+162,0x0AAB,0x0AAB,0x013F,New,-,True,not in HD,1,1,6.0,2,1,14,one complex gate,!((!A|C)&(D|(!A&(B|C)))),9,11.2608,18.47,7.21,0,0,1,0,0,0
+163,0x0ADF,0x0ADF,0x01AF,New,-,True,not in HD,1,1,6.0,2,2,14,one complex gate,!((!A|C)&(D|(A&!B))),9,11.2608,18.47,7.21,0,0,1,0,0,0
+164,0xAAAB,0x00FE,0x007F,Exists with an inverter,sky130_fd_sc_hd__o31ai_1,True,est. 8.76 vs HD cell + inverter 11.26,2,1,4.0,2,1,10,one complex gate,!(!A&(B|(C|D))),7,8.7584,24.62,7.11,0,0,2,0,0,0
+165,0xEEE2,0x0257,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,8,3,4.0,3,2,14,complex gate + output inverter,!(!((A|B)&(!B|(C|D)))),9,11.2608,96.86,6.77,2,0,4,0,2,0
+166,0x0ACE,0x0ACE,0x0357,New,-,True,not in HD,3,2,4.0,2,2,12,one complex gate,!((!A|C)&(!B|D)),8,10.0096,36.78,6.75,1,0,2,0,0,0
+167,0x09A0,0x09A0,0x0198,New,-,True,not in HD,2,1,8.0,3,4,30,two gates + nand2/nor2,!(!(!A|(C|(B&D)))|!((!C|!D)&(A|(!B&D)))),17,21.2704,49.25,6.71,0,0,2,0,0,0
+168,0xBEFF,0x0082,0x0006,New,-,True,not in HD,1,1,7.0,3,2,18,two gates + nand2/nor2,!(D&!(A|((B|C)&(!B|!C)))),11,13.7632,20.39,6.62,0,0,0,0,1,0
+169,0xEFFE,0x0009,0x0006,New,-,True,not in HD,1,1,7.0,3,2,20,two-level,(A) | (B) | (C&!D) | (!C&D),12,15.0144,21.55,6.53,0,0,1,0,0,0
+170,0x9AF0,0x19B3,0x03DE,New,-,True,not in HD,4,1,6.0,3,4,28,two gates + nand2/nor2,!(!(A&(D&(B|!C)))&!(C&(!D|(!A&!B)))),16,20.0192,86.28,6.2,0,0,0,0,0,4
+171,0x19B3,0x19B3,0x03DE,New,-,True,not in HD,4,1,6.0,3,4,28,two gates + nand2/nor2,!(!(!A|(!D|(B&!C)))|!(!B|(A&(C|D)))),16,20.0192,86.28,6.2,0,0,0,0,0,4
+172,0xEEEB,0x001E,0x001E,New,-,True,not in HD,1,1,8.0,3,3,24,two gates + nand2/nor2,!(!(B&(C|D))&!(A|(!B&(!C&!D)))),14,17.5168,23.3,5.78,0,0,0,0,1,0
+173,0x89AB,0x0AFC,0x03DD,New,-,True,not in HD,1,1,6.0,2,2,16,one complex gate,!((A|(B|C))&(!A|(!B&D))),10,12.512,18.23,5.72,1,0,0,0,0,0
+174,0x8FFF,0x0888,0x0007,New,-,True,not in HD,3,2,4.33,2,2,12,one complex gate,!(C&(D&(!A|!B))),8,10.0096,35.52,5.49,0,0,1,2,0,0
+175,0x8BFF,0x08A8,0x001B,New,-,True,not in HD,2,2,5.0,2,2,14,one complex gate,!(D&((!A&B)|(!B&C))),9,11.2608,27.97,5.45,0,0,1,1,0,0
+176,0x9FFF,0x0880,0x0006,New,-,True,not in HD,1,1,7.0,3,3,20,two gates + nand2/nor2,!(C&!(!D|((A&B)|(!A&!B)))),12,15.0144,20.39,5.37,0,0,0,0,1,0
+177,0x0BB8,0x0BB8,0x0676,New,-,True,not in HD,1,1,6.0,2,4,22,one complex gate,!((!A&B)|((C&D)|(!B&(!C&!D)))),13,16.2656,21.57,5.3,0,0,0,0,0,1
+178,0x0089,0x0089,0x0019,New,-,True,not in HD,7,2,5.0,3,3,20,two gates + nand2/nor2,!(D|!((A&B)|(!A&(!B&!C)))),12,15.0144,110.32,5.21,0,0,6,0,0,1
+179,0xAAEA,0x00BF,0x007F,Exists with an inverter,sky130_fd_sc_hd__a31o_1,True,est. 11.26 vs HD cell + inverter 12.51,2,1,4.5,3,2,12,complex gate + output inverter,!(!(A|(B&(C&!D)))),9,11.2608,27.7,5.18,0,0,2,0,0,0
+180,0x88F8,0x0BBB,0x0357,Exists with an inverter,sky130_fd_sc_hd__a22o_1,True,est. 11.26 vs HD cell + inverter 12.51,2,1,4.5,3,2,12,complex gate + output inverter,!(!((A&B)|(C&!D))),9,11.2608,27.7,5.18,0,0,2,0,0,0
+181,0x0BB7,0x0BB7,0x036B,New,-,True,not in HD,1,1,8.0,4,5,34,two gates + nand2/nor2 + output inverter,!!(!(C|((A|D)&(!A|!D)))|!((C&D)|(B&(!A|!C)))),19,23.7728,28.76,4.99,0,0,0,0,0,1
+182,0x999F,0x0EE0,0x0666,New,-,True,not in HD,1,1,6.0,2,2,16,one complex gate,!((A|B)&((!A|!B)&(C|D))),10,12.512,17.47,4.96,0,0,0,0,1,0
+183,0x9BFF,0x08A0,0x0019,New,-,True,not in HD,2,1,6.0,3,3,20,two gates + nand2/nor2,!(D&!((A&B)|(!B&(!A|!C)))),12,15.0144,34.95,4.92,0,0,0,0,2,0
+184,0x06F6,0x06F6,0x06F6,New,-,True,not in HD,2,1,6.0,2,3,20,one complex gate,!((C&D)|(!C&((A&B)|(!A&!B)))),12,15.0144,34.95,4.92,0,0,0,0,2,0
+185,0xEEFE,0x000B,0x0007,Exists with an inverter,sky130_fd_sc_hd__a211o_1,True,est. 11.26 vs HD cell + inverter 12.51,3,2,4.0,3,2,12,complex gate + output inverter,!(!(A|(B|(C&!D)))),9,11.2608,38.59,4.81,0,2,0,0,1,0
+186,0xAFFC,0x0189,0x0189,Contained,sky130_fd_sc_hd__mux4_1,True,est. 13.76 vs containing HD cell 26.28,6,1,5.0,3,3,18,complex gate + output inverter,!(!((C&!D)|((A|!C)&(B|D)))),11,13.7632,87.37,4.79,0,0,0,0,6,0
+187,0x82FF,0x28AA,0x006F,New,-,True,not in HD,1,1,6.0,2,3,18,one complex gate,!(D&(!A|((B|C)&(!B|!C)))),11,13.7632,18.47,4.71,0,0,1,0,0,0
+188,0xAEEE,0x008F,0x001F,New,-,True,not in HD,2,1,4.0,2,2,12,one complex gate,!(!A&(!B|(C&D))),8,10.0096,24.62,4.61,0,0,2,0,0,0
+189,0x2EEE,0x2EEE,0x01AB,New,-,True,not in HD,3,3,4.0,2,2,14,one complex gate,!((!A|B)&(!B|(C&D))),9,11.2608,38.34,4.56,0,0,1,0,1,1
+190,0x888B,0x0EFE,0x01AB,New,-,True,not in HD,7,3,4.0,2,2,14,one complex gate,!((!A&B)|(!B&(C|D))),9,11.2608,83.37,4.55,1,0,2,0,4,0
+191,0xAAEB,0x00BE,0x006F,New,-,True,not in HD,1,1,6.0,2,3,18,one complex gate,!(!A&(D|((B|C)&(!B|!C)))),11,13.7632,18.23,4.47,1,0,0,0,0,0
+192,0x98FF,0x0AA2,0x003D,New,-,True,not in HD,1,1,6.0,2,3,18,one complex gate,!(D&((A&!B)|(!A&(B|!C)))),11,13.7632,18.23,4.47,1,0,0,0,0,0
+193,0x0EF0,0x0EF0,0x07F0,New,-,True,not in HD,1,1,6.0,3,3,18,complex gate + output inverter,!(!((C|D)&(!D|(!C&(A|B))))),11,13.7632,18.23,4.47,1,0,0,0,0,0
+194,0x2EE2,0x2EE2,0x06F6,New,-,True,not in HD,2,1,6.0,2,4,22,one complex gate,!((!A|B)&(!B|((C&D)|(!C&!D)))),13,16.2656,36.94,4.41,0,0,2,0,0,0
+195,0x8BB8,0x09F9,0x06F6,New,-,True,not in HD,2,1,6.0,2,4,22,one complex gate,!((!A&B)|(!B&((C&D)|(!C&!D)))),13,16.2656,36.94,4.41,0,0,2,0,0,0
+196,0x9BDF,0x0AC0,0x0189,New,-,True,not in HD,1,1,5.0,2,2,16,one complex gate,!((A|B)&((!A&D)|(!B&C))),10,12.512,16.84,4.33,0,1,0,0,0,0
+197,0x06EE,0x06EE,0x03D7,New,-,True,not in HD,1,1,5.0,2,2,16,one complex gate,!((!A&!B)|(D&(C|(A&B)))),10,12.512,16.84,4.33,0,1,0,0,0,0
+198,0xAFFD,0x0188,0x0181,New,-,True,not in HD,6,1,6.0,3,3,24,two gates + nand2/nor2,!(!(A&C)&!((!A&!D)|(!C&(B|D)))),14,17.5168,109.4,4.3,6,0,0,0,0,0
+199,0x0EFF,0x0EFF,0x001F,New,-,True,not in HD,2,1,4.0,2,2,12,one complex gate,!(D&(C|(!A&!B))),8,10.0096,24.31,4.29,2,0,0,0,0,0
+200,0x0387,0x0387,0x01AE,New,-,True,not in HD,2,2,6.0,3,4,26,two gates + nand2/nor2,!(!(!C|(A&B))|!(!B|(!D&(!A|C)))),15,18.768,41.77,4.24,0,1,0,0,0,1
+201,0x0FF8,0x0FF8,0x07F0,New,-,True,not in HD,1,1,5.0,3,3,18,complex gate + output inverter,!(!((C&!D)|(!C&(D|(A&B))))),11,13.7632,17.97,4.21,0,0,0,0,0,1
+202,0x0AEE,0x0AEE,0x035F,New,-,True,not in HD,1,1,5.0,2,2,14,one complex gate,!((!A&!B)|(D&(!A|C))),9,11.2608,15.39,4.13,0,0,1,0,0,0
+203,0x03EF,0x03EF,0x01AF,New,-,True,not in HD,1,1,5.0,2,2,14,one complex gate,!((B|C)&(D|(!A&!B))),9,11.2608,15.39,4.13,0,0,1,0,0,0
+204,0x89FE,0x0AA9,0x013E,New,-,True,not in HD,1,1,9.0,4,5,40,two-level,(C&!D) | (A&B) | (A&!D) | (B&!D) | (!A&!B&!C&D),21,26.2752,30.31,4.03,0,1,0,0,0,0
+205,0xEEF3,0x0246,0x0189,Contained,sky130_fd_sc_hd__mux4_1,True,est. 13.76 vs containing HD cell 26.28,5,1,5.0,3,3,18,complex gate + output inverter,!(!((B&D)|((A|!D)&(!B|C)))),11,13.7632,72.8,3.99,0,0,0,0,5,0
+206,0x8ACA,0x0ADF,0x01AF,New,-,True,not in HD,4,1,4.0,2,3,16,one complex gate,!((!B&C)|(!A&(!C|D))),10,12.512,53.88,3.83,0,4,0,0,0,0
+207,0xAAAE,0x00EF,0x007F,New,-,True,not in HD,2,2,4.0,2,2,12,one complex gate,!(!A&(!B|(C|D))),8,10.0096,23.8,3.78,1,0,0,0,1,0
+208,0x9991,0x1FF0,0x07F0,New,-,True,not in HD,1,1,6.0,3,3,18,complex gate + output inverter,!(!((A|!B)&(!A|(B&(C|D))))),11,13.7632,17.47,3.71,0,0,0,0,1,0
+209,0xBCFF,0x0282,0x0019,New,-,True,not in HD,1,1,6.0,3,2,18,two gates + nand2/nor2,!(D&!((B|C)&(A|(!B|!C)))),11,13.7632,17.47,3.71,0,0,0,0,1,0
+210,0x8AA0,0x19FF,0x003D,New,-,True,not in HD,3,2,5.0,3,3,18,complex gate + output inverter,!(!(A&((C|D)&(B|(!C|!D))))),11,13.7632,44.95,3.66,2,0,0,0,1,0
+211,0xBFFD,0x0180,0x0180,New,-,True,not in HD,1,1,7.0,3,4,28,two-level,(C&!D) | (B&!C) | (A&D) | (!A&!B),16,20.0192,23.57,3.55,0,1,0,0,0,0
+212,0x03AB,0x03AB,0x0357,Exists with an inverter,sky130_fd_sc_hd__a2bb2o_1,True,est. 8.76 vs HD cell + inverter 13.76,1,1,4.0,2,1,10,one complex gate,!((!A|D)&(B|C)),7,8.7584,12.31,3.55,0,0,1,0,0,0
+213,0x1BB1,0x1BB1,0x06F6,New,-,True,not in HD,1,1,6.0,2,3,20,one complex gate,!((A|B)&(!A|((C&D)|(!C&!D)))),12,15.0144,18.47,3.45,0,0,1,0,0,0
+214,0x6EFF,0x6EFF,0x0019,New,-,True,not in HD,1,1,6.0,3,3,20,two gates + nand2/nor2,!(D&!((A|B)&(!A|(!B|!C)))),12,15.0144,18.47,3.45,0,0,1,0,0,0
+215,0xA8ED,0x03AE,0x035B,New,-,True,not in HD,1,1,6.0,2,3,20,one complex gate,!((!A|!C)&((!A&D)|(!B&(A|C)))),12,15.0144,18.23,3.22,1,0,0,0,0,0
+216,0x02C6,0x02C6,0x01A9,New,-,True,not in HD,1,1,6.0,2,3,20,one complex gate,!((A&(B&!C))|((!A|C)&(!B|D))),12,15.0144,18.23,3.22,1,0,0,0,0,0
+217,0x0256,0x0256,0x01A9,New,-,True,not in HD,8,1,5.0,2,3,20,one complex gate,!((!A|(B|C))&(A|(D|(!B&!C)))),12,15.0144,123.12,3.01,0,0,8,0,0,0
+218,0xAACE,0x02CF,0x01AF,New,-,True,not in HD,1,1,5.0,2,3,16,one complex gate,!((!B|D)&(!A|(C&!D))),10,12.512,15.19,2.68,1,0,0,0,0,0
+219,0x999B,0x0EF0,0x07F0,New,-,True,not in HD,1,1,5.0,2,2,16,one complex gate,!((A|B)&(!A|(!B&(C|D)))),10,12.512,15.19,2.68,1,0,0,0,0,0
+220,0x89BB,0x0AF8,0x03C7,New,-,True,not in HD,1,1,5.0,2,2,16,one complex gate,!((!A&B)|(!B&(D&(A|C)))),10,12.512,15.19,2.68,1,0,0,0,0,0
+221,0x80FF,0x2AAA,0x007F,Exists with an inverter,sky130_fd_sc_hd__a31o_1,True,est. 8.76 vs HD cell + inverter 12.51,2,1,4.0,2,0,10,two gates + nand2/nor2,!(D&!(A&(B&C))),7,8.7584,20.13,2.61,0,0,0,2,0,0
+222,0x19FF,0x19FF,0x003D,New,-,True,not in HD,1,1,6.0,2,2,16,one complex gate,!(D&((A|B)&(!A|(!B|C)))),10,12.512,15.09,2.58,0,0,0,1,0,0
+223,0x0699,0x0699,0x0696,New,-,True,not in HD,1,1,8.0,4,4,40,two-level + output inverter,!((C&D) | (A&!B&!D) | (!A&B&!D) | (A&B&D) | (!A&!B&D)),21,26.2752,28.76,2.48,0,0,0,0,0,1
+224,0xA8CC,0x07AF,0x01AF,New,-,True,not in HD,13,2,4.0,3,2,14,complex gate + output inverter,!(!((A|!D)&(B|(C&D)))),9,11.2608,148.81,2.42,0,0,8,5,0,0
+225,0xEAC8,0x035F,0x035F,Contained,sky130_fd_sc_hd__mux4_1,True,est. 10.01 vs containing HD cell 26.28,1,1,4.0,2,1,12,complex gate + output inverter,!(!((A|C)&(B|(A&D)))),8,10.0096,12.31,2.3,0,0,1,0,0,0
+226,0xAEFE,0x008B,0x001B,New,-,True,not in HD,1,1,5.0,2,3,16,one complex gate,!(!A&((!B|C)&(!C|D))),10,12.512,14.56,2.05,0,0,0,0,1,0
+227,0x8BF0,0x19B9,0x07F2,New,-,True,not in HD,1,1,6.0,2,4,22,one complex gate,!((!C|D)&(!D|((!A&B)|(!B&C)))),13,16.2656,18.23,1.97,1,0,0,0,0,0
+228,0xAAFE,0x00AB,0x001F,New,-,True,not in HD,2,2,4.0,3,2,12,complex gate + output inverter,!(!(A|(!D&(B|C)))),9,11.2608,24.47,1.95,1,0,1,0,0,0
+229,0xA898,0x07FB,0x01AE,New,-,True,not in HD,2,1,6.0,3,3,24,two gates + nand2/nor2,!(!(A|(!B&!D))|!(B|(C&(!A|D)))),14,17.5168,36.94,1.9,0,0,2,0,0,0
+230,0x3EEE,0x3EEE,0x01A9,New,-,True,not in HD,1,1,5.0,2,4,22,one complex gate,!((B&(C&D))|(!A&(!B&(!C|!D)))),13,16.2656,17.97,1.71,0,0,0,0,0,1
+231,0xAFF3,0x02C2,0x0189,New,-,True,not in HD,2,1,5.0,2,3,18,one complex gate,!((C|!D)&((!A&D)|(B&!C))),11,13.7632,29.12,1.6,0,0,0,0,2,0
+232,0x1AEA,0x1AEA,0x03DE,New,-,True,not in HD,1,1,6.0,3,4,28,two gates + nand2/nor2,!(!(A|(C&(B|D)))|!(!C|(!D|(!A&!B)))),16,20.0192,21.57,1.55,0,0,0,0,0,1
+233,0xAACD,0x03CE,0x03C7,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!((!A&D)|(!B&(!D&(A|C)))),11,13.7632,15.19,1.43,1,0,0,0,0,0
+234,0x0BFA,0x0BFA,0x03C7,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!((C&D)|(!A&(!C&(B|!D)))),11,13.7632,15.19,1.43,1,0,0,0,0,0
+235,0xABCC,0x03CB,0x03C7,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!((!B|D)&(!D|(!A&(B|C)))),11,13.7632,15.19,1.43,1,0,0,0,0,0
+236,0x88B3,0x1AFA,0x03C7,New,-,True,not in HD,1,1,6.0,3,3,18,complex gate + output inverter,!(!((B|!D)&(!B|(A&(C|D))))),11,13.7632,15.09,1.33,0,0,0,1,0,0
+237,0x7FFE,0x7FFE,0x0180,New,-,True,not in HD,1,1,7.0,3,4,28,two-level,(C&!D) | (B&!C) | (A&!B) | (!A&D),16,20.0192,21.27,1.25,1,0,0,0,0,0
+238,0xACDC,0x078B,0x01EB,New,-,True,not in HD,1,1,6.0,2,4,22,one complex gate,!((!A&(C&D))|(!B&(!C|(A&!D)))),13,16.2656,17.47,1.21,0,0,0,0,1,0
+239,0x08F8,0x08F8,0x01AB,New,-,True,not in HD,2,2,4.0,2,3,16,one complex gate,!((C&D)|(!C&(!A|!B))),10,12.512,26.03,1.0,0,0,0,0,1,1
+240,0xA8AC,0x03EF,0x01AF,New,-,True,not in HD,1,1,4.0,2,3,16,one complex gate,!((!B&!C)|(!A&(C|D))),10,12.512,13.47,0.96,0,1,0,0,0,0
+241,0xEAEE,0x002F,0x001F,New,-,True,not in HD,1,1,4.0,3,2,12,complex gate + output inverter,!(!(A|(B&(C|!D)))),9,11.2608,12.16,0.89,1,0,0,0,0,0
+242,0x00BC,0x00BC,0x003D,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!(D|((B|!C)&(!B|(!A&C)))),11,13.7632,14.56,0.8,0,0,0,0,1,0
+243,0x0EFA,0x0EFA,0x03C7,New,-,True,not in HD,1,1,5.0,3,3,18,complex gate + output inverter,!(!((C&!D)|(!C&(A|(B&D))))),11,13.7632,14.56,0.8,0,0,0,0,1,0
+244,0x8082,0x3EFF,0x0019,New,-,True,not in HD,2,1,5.0,4,3,20,two gates + nand2/nor2 + output inverter,!!(A&!((B&!C)|(!B&(C|D)))),12,15.0144,30.78,0.75,0,0,2,0,0,0
+245,0xAACF,0x02CE,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 12.51 vs containing HD cell 26.28,19,3,4.05,2,3,16,one complex gate,!((!A&D)|(!B&(C&!D))),10,12.512,238.18,0.45,9,0,9,0,0,1
+246,0x0FFE,0x0FFE,0x01AA,New,-,True,not in HD,1,1,5.0,3,2,20,two gates + nand2/nor2,!(!(C&!D)&!(!C&(A|(B|D)))),12,15.0144,15.39,0.38,0,0,1,0,0,0
+247,0x9ADF,0x0AC2,0x01A9,New,-,True,not in HD,1,1,5.0,2,3,20,one complex gate,!((A|(B|!C))&((!A&D)|(!B&C))),12,15.0144,15.39,0.38,0,0,1,0,0,0
+248,0xA9FD,0x03A8,0x01A9,New,-,True,not in HD,1,1,5.0,2,3,20,one complex gate,!((A|(B|C))&((!A&D)|(!B&!C))),12,15.0144,15.39,0.38,0,0,1,0,0,0
+249,0x8280,0x3DFF,0x0019,New,-,True,not in HD,1,1,5.0,3,2,20,two gates + nand2/nor2,!(!A|!((B&C)|(!B&(!C&D)))),12,15.0144,15.39,0.38,0,0,1,0,0,0
+250,0x0288,0x0288,0x0019,New,-,True,not in HD,1,1,6.0,4,3,20,two gates + nand2/nor2 + output inverter,!!(A&!((B&D)|(!B&(C|!D)))),12,15.0144,15.09,0.08,0,0,0,1,0,0
+251,0x19BB,0x19BB,0x03C7,New,-,True,not in HD,1,1,5.0,2,2,16,one complex gate,!((A|B)&(!A|(D&(!B|C)))),10,12.512,12.58,0.07,0,0,0,1,0,0
+252,0xABFE,0x00A9,0x001E,New,-,True,not in HD,1,1,6.0,3,3,24,two gates + nand2/nor2,!(!(!B&(!C&D))&!(A|(!D&(B|C)))),14,17.5168,17.47,-0.04,0,0,0,0,1,0
+253,0xA9FF,0x02A8,0x001E,New,-,True,not in HD,1,1,6.0,3,4,26,two gates + nand2/nor2,!(!(A&(B|C))&!(!D|(!A&(!B&!C)))),15,18.768,18.47,-0.3,0,0,1,0,0,0
+254,0x1AAA,0x1AAA,0x01EE,New,-,True,not in HD,1,1,6.0,3,4,26,two gates + nand2/nor2,!(!(A|(C&D))|!(!C|(!D|(!A&!B)))),15,18.768,18.23,-0.53,1,0,0,0,0,0
+255,0x2DE1,0x2DE1,0x1BE4,New,-,True,not in HD,1,1,6.0,3,5,34,two gates + nand2/nor2,!(!(B|((A&C)|(!A&!C)))|!(!B|((C|D)&(!C|!D)))),18,22.5216,21.57,-0.95,0,0,0,0,0,1
+256,0xABFC,0x01A9,0x01A9,New,-,True,not in HD,1,1,5.0,2,4,22,one complex gate,!((B|(C|!D))&((!A&D)|(!B&!C))),13,16.2656,15.19,-1.07,1,0,0,0,0,0
+257,0xBDFF,0x0280,0x0018,New,-,True,not in HD,1,1,7.0,3,4,26,two-level,(!D) | (B&!C) | (A&C) | (!A&!B),15,18.768,17.61,-1.16,0,0,0,1,0,0
+258,0xA8DD,0x07AA,0x03C7,New,-,True,not in HD,1,1,5.0,3,3,18,complex gate + output inverter,!(!((A|!D)&(!A|(B|(C&D))))),11,13.7632,12.58,-1.18,0,0,0,1,0,0
+259,0x0388,0x0388,0x0189,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!((B&D)|((!A|!B)&(C|!D))),11,13.7632,12.58,-1.18,0,0,0,1,0,0
+260,0x83CF,0x2ACC,0x03C7,New,-,True,not in HD,1,1,5.0,2,3,18,one complex gate,!((B|C)&(!B|(D&(!A|!C)))),11,13.7632,12.58,-1.18,0,0,0,1,0,0
+261,0x08BB,0x08BB,0x01AF,New,-,True,not in HD,1,1,4.0,2,2,14,one complex gate,!((!A&B)|(D&(!B|C))),9,11.2608,10.06,-1.2,0,0,0,1,0,0
+262,0x0ABA,0x0ABA,0x01AF,New,-,True,not in HD,1,1,4.0,2,2,14,one complex gate,!((C&D)|(!A&(B|!C))),9,11.2608,10.06,-1.2,0,0,0,1,0,0
+263,0x868F,0x2CCE,0x037D,New,-,True,not in HD,1,1,7.0,3,5,32,two gates + nand2/nor2,!(!(!C&(!D|(A&!B)))&!(B&((A&C)|(!A&!C)))),18,22.5216,21.27,-1.25,1,0,0,0,0,0
+264,0x0FFB,0x0FFB,0x01AA,New,-,True,not in HD,1,1,5.0,3,3,22,two gates + nand2/nor2,!(!(C&!D)&!(!C&(A|(!B|D)))),13,16.2656,14.56,-1.7,0,0,0,0,1,0
+265,0x0EFE,0x0EFE,0x01AB,New,-,True,not in HD,7,4,4.0,2,3,16,one complex gate,!((C&D)|(!A&(!B&!C))),10,12.512,85.86,-1.72,1,1,3,0,2,0
+266,0x068F,0x068F,0x016F,New,-,True,not in HD,1,1,6.0,3,4,28,two gates + nand2/nor2,!(!(!C|(A&B))|!(!D|((A|B)&(!A|!B)))),16,20.0192,18.23,-1.79,1,0,0,0,0,0
+267,0x88B8,0x0BFB,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 12.51 vs containing HD cell 26.28,3,2,4.0,2,3,16,one complex gate,!((!A&B)|(!B&(!C|D))),10,12.512,35.61,-1.93,0,0,1,0,2,0
+268,0x806F,0x6AAE,0x01BE,New,-,True,not in HD,1,1,8.0,4,5,40,two-level,(!C&!D) | (A&!B&!D) | (!A&B&!D) | (A&B&C&D),21,26.2752,24.31,-1.96,1,0,0,0,0,0
+269,0x0AFD,0x0AFD,0x01EE,New,-,True,not in HD,1,1,5.0,3,3,24,two gates + nand2/nor2,!(!(A&(!C&D))&!(!D&(!A|(B|C)))),14,17.5168,15.19,-2.32,1,0,0,0,0,0
+270,0x28A8,0x28A8,0x003D,New,-,True,not in HD,2,1,5.0,2,3,18,one complex gate,!(!A|((B|!C)&(!B|(C&D)))),11,13.7632,25.16,-2.37,0,0,0,2,0,0
+271,0x0ACA,0x0ACA,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 12.51 vs containing HD cell 26.28,2,2,4.0,2,3,16,one complex gate,!((!A|C)&(!B|(!C|D))),10,12.512,22.38,-2.65,0,0,1,1,0,0
+272,0x08A0,0x08A0,0x0019,New,-,True,not in HD,20,4,5.15,3,2,20,two gates + nand2/nor2,!(!A|!((C|D)&(!D|(B&!C)))),12,15.0144,297.11,-3.18,0,1,2,12,0,5
+273,0x01EE,0x01EE,0x01EE,New,-,True,not in HD,1,1,5.0,3,4,26,two gates + nand2/nor2,!(!(A|(B|D))|!(!D|(!A&(!B&!C)))),15,18.768,15.19,-3.57,1,0,0,0,0,0
+274,0x06AA,0x06AA,0x01AE,New,-,True,not in HD,1,1,6.0,3,4,26,two gates + nand2/nor2,!(!(A|(B&D))|!(!D|(!C&(!A|!B)))),15,18.768,15.09,-3.67,0,0,0,1,0,0
+275,0x1BE4,0x1BE4,0x1BE4,New,-,True,not in HD,1,1,6.0,3,5,34,two gates + nand2/nor2,!(!(A|((B|D)&(!B|!D)))|!(!A|((C|D)&(!C|!D)))),18,22.5216,18.47,-4.05,0,0,1,0,0,0
+276,0x0AEA,0x0AEA,0x01AF,New,-,True,not in HD,3,2,4.0,2,3,16,one complex gate,!((C&D)|(!A&(!B|!C))),10,12.512,32.44,-5.1,0,0,1,2,0,0
+277,0x87B4,0x2DE1,0x1BE4,New,-,True,not in HD,5,2,6.0,3,5,34,two gates + nand2/nor2,!(!(B&((A&C)|(!A&!C)))&!(!B&((C|D)&(!C|!D)))),18,22.5216,106.48,-6.13,0,1,0,0,0,4
+278,0x8777,0x6AC0,0x0356,New,-,True,not in HD,3,1,5.0,3,4,28,two gates + nand2/nor2,!(!(!A|(!B|(C&D)))|!(!C|(!D|(A&B)))),16,20.0192,53.92,-6.14,0,0,0,0,0,3
+279,0x8ABA,0x08FB,0x01EF,New,-,True,not in HD,4,3,4.0,2,3,18,one complex gate,!((!A&(B|!C))|(!B&(C&D))),11,13.7632,48.65,-6.4,0,2,0,1,1,0
+280,0x02DF,0x02DF,0x01EF,New,-,True,not in HD,16,3,4.0,2,2,16,one complex gate,!((A&(!B&C))|(D&(!A|B))),10,12.512,193.42,-6.77,0,0,13,1,2,0
+281,0xA8FD,0x03AA,0x01AB,New,-,True,not in HD,34,4,4.0,2,3,16,one complex gate,!((A|D)&(!A|(!B&!C))),10,12.512,417.41,-8.0,0,8,15,2,9,0
+282,0x808A,0x2EFF,0x001B,New,-,True,not in HD,33,5,4.06,2,3,16,one complex gate,!(!A|((!B&C)|(!C&D))),10,12.512,404.62,-8.27,0,1,22,3,6,1
+283,0x9AA9,0x09F6,0x06F9,New,-,True,not in HD,1,1,7.0,4,6,52,two-level,(A&B) | (A&!C&D) | (A&C&!D) | (!A&!B&!C&!D) | (!A&!B&C&D),27,33.7824,25.16,-8.62,0,0,0,0,0,1
+284,0x06F9,0x06F9,0x06F9,New,-,True,not in HD,1,1,7.0,4,6,52,two-level,(C&!D) | (!A&!B&!D) | (A&B&!D) | (!A&B&!C&D) | (A&!B&!C&D),27,33.7824,25.16,-8.62,0,0,0,0,0,1
+285,0x0AC6,0x0AC6,0x0356,New,-,True,not in HD,3,2,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(!C&(!B|D)))&!(B&(!D&(!A|C)))),16,20.0192,51.34,-8.72,0,0,1,0,0,2
+286,0x01EF,0x01EF,0x01EF,New,-,True,not in HD,11,2,4.0,2,2,16,one complex gate,!((A|(B|C))&(D|(!A&!B))),10,12.512,128.8,-8.83,0,0,1,0,10,0
+287,0xAAC8,0x03DF,0x01AF,New,-,True,not in HD,8,1,4.0,3,2,14,complex gate + output inverter,!(!((B|D)&(A|(C&!D)))),9,11.2608,80.51,-9.58,0,0,0,8,0,0
+288,0x3CC9,0x3CC9,0x19E6,New,-,True,not in HD,1,1,7.0,4,5,48,two-level,(B&C&!D) | (!B&C&D) | (A&B&!D) | (B&!C&D) | (!A&!B&!C&!D),25,31.28,21.55,-9.73,0,0,1,0,0,0
+289,0x02FE,0x02FE,0x01EF,New,-,True,not in HD,5,3,4.0,2,3,18,one complex gate,!((!A|(B|C))&(D|(!B&!C))),11,13.7632,59.0,-9.82,2,0,2,1,0,0
+290,0x9993,0x1EF0,0x07F8,New,-,True,not in HD,5,2,5.2,3,4,28,two gates + nand2/nor2,!(!(A&(B&(C|D)))&!(!B&(!A|(!C&!D)))),16,20.0192,90.05,-10.04,0,0,0,0,1,4
+291,0x88A8,0x0BFF,0x001F,New,-,True,not in HD,1159,6,3.38,3,2,12,complex gate + output inverter,!(!(A&(B|(C&!D)))),9,11.2608,13039.81,-11.46,93,109,177,54,163,563
+292,0xAACA,0x02DF,0x01EF,Contained,sky130_fd_sc_hd__mux4_1,True,est. 13.76 vs containing HD cell 26.28,6,3,4.0,3,3,18,complex gate + output inverter,!(!((A|(C&!D))&(B|(!C|D)))),11,13.7632,68.81,-13.77,1,0,0,1,4,0
+293,0x2AAA,0x2AAA,0x007F,Exists with an inverter,sky130_fd_sc_hd__a31oi_1,True,est. 8.76 vs HD cell + inverter 10.01,468,6,3.02,2,1,10,one complex gate,!(!A|(B&(C&D))),7,8.7584,4083.94,-15.0,15,17,126,116,186,8
+294,0x8288,0x2DFF,0x001E,New,-,True,not in HD,65,4,5.05,3,3,24,two gates + nand2/nor2,!(!(B|(!C&D))|!(A&(!B|(C|!D)))),14,17.5168,1123.39,-15.2,0,6,17,0,1,41
+295,0x28D7,0x28D7,0x06F9,New,-,True,not in HD,2,1,7.0,4,6,52,two-level,(!A&!D) | (B&C&!D) | (!B&!C&!D) | (A&B&!C&D) | (A&!B&C&D),27,33.7824,50.33,-17.24,0,0,0,0,0,2
+296,0x88F0,0x1BBB,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,36,3,4.0,3,2,14,complex gate + output inverter,!(!((C|D)&(!D|(A&B)))),9,11.2608,387.94,-17.45,0,0,10,24,2,0
+297,0xAAC0,0x07F7,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 11.26 vs containing HD cell 26.28,36,2,4.0,3,2,14,complex gate + output inverter,!(!((A&D)|(B&(C&!D)))),9,11.2608,387.02,-18.37,0,0,11,25,0,0
+298,0x99A6,0x1AE5,0x19E6,New,-,True,not in HD,7,2,8.0,4,5,48,two-level,(A&!B&!D) | (A&B&C) | (!A&!B&D) | (A&B&D) | (!A&B&!C&!D),25,31.28,199.49,-19.47,0,1,0,0,0,6
+299,0xA995,0x17E8,0x17E8,New,-,True,not in HD,9,1,8.0,3,4,48,two-level,(A&B&C) | (!A&!B&!D) | (!A&!B&!C) | (!A&!C&!D) | (A&B&D) | (A&C&D),25,31.28,258.83,-22.69,0,0,0,0,0,9
+300,0x08A2,0x08A2,0x001E,New,-,True,not in HD,52,5,5.0,3,3,24,two gates + nand2/nor2,!(!(!B|(C|D))|!(A&(!D|(B&!C)))),14,17.5168,886.91,-23.96,2,10,4,0,6,30
+301,0x0369,0x0369,0x0369,New,-,True,not in HD,8,1,10.0,5,6,52,two-level + output inverter,!((B&D) | (C&D) | (!A&!B&C) | (A&B&C) | (!A&B&!C) | (A&!B&!C&!D)),27,33.7824,246.24,-24.02,0,0,8,0,0,0
+302,0x2888,0x2888,0x001E,New,-,True,not in HD,318,5,5.04,3,3,24,two gates + nand2/nor2,!(!(B|(C&D))|!(A&(!B|(!C|!D)))),14,17.5168,5546.2,-24.14,0,27,2,31,2,256
+303,0x99A5,0x1BE4,0x1BE4,New,-,True,not in HD,6,1,6.0,3,5,34,two gates + nand2/nor2,!(!(A&((B&D)|(C&!D)))&!(!A&((!B&D)|(!C&!D)))),18,22.5216,110.81,-24.32,0,0,6,0,0,0
+304,0x0BFB,0x0BFB,0x01AB,New,-,True,not in HD,34,5,4.03,2,2,14,one complex gate,!((C&D)|(!A&(B&!C))),9,11.2608,358.5,-24.37,1,1,3,28,1,0
+305,0x8788,0x2DDD,0x0356,New,-,True,not in HD,9,4,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(B&(C|!D)))&!(!C&(D&(!A|!B)))),16,20.0192,152.99,-27.18,1,0,1,0,1,6
+306,0x969A,0x2CD3,0x19E6,New,-,True,not in HD,5,2,7.0,4,5,48,two-level,(!A&!B&C) | (A&!B&!C) | (A&B&C) | (A&!C&!D) | (!A&B&!C&D),25,31.28,124.23,-32.17,0,1,0,0,0,4
+307,0x009A,0x009A,0x001E,New,-,True,not in HD,55,5,5.44,3,4,26,two gates + nand2/nor2,!(!(A|(!B&C))|!(!D&(!A|(B|!C)))),15,18.768,999.72,-32.52,2,5,12,0,6,30
+308,0x2DF0,0x2DF0,0x07F8,New,-,True,not in HD,9,4,5.11,3,4,28,two gates + nand2/nor2,!(!(C|(D&(!A|B)))|!(!C|(!D|(A&!B)))),16,20.0192,143.91,-36.26,1,0,3,0,3,2
+309,0x87F0,0x2AD5,0x07F8,New,-,True,not in HD,18,2,5.0,3,4,28,two gates + nand2/nor2,!(!(C|(D&(!A|!B)))|!(!C|(!D|(A&B)))),16,20.0192,322.4,-37.95,0,1,0,0,0,17
+310,0x2AD5,0x2AD5,0x07F8,New,-,True,not in HD,15,3,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(D&(!B|!C)))&!(!D&(!A|(B&C)))),16,20.0192,257.93,-42.35,0,8,1,0,0,6
+311,0xA9FC,0x03A9,0x0356,New,-,True,not in HD,12,4,5.0,3,4,28,two gates + nand2/nor2,!(!(A|(!D|(!B&!C)))|!(B|(C|(!A&D)))),16,20.0192,193.15,-47.08,0,1,3,0,4,4
+312,0x87A5,0x2DF0,0x07F8,New,-,True,not in HD,26,2,5.92,3,4,28,two gates + nand2/nor2,!(!(A&(C&(B|!D)))&!(!C&(!A|(!B&D)))),16,20.0192,471.53,-48.97,0,0,23,0,3,0
+313,0x1EEE,0x1EEE,0x0356,New,-,True,not in HD,22,3,5.0,3,4,28,two gates + nand2/nor2,!(!(A|(B|(C&D)))|!(!C|(!D|(!A&!B)))),16,20.0192,385.2,-55.23,0,6,0,0,1,15
+314,0x002D,0x002D,0x001E,New,-,True,not in HD,50,5,5.0,3,4,26,two gates + nand2/nor2,!(!(!A|(B|C))|!(!D&(!C|(A&!B)))),15,18.768,883.1,-55.3,1,6,1,0,1,41
+315,0x9ACF,0x0AC6,0x0356,New,-,True,not in HD,13,1,5.0,3,4,28,two gates + nand2/nor2,!(!(A|(!D|(!B&C)))|!(B|(!C|(!A&D)))),16,20.0192,200.07,-60.18,0,0,13,0,0,0
+316,0xAAAC,0x01EF,0x01EF,Contained,sky130_fd_sc_hd__mux4_1,True,est. 13.76 vs containing HD cell 26.28,34,2,4.0,3,3,18,complex gate + output inverter,!(!((A&(C|D))|(B&(!C&!D)))),11,13.7632,406.67,-61.28,0,0,16,0,18,0
+317,0x8796,0x3CC9,0x19E6,New,-,True,not in HD,7,2,7.0,4,5,48,two-level,(!A&!C&D) | (A&!B&!C) | (A&B&C) | (!A&B&!C) | (!A&!B&C&!D),25,31.28,154.44,-64.52,0,0,6,0,0,1
+318,0x807F,0x6AAA,0x01FE,New,-,True,not in HD,9,3,5.0,4,5,36,two-level,(!C&!D) | (!A&!D) | (!B&!D) | (A&B&C&D),20,25.024,155.57,-69.64,1,0,0,0,1,7
+319,0x08FB,0x08FB,0x01EF,New,-,True,not in HD,53,2,4.0,2,3,18,one complex gate,!((!A&(B&!C))|(D&(!B|C))),11,13.7632,651.29,-78.16,8,0,45,0,0,0
+320,0x69AA,0x69AA,0x06F9,New,-,True,not in HD,10,1,7.0,4,6,52,two-level,(A&!D) | (A&!B&C) | (A&B&!C) | (!A&!B&!C&D) | (!A&B&C&D),27,33.7824,251.64,-86.19,0,0,0,0,0,10
+321,0x99A9,0x0BF4,0x07F8,New,-,True,not in HD,39,4,5.23,3,4,28,two gates + nand2/nor2,!(!(A&(B|(C&!D)))&!(!A&(!B&(!C|D)))),16,20.0192,687.48,-93.27,8,0,1,0,6,24
+322,0x01FE,0x01FE,0x01FE,New,-,True,not in HD,19,3,6.26,4,5,36,two-level,(C&!D) | (A&!D) | (B&!D) | (!A&!B&!C&D),20,25.024,381.59,-93.87,0,7,10,0,0,2
+323,0x1EF0,0x1EF0,0x07F8,New,-,True,not in HD,47,3,5.0,3,4,28,two gates + nand2/nor2,!(!(C|(D&(A|B)))|!(!C|(!D|(!A&!B)))),16,20.0192,839.73,-101.18,1,2,0,0,0,44
+324,0x03A9,0x03A9,0x0356,New,-,True,not in HD,59,5,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(!D&(B|C)))&!(!B&(!C&(!A|D)))),16,20.0192,1048.28,-132.85,1,3,1,0,1,53
+325,0x08A8,0x08A8,0x001B,New,-,True,not in HD,155,6,4.02,2,3,16,one complex gate,!(!A|((!B|C)&(!C|D))),10,12.512,1795.0,-144.36,63,2,26,54,5,5
+326,0x80BF,0x2AEA,0x01EF,New,-,True,not in HD,82,3,4.0,2,3,18,one complex gate,!((!A&(B&C))|(D&(!B|!C))),11,13.7632,962.24,-166.34,0,0,13,1,68,0
+327,0xACCC,0x078F,0x01EF,Contained,sky130_fd_sc_hd__mux4_1,True,est. 13.76 vs containing HD cell 26.28,91,4,4.0,3,3,18,complex gate + output inverter,!(!((A&(C&D))|(B&(!C|!D)))),11,13.7632,1057.56,-194.89,64,1,2,24,0,0
+328,0x08F7,0x08F7,0x01FE,New,-,True,not in HD,22,3,5.0,4,5,36,two-level,(C&!D) | (!A&!D) | (!B&!D) | (A&B&!C&D),20,25.024,349.92,-200.61,0,1,0,0,13,8
+329,0x006A,0x006A,0x001E,New,-,True,not in HD,189,5,5.04,3,4,26,two gates + nand2/nor2,!(!(A|(B&C))|!(!D&(!A|(!B|!C)))),15,18.768,3336.47,-210.68,4,17,8,0,10,150
+330,0x00AE,0x00AE,0x001F,New,-,True,not in HD,333,6,3.07,2,2,12,one complex gate,!(D|(!A&(!B|C))),8,10.0096,3089.92,-243.27,38,22,92,31,124,26
+331,0x0087,0x0087,0x001E,New,-,True,not in HD,272,4,5.0,3,4,26,two gates + nand2/nor2,!(!(!A|(!B|C))|!(!D&(!C|(A&B)))),15,18.768,4849.65,-255.25,0,15,2,0,5,250
+332,0x02FD,0x02FD,0x01FE,New,-,True,not in HD,27,3,5.0,4,5,36,two-level,(C&!D) | (!A&!D) | (B&!D) | (A&!B&!C&D),20,25.024,414.07,-261.58,0,0,17,0,8,2
+333,0x9AAA,0x08F7,0x01FE,New,-,True,not in HD,37,4,5.0,4,5,36,two-level,(A&!D) | (A&!C) | (A&B) | (!A&!B&C&D),20,25.024,655.44,-270.45,1,3,0,0,1,32
+334,0x999A,0x0EF1,0x07F8,New,-,True,not in HD,149,4,5.11,3,4,28,two gates + nand2/nor2,!(!(A&(B|(!C&!D)))&!(!A&(!B&(C|D)))),16,20.0192,2712.1,-270.76,1,16,1,0,0,131
+335,0x17E8,0x17E8,0x17E8,New,-,True,not in HD,109,3,8.02,3,4,48,two-level,(!A&!C&D) | (B&C&!D) | (!B&!C&D) | (!A&!B&D) | (A&B&!D) | (A&C&!D),25,31.28,3135.9,-273.62,0,1,1,0,0,107
+336,0x078F,0x078F,0x01EF,New,-,True,not in HD,135,4,4.0,2,2,16,one complex gate,!((A&(B&D))|(C&(!A|!B))),10,12.512,1406.58,-282.54,0,7,3,114,11,0
+337,0xA99A,0x06F9,0x06F9,New,-,True,not in HD,33,3,7.0,4,6,52,two-level,(A&B) | (A&!C&!D) | (A&C&D) | (!A&!B&!C&D) | (!A&!B&C&!D),27,33.7824,824.92,-289.9,1,1,0,0,0,31
+338,0xAAA9,0x01FE,0x01FE,New,-,True,not in HD,40,5,5.0,4,5,36,two-level,(A&C) | (A&B) | (A&D) | (!A&!B&!C&!D),20,25.024,703.68,-297.28,2,1,2,0,1,34
+339,0x8ACF,0x0ACE,0x0357,New,-,True,not in HD,305,6,3.01,2,2,12,one complex gate,!((!A&D)|(!B&C)),8,10.0096,2738.12,-314.81,36,19,66,9,172,3
+340,0x80AA,0x2AFF,0x001F,New,-,True,not in HD,168,5,3.04,3,2,12,complex gate + output inverter,!(!(A&(!D|(B&C)))),9,11.2608,1561.17,-330.65,0,21,94,12,34,7
+341,0xA999,0x07F8,0x07F8,New,-,True,not in HD,152,3,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(B|(C&D)))&!(!A&(!B&(!C|!D)))),16,20.0192,2711.09,-331.83,1,16,0,0,0,135
+342,0x87E1,0x2BD4,0x17E8,New,-,True,not in HD,143,3,8.0,3,4,48,two-level,(!A&!C&D) | (B&C&!D) | (!B&!C&D) | (A&B&C) | (!A&!B&!C) | (A&C&!D),25,31.28,4089.82,-383.22,1,10,0,0,0,132
+343,0xACFC,0x038B,0x01AB,Contained,sky130_fd_sc_hd__mux4_1,True,est. 12.51 vs containing HD cell 26.28,501,4,4.0,2,3,16,one complex gate,!((!B|C)&(!C|(!A&D))),10,12.512,5851.18,-417.33,0,7,6,1,487,0
+344,0x00EF,0x00EF,0x007F,New,-,True,not in HD,1168,6,3.02,2,2,12,one complex gate,!(D|(!A&(!B&C))),8,10.0096,11260.64,-430.57,92,92,223,59,320,382
+345,0x08AA,0x08AA,0x001F,New,-,True,not in HD,487,5,3.01,2,2,12,one complex gate,!(!A|(D&(!B|C))),8,10.0096,4432.01,-442.66,58,48,171,10,200,0
+346,0x0888,0x0888,0x0007,New,-,True,not in HD,416,6,3.13,2,2,12,one complex gate,!(!A|(!B|(C&D))),8,10.0096,3716.6,-447.39,9,8,61,169,120,49
+347,0xA8FC,0x03AB,0x0357,Exists with an inverter,sky130_fd_sc_hd__a2bb2oi_1,True,est. 11.26 vs HD cell + inverter 12.51,261,6,3.01,3,2,12,complex gate + output inverter,!(!((A|!D)&(B|C))),9,11.2608,2418.68,-520.38,16,9,43,13,127,53
+348,0x001E,0x001E,0x001E,New,-,True,not in HD,553,5,5.0,3,4,26,two gates + nand2/nor2,!(!(A|(B|C))|!(!D&(!C|(!A&!B)))),15,18.768,9837.95,-540.75,11,49,2,0,3,488
+349,0x008F,0x008F,0x001F,New,-,True,not in HD,429,6,3.02,2,2,12,one complex gate,!(D|(C&(!A|!B))),8,10.0096,3709.71,-584.41,13,39,69,161,128,19
+350,0xA9AA,0x02FD,0x01FE,New,-,True,not in HD,82,4,5.0,4,5,36,two-level,(A&B) | (A&!D) | (A&C) | (!A&!B&!C&D),20,25.024,1461.05,-590.92,0,6,1,0,1,74
+351,0x96AA,0x28D7,0x06F9,New,-,True,not in HD,73,2,7.01,4,6,52,two-level,(A&!D) | (A&!B&!C) | (A&B&C) | (!A&B&!C&D) | (!A&!B&C&D),27,33.7824,1830.99,-635.12,0,6,0,0,0,67
+352,0x0356,0x0356,0x0356,New,-,True,not in HD,295,4,5.0,3,4,28,two gates + nand2/nor2,!(!(!A&(!D&(B|C)))&!(!B&(!C&(A|D)))),16,20.0192,5256.09,-649.58,6,11,0,0,5,273
+353,0x00A9,0x00A9,0x001E,New,-,True,not in HD,690,5,5.01,3,4,26,two gates + nand2/nor2,!(!(A|(!B&!C))|!(!D&(!A|(B|C)))),15,18.768,12264.12,-685.8,11,49,15,0,11,604
+354,0x8887,0x1EEE,0x0356,New,-,True,not in HD,326,2,5.0,3,4,28,two gates + nand2/nor2,!(!(A&(B&(C|D)))&!(!C&(!D&(!A|!B)))),16,20.0192,5827.7,-698.56,0,28,0,0,0,298
+355,0x2BD4,0x2BD4,0x17E8,New,-,True,not in HD,274,2,8.02,3,4,48,two-level,(B&C&!D) | (!B&!C&D) | (!A&C&!D) | (A&!C&D) | (!A&B&!D) | (A&!B&D),25,31.28,7857.77,-712.95,0,22,0,0,0,252
+356,0x8AAA,0x08FF,0x007F,New,-,True,not in HD,525,6,3.0,2,2,12,one complex gate,!(!A|(!B&(C&D))),8,10.0096,4517.83,-737.21,17,26,124,161,189,8
+357,0x0069,0x0069,0x0069,New,-,True,not in HD,603,5,7.0,4,4,38,two-level + output inverter,!((D) | (!A&!B&C) | (A&!B&!C) | (A&B&C) | (!A&B&!C)),21,26.2752,15070.02,-773.92,8,23,2,0,6,564
+358,0x0096,0x0096,0x0069,New,-,True,not in HD,595,5,7.0,4,4,38,two-level + output inverter,!((D) | (!A&B&C) | (A&!B&C) | (!A&!B&!C) | (A&B&!C)),21,26.2752,14855.84,-777.91,6,51,2,0,1,535
+359,0x9699,0x2DD2,0x1EE1,New,-,True,not in HD,61,4,7.0,4,6,60,two-level,(!A&!B&C) | (!A&!B&!D) | (A&B&C) | (A&B&!D) | (!A&B&!C&D) | (A&!B&!C&D),30,37.536,1502.42,-787.27,1,3,0,0,5,52
+360,0x2882,0x2882,0x0069,New,-,True,not in HD,597,5,7.0,4,5,40,two-level + output inverter,!((!A) | (!B&!C&D) | (B&C&D) | (!B&C&!D) | (B&!C&!D)),21,26.2752,14895.09,-791.2,2,55,1,0,6,533
+361,0x8228,0x69FF,0x0069,New,-,True,not in HD,605,5,7.0,4,5,40,two-level + output inverter,!((!A) | (B&C&!D) | (!B&C&D) | (B&!C&D) | (!B&!C&!D)),21,26.2752,15100.63,-795.87,5,39,1,0,8,552
+362,0x2DD2,0x2DD2,0x1EE1,New,-,True,not in HD,69,3,7.04,4,6,60,two-level,(!A&!C&D) | (B&C&!D) | (!A&C&!D) | (B&!C&D) | (A&!B&!C&!D) | (A&!B&C&D),30,37.536,1738.68,-851.3,0,3,1,0,0,65
+363,0x008A,0x008A,0x0007,New,-,True,not in HD,1005,6,3.01,2,2,12,one complex gate,!(!A|(D|(!B&C))),8,10.0096,9090.75,-968.9,104,114,313,117,332,25
+364,0x2AEA,0x2AEA,0x01EF,New,-,True,not in HD,485,4,4.0,2,3,18,one complex gate,!((!A|(B&C))&(!B|(!C|D))),11,13.7632,5665.8,-1009.35,0,1,1,0,478,5
+365,0x6AAA,0x6AAA,0x01FE,New,-,True,not in HD,135,5,5.0,4,5,36,two-level,(A&!B) | (A&!D) | (A&!C) | (!A&B&C&D),20,25.024,2352.8,-1025.44,0,6,3,4,11,111
+366,0x07F8,0x07F8,0x07F8,New,-,True,not in HD,498,4,5.0,3,4,28,two gates + nand2/nor2,!(!(C|(D|(A&B)))|!(!D|(!C&(!A|!B)))),16,20.0192,8889.88,-1079.68,0,44,3,0,1,450
+367,0xEEE1,0x0356,0x0356,New,-,True,not in HD,620,5,5.0,3,4,28,two gates + nand2/nor2,!(!(A|(B|(!C&!D)))|!(C|(D|(!A&!B)))),16,20.0192,11050.44,-1361.46,8,40,6,0,3,563
+368,0xA8AA,0x02FF,0x007F,Exists with an inverter,sky130_fd_sc_hd__o31a_1,True,est. 11.26 vs HD cell + inverter 12.51,676,6,3.01,3,2,12,complex gate + output inverter,!(!(A&(B|(C|!D)))),9,11.2608,6113.32,-1498.98,35,110,179,59,290,3
+369,0x8088,0x2FFF,0x0007,Exists with an inverter,sky130_fd_sc_hd__o211a_1,True,est. 11.26 vs HD cell + inverter 13.76,867,6,3.02,3,2,12,complex gate + output inverter,!(!(A&(B&(C|!D)))),9,11.2608,7713.62,-2049.49,2,31,116,20,689,9
+370,0x6999,0x6999,0x1EE1,New,-,True,not in HD,209,3,7.0,4,6,60,two-level,(!A&!B&!D) | (!A&!B&!C) | (A&B&!D) | (A&B&!C) | (!A&B&C&D) | (A&!B&C&D),30,37.536,5222.59,-2622.43,0,20,0,0,1,188
+371,0x8778,0x6999,0x1EE1,New,-,True,not in HD,300,2,7.0,4,6,60,two-level,(!A&!C&D) | (!B&!C&D) | (!A&C&!D) | (!B&C&!D) | (A&B&!C&!D) | (A&B&C&D),30,37.536,7525.22,-3735.58,0,15,0,0,0,285
+372,0x1EE1,0x1EE1,0x1EE1,New,-,True,not in HD,536,5,7.0,4,6,60,two-level,(B&C&!D) | (A&!C&D) | (A&C&!D) | (B&!C&D) | (!A&!B&!C&!D) | (!A&!B&C&D),30,37.536,13419.01,-6700.29,2,33,1,0,1,499
+373,0x9996,0x1EE1,0x1EE1,New,-,True,not in HD,674,4,7.0,4,6,60,two-level,(!A&!B&C) | (A&B&C) | (!A&!B&D) | (A&B&D) | (A&!B&!C&!D) | (!A&B&!C&!D),30,37.536,16839.84,-8459.43,6,43,0,0,6,619
+374,0x9669,0x6996,0x6996,New,-,True,not in HD,581,3,9.0,4,12,110,two-level,(A&!B&C&!D) | (!A&B&!C&D) | (!A&!B&!C&!D) | (!A&B&C&!D) | (A&B&!C&!D) | (A&!B&!C&D) | (!A&!B&C&D) | (A&B&C&D),53,66.3136,18708.34,-19819.86,1,41,0,0,0,539
+375,0x6996,0x6996,0x6996,New,-,True,not in HD,610,2,9.0,4,12,110,two-level,(A&B&!C&D) | (!A&!B&!C&D) | (!A&B&C&D) | (!A&!B&C&!D) | (A&!B&!C&!D) | (A&B&C&!D) | (A&!B&C&D) | (!A&B&!C&!D),53,66.3136,19696.59,-20754.71,0,19,0,0,0,591
+,0x007F,0x007F,0x007F,Exists,sky130_fd_sc_hd__a31oi_1,False,HD has it,2339,6,3.0,1,0,8,one complex gate,!(D|(A&(B&C))),6,7.5072,21382.91,3823.57,54,99,228,304,1153,501
+,0x0007,0x0007,0x0007,Exists,sky130_fd_sc_hd__a211oi_1,False,HD has it,1165,6,3.0,1,0,8,one complex gate,!(C|(D|(A&B))),6,7.5072,11341.72,2595.83,14,106,148,13,419,465
+,0x0777,0x0777,0x0357,Exists,sky130_fd_sc_hd__a22oi_1,False,HD has it,609,6,3.0,1,0,8,one complex gate,!((A&B)|(C&D)),6,7.5072,5987.41,1415.53,8,49,61,85,80,326
+,0xEEE0,0x0357,0x0357,Exists,sky130_fd_sc_hd__o22a_1,False,HD has it,413,6,3.01,2,1,10,complex gate + output inverter,!(!((A|B)&(C|D))),7,8.7584,4220.86,603.64,21,16,39,11,52,274
+,0x0EEE,0x0EEE,0x0357,Exists,sky130_fd_sc_hd__a2bb2oi_1,False,HD has it,563,5,3.0,2,2,12,one complex gate,!((!A&!B)|(C&D)),8,10.0096,5870.15,234.74,0,57,48,7,32,419
+,0x1FFF,0x1FFF,0x0007,Exists,sky130_fd_sc_hd__o211ai_1,False,HD has it,38,4,4.45,1,0,8,one complex gate,!(C&(D&(A|B))),6,7.5072,508.93,223.65,1,0,13,0,22,2
+,0x8880,0x1FFF,0x0007,Exists,sky130_fd_sc_hd__o211a_1,False,HD has it,377,6,3.03,2,1,10,complex gate + output inverter,!(!(A&(B&(C|D)))),7,8.7584,3518.94,217.02,67,26,96,43,78,67
+,0x0080,0x0080,0x0001,Exists,sky130_fd_sc_hd__and4b_1,False,HD has it,1688,6,3.01,2,0,10,two gates + nand2/nor2,!(D|!(A&(B&C))),7,8.7584,14991.81,207.63,66,105,338,209,920,50
+,0xAAA8,0x01FF,0x007F,Exists,sky130_fd_sc_hd__o31a_1,False,HD has it,496,6,3.0,2,1,10,complex gate + output inverter,!(!(A&(B|(C|D)))),7,8.7584,4486.7,142.54,52,64,79,7,288,6
+,0x01FF,0x01FF,0x007F,Exists,sky130_fd_sc_hd__o31ai_1,False,HD has it,8,4,5.0,1,0,8,one complex gate,!(D&(A|(B|C))),6,7.5072,117.29,57.23,0,1,3,2,2,0
+,0x0357,0x0357,0x0357,Exists,sky130_fd_sc_hd__o22ai_1,False,HD has it,1,1,7.0,1,0,8,one complex gate,!((A|D)&(B|C)),6,7.5072,21.55,14.04,0,0,1,0,0,0
+,0xEAAA,0x007F,0x007F,Exists,sky130_fd_sc_hd__a31o_1,False,HD has it,2,2,4.5,2,1,10,complex gate + output inverter,!(!(A|(B&(C&D)))),7,8.7584,26.87,9.36,0,0,1,0,1,0
+,0xEAC0,0x0777,0x0357,Exists,sky130_fd_sc_hd__a22o_1,False,HD has it,1,1,4.0,2,1,10,complex gate + output inverter,!(!((A&D)|(B&C))),7,8.7584,12.31,3.55,0,0,1,0,0,0
+,0xFEEE,0x0007,0x0007,Exists,sky130_fd_sc_hd__a211o_1,False,HD has it,1,1,4.0,2,1,10,complex gate + output inverter,!(!(A|(B|(C&D)))),7,8.7584,12.31,3.55,0,0,1,0,0,0
+,0x8000,0x7FFF,0x0001,Exists,sky130_fd_sc_hd__and4_1,False,HD has it,1532,6,3.0,2,0,12,two gates + nand2/nor2,!(!A|!(B&(C&D))),8,10.0096,14016.85,-1317.86,9,53,217,215,699,339
+,0x0001,0x0001,0x0001,Exists,sky130_fd_sc_hd__nor4_1,False,HD has it,830,6,3.0,3,1,14,two-level + output inverter,!((C) | (D) | (A) | (B)),9,11.2608,7976.58,-1369.89,33,69,150,18,284,276
+,0x0002,0x0002,0x0001,Exists,sky130_fd_sc_hd__nor4b_1,False,HD has it,989,6,3.01,3,1,12,two gates + nand2/nor2 + output inverter,!!(A&!(B|(C|D))),9,11.2608,8920.56,-2216.37,59,79,274,122,395,60
+,0x0008,0x0008,0x0001,Exists,sky130_fd_sc_hd__and4bb_1,False,HD has it,1993,6,3.02,3,1,12,two gates + nand2/nor2,!(C|!(A&(B&!D))),9,11.2608,18484.87,-3957.9,97,173,381,133,889,320

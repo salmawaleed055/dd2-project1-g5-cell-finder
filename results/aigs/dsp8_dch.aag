@@ -1,4 +1,4 @@
-aag 1387 22 72 26 1293
+aag 1387 22 72 0 1293 26
 2
 4
 6
@@ -1414,5 +1414,5 @@ aag 1387 22 72 26 1293
 2774 172 5
 c
 build/aigs/dsp8_orig
-This file was written by ABC on Tue Oct 27 20:29:01 2026
+This file was written by ABC on Sat Oct 31 10:47:06 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger

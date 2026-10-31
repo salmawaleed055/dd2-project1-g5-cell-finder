@@ -85,6 +85,13 @@ def parse_aag(filepath: str) -> AIG:
     aig.num_latches = int(header[3])
     aig.num_outputs = int(header[4])
     aig.num_ands = int(header[5])
+    # AIGER 1.9 adds B (bad-state), C, J, F counts.  Some ABC builds write a
+    # design's outputs as bad-state properties (header "aag M I L 0 A B");
+    # they are read as outputs.  C, J and F sections are not supported.
+    extra = [int(x) for x in header[6:]]
+    num_bad = extra[0] if extra else 0
+    if any(extra[1:]):
+        raise ValueError(f"{filepath}: AIGER constraints/justice/fairness are not supported")
     line_idx += 1
 
     # Inputs: one lit per line (lit = 2 * var)
@@ -106,6 +113,12 @@ def parse_aag(filepath: str) -> AIG:
         lit = int(lines[line_idx].strip())
         aig.outputs.append(lit)
         line_idx += 1
+
+    # Bad-state properties (AIGER 1.9), read as outputs
+    for _ in range(num_bad):
+        aig.outputs.append(int(lines[line_idx].strip()))
+        line_idx += 1
+    aig.num_outputs += num_bad
 
     # AND gates: lhs rhs0 rhs1
     for _ in range(aig.num_ands):

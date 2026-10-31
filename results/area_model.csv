@@ -1,0 +1,62 @@
+cell,inputs,transistors,stages,construction,sites,area_um2,predicted_sites,error_sites
+sky130_fd_sc_hd__a211o_1,4,10,2,complex gate + output inverter,7,8.758,6.802,-0.198
+sky130_fd_sc_hd__a211oi_1,4,8,1,one complex gate,6,7.507,5.592,-0.408
+sky130_fd_sc_hd__a21bo_1,3,8,2,two gates + nand2/nor2,8,10.01,5.9,-2.1
+sky130_fd_sc_hd__a21boi_1,3,8,2,one complex gate,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__a21o_1,3,8,2,complex gate + output inverter,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__a21oi_1,3,6,1,one complex gate,4,5.005,4.69,0.69
+sky130_fd_sc_hd__a22o_1,4,10,2,complex gate + output inverter,7,8.758,6.802,-0.198
+sky130_fd_sc_hd__a22oi_1,4,8,1,one complex gate,6,7.507,5.592,-0.408
+sky130_fd_sc_hd__a2bb2o_1,4,12,2,one complex gate,8,10.01,7.704,-0.296
+sky130_fd_sc_hd__a2bb2oi_1,4,12,2,one complex gate,7,8.758,7.704,0.704
+sky130_fd_sc_hd__a31o_1,4,10,2,complex gate + output inverter,7,8.758,6.802,-0.198
+sky130_fd_sc_hd__a31oi_1,4,8,1,one complex gate,5,6.256,5.592,0.592
+sky130_fd_sc_hd__and2_1,2,6,2,complex gate + output inverter,5,6.256,4.999,-0.001
+sky130_fd_sc_hd__and2b_1,2,6,2,one complex gate,6,7.507,4.999,-1.001
+sky130_fd_sc_hd__and3_1,3,8,2,complex gate + output inverter,5,6.256,5.9,0.9
+sky130_fd_sc_hd__and3b_1,3,8,2,two gates + nand2/nor2,7,8.758,5.9,-1.1
+sky130_fd_sc_hd__and4_1,4,12,2,two gates + nand2/nor2,7,8.758,7.704,0.704
+sky130_fd_sc_hd__and4b_1,4,10,2,two gates + nand2/nor2,8,10.01,6.802,-1.198
+sky130_fd_sc_hd__and4bb_1,4,12,3,two gates + nand2/nor2,10,12.512,8.012,-1.988
+sky130_fd_sc_hd__buf_1,1,4,2,one complex gate,3,3.754,4.097,1.097
+sky130_fd_sc_hd__inv_1,1,2,1,one complex gate,3,3.754,2.887,-0.113
+sky130_fd_sc_hd__maj3_1,3,12,2,complex gate + output inverter,8,10.01,7.704,-0.296
+sky130_fd_sc_hd__mux2_1,3,12,3,complex gate + output inverter,9,11.261,8.012,-0.988
+sky130_fd_sc_hd__mux2i_1,3,10,2,one complex gate,8,10.01,6.802,-1.198
+sky130_fd_sc_hd__nand2_1,2,4,1,one complex gate,3,3.754,3.788,0.788
+sky130_fd_sc_hd__nand2b_1,2,6,2,one complex gate,5,6.256,4.999,-0.001
+sky130_fd_sc_hd__nand3_1,3,6,1,one complex gate,4,5.005,4.69,0.69
+sky130_fd_sc_hd__nand3b_1,3,8,2,one complex gate,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__nand4_1,4,14,3,two gates + nand2/nor2 + output inverter,5,6.256,8.914,3.914
+sky130_fd_sc_hd__nand4b_1,4,12,3,two gates + nand2/nor2 + output inverter,7,8.758,8.012,1.012
+sky130_fd_sc_hd__nand4bb_1,4,12,3,two gates + nand2/nor2,9,11.261,8.012,-0.988
+sky130_fd_sc_hd__nor2_1,2,4,1,one complex gate,3,3.754,3.788,0.788
+sky130_fd_sc_hd__nor2b_1,2,6,2,one complex gate,5,6.256,4.999,-0.001
+sky130_fd_sc_hd__nor3_1,3,6,1,one complex gate,4,5.005,4.69,0.69
+sky130_fd_sc_hd__nor3b_1,3,8,2,one complex gate,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__nor4_1,4,14,3,two-level + output inverter,5,6.256,8.914,3.914
+sky130_fd_sc_hd__nor4b_1,4,12,3,two gates + nand2/nor2 + output inverter,7,8.758,8.012,1.012
+sky130_fd_sc_hd__nor4bb_1,4,12,3,two gates + nand2/nor2,8,10.01,8.012,0.012
+sky130_fd_sc_hd__o211a_1,4,10,2,complex gate + output inverter,8,10.01,6.802,-1.198
+sky130_fd_sc_hd__o211ai_1,4,8,1,one complex gate,6,7.507,5.592,-0.408
+sky130_fd_sc_hd__o21a_1,3,8,2,complex gate + output inverter,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__o21ai_1,3,6,1,one complex gate,4,5.005,4.69,0.69
+sky130_fd_sc_hd__o21ba_1,3,8,2,two gates + nand2/nor2,8,10.01,5.9,-2.1
+sky130_fd_sc_hd__o21bai_1,3,8,2,one complex gate,6,7.507,5.9,-0.1
+sky130_fd_sc_hd__o22a_1,4,10,2,complex gate + output inverter,7,8.758,6.802,-0.198
+sky130_fd_sc_hd__o22ai_1,4,8,1,one complex gate,5,6.256,5.592,0.592
+sky130_fd_sc_hd__o2bb2a_1,4,12,2,one complex gate,8,10.01,7.704,-0.296
+sky130_fd_sc_hd__o2bb2ai_1,4,12,2,one complex gate,7,8.758,7.704,0.704
+sky130_fd_sc_hd__o31a_1,4,10,2,complex gate + output inverter,7,8.758,6.802,-0.198
+sky130_fd_sc_hd__o31ai_1,4,8,1,one complex gate,6,7.507,5.592,-0.408
+sky130_fd_sc_hd__or2_1,2,6,2,complex gate + output inverter,5,6.256,4.999,-0.001
+sky130_fd_sc_hd__or2b_1,2,6,2,one complex gate,6,7.507,4.999,-1.001
+sky130_fd_sc_hd__or3_1,3,8,2,complex gate + output inverter,5,6.256,5.9,0.9
+sky130_fd_sc_hd__or3b_1,3,8,2,two gates + nand2/nor2,7,8.758,5.9,-1.1
+sky130_fd_sc_hd__or4_1,4,12,2,two-level,6,7.507,7.704,1.704
+sky130_fd_sc_hd__or4b_1,4,10,2,two gates + nand2/nor2,8,10.01,6.802,-1.198
+sky130_fd_sc_hd__or4bb_1,4,12,3,two gates + nand2/nor2,9,11.261,8.012,-0.988
+sky130_fd_sc_hd__xnor2_1,2,12,2,one complex gate,7,8.758,7.704,0.704
+sky130_fd_sc_hd__xnor3_1,3,34,3,two-level,18,22.522,17.931,-0.069
+sky130_fd_sc_hd__xor2_1,2,12,2,one complex gate,7,8.758,7.704,0.704
+sky130_fd_sc_hd__xor3_1,3,34,3,two-level,19,23.773,17.931,-1.069

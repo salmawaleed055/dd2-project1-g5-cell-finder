@@ -206,94 +206,11 @@ def cost_4inp_class(tt: int) -> Dict[str, object]:
     Section 4, Step 4: Cost a 4-input class by what building it would take:
     how many CMOS stages, how many inverters, and how many transistors,
     with at most 3 transistors in series in any stage.
+    The cost is that of the P-class representative, from src/cmos_cost.py.
     """
+    from src.cmos_cost import cmos_cost
     rep, _ = get_p_class(tt & 0xFFFF)
-    sp = synthesize_one_stage_4inp()
-    one_stage_3s = sp["one_stage_3s_12tx"]
-    one_stage_all = sp["one_stage_all"]
-    pos_tt_3s = sp["pos_tt_3s_best"]
-
-    # Case 1: Single static CMOS stage with <= 3 in series
-    pos_tt = (~rep) & 0xFFFF
-    if pos_tt in pos_tt_3s:
-        lits, n, p, expr = pos_tt_3s[pos_tt]
-        return {
-            "stages": 1,
-            "inverters": 0,
-            "transistors": 2 * lits,
-            "max_series": max(n, p),
-            "expression": expr
-        }
-    if rep in one_stage_3s:
-        lits, n, p, expr = one_stage_3s[rep]
-        return {
-            "stages": 1,
-            "inverters": 0,
-            "transistors": 2 * lits,
-            "max_series": max(n, p),
-            "expression": expr
-        }
-
-    # Case 2: 1-stage core + input/output inverters (2 stages, <= 3 in series per stage)
-    best_cost = None
-    for out_inv in (0, 1):
-        target_tt = rep if out_inv == 0 else ((~rep) & 0xFFFF)
-        target_pos = (~target_tt) & 0xFFFF
-        for neg_mask in range(16):
-            num_inp_inv = bin(neg_mask).count("1")
-            # Apply input negations
-            transformed = 0
-            for idx in range(16):
-                if (target_pos >> idx) & 1:
-                    transformed |= (1 << (idx ^ neg_mask))
-            if transformed in pos_tt_3s:
-                lits, n, p, expr = pos_tt_3s[transformed]
-                num_inv = num_inp_inv + out_inv
-                tx = 2 * lits + 2 * num_inv
-                stages = 1 + (1 if num_inp_inv > 0 else 0) + out_inv
-                cand = (tx, stages, num_inv, max(n, p), expr)
-                if best_cost is None or cand < best_cost:
-                    best_cost = cand
-
-    if best_cost is not None:
-        tx, stages, num_inv, max_s, expr = best_cost
-        return {
-            "stages": stages,
-            "inverters": num_inv,
-            "transistors": tx,
-            "max_series": max_s,
-            "expression": expr
-        }
-
-    # Case 3: Multi-stage decomposition (2-level logic decomposed into stages with <= 3 in series)
-    # Determine minimum SOP Cubes of rep or ~rep
-    vars_masks = [0xAAAA, 0xCCCC, 0xF0F0, 0xFF00]
-    best_multi = None
-    for out_inv in (0, 1):
-        f_tt = rep if out_inv == 0 else ((~rep) & 0xFFFF)
-        # Count essential input inversions and prime implicants
-        minterms = [i for i in range(16) if (f_tt >> i) & 1]
-        if not minterms:
-            continue
-        # Estimate decomposed 2-stage / 3-stage CMOS cost with <= 3 series limit
-        num_terms = min(len(minterms), 16 - len(minterms))
-        # Each 4-input term with >3 literals splits into a 2-input gate + 3-input stage
-        inp_invs = min(4, max(1, num_terms))
-        core_lits = max(4, min(10, num_terms * 2 + 2))
-        stages = 2 + out_inv
-        tx = 2 * core_lits + 2 * inp_invs + 2 * out_inv
-        cand = (tx, stages, inp_invs + out_inv)
-        if best_multi is None or cand < best_multi:
-            best_multi = cand
-
-    tx, stages, invs = best_multi if best_multi else (20, 3, 2)
-    return {
-        "stages": stages,
-        "inverters": invs,
-        "transistors": tx,
-        "max_series": 3,
-        "expression": f"tt_0x{rep:04X}"
-    }
+    return dict(cmos_cost(rep))
 
 
 class RedundancyChecker:

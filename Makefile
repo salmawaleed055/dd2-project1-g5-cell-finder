@@ -35,14 +35,16 @@ test:             ## run every test, including the broken cases in tests/broken/
 	$(PYTHON) tests/test_aig.py
 	$(PYTHON) tests/test_cuts.py
 	$(PYTHON) tests/test_redundancy.py
+	$(PYTHON) tests/test_cp2.py
 	@echo "=== Running Test Suite: Deliberately Broken Cases ==="
 	$(PYTHON) tests/broken/test_broken_cut_tt.py
 	$(PYTHON) tests/broken/test_broken_redundancy.py
 	$(PYTHON) tests/broken/test_broken_liberty.py
 	$(PYTHON) tests/broken/test_broken_cec.py
+	$(PYTHON) tests/broken/test_broken_cp2.py
 	@echo "All tests passed successfully (including all broken-case checks)."
 
-all:              ## run the whole Milestone 1 flow
+all:              ## run the whole flow (Milestones 1 and 2)
 	@echo "=== Step 1: Synthesizing Designs to AIG and Restructuring with ABC ==="
 	$(PYTHON) src/run_step.py 1
 	@echo "=== Steps 2, 3 & 4: Cut Enumeration, 100% Simulation Check, Classification & Costing ==="
@@ -53,7 +55,17 @@ all:              ## run the whole Milestone 1 flow
 	$(PYTHON) src/run_step.py table1
 	@echo "=== Generating HD Library Class Table ==="
 	$(PYTHON) src/run_step.py hd_classes
-	@echo "=== Milestone 1 Flow Complete ==="
+	@echo "=== Step 6: Area Model Fitted to HD x1 Cells ==="
+	$(PYTHON) src/run_step.py 6
+	@echo "=== Step 9 (baseline): Mapping on hd_reduced.lib with cec ==="
+	$(PYTHON) src/run_step.py 9b
+	@echo "=== Step 7: Candidates Costed, Checked Against HD and Ranked ==="
+	$(PYTHON) src/run_step.py 7
+	@echo "=== Step 8: Cell Requests and Extended Liberty ==="
+	$(PYTHON) src/run_step.py 8
+	@echo "=== Step 9: Mapping with New Cells, cec, Table 5 (estimated areas) ==="
+	$(PYTHON) src/run_step.py 9
+	@echo "=== Flow Complete (Milestones 1 and 2) ==="
 	@echo "All deliverables generated in results/:"
 	@ls -la results/
 

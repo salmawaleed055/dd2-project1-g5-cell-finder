@@ -1,4 +1,4 @@
-aig 5602 30 696 83 4876
+aig 5602 30 696 0 4876 83 0
 2937 62
 2945 64
 2953 66
@@ -916,5 +916,5 @@ aig 5602 30 696 83 4876
 ÒDCÎKŒBÌKÄAÊKÈK"ş@&¶@'ÆK+ÄK.ò?˜Ä/ÃFõKòK
 „EÂCğK¾BîKöAìKêK"°A&è@'èK,¤@-æK–ø/õF—L¶E	”LôC’LğBL¨BLŒL"âA&šA'ŠL,Ö@-ˆLc
 build/aigs/risc8_orig 
-This file was written by ABC on Tue Oct 27 20:29:05 2026
+This file was written by ABC on Sat Oct 31 10:47:12 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger
