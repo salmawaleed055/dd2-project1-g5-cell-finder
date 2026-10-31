@@ -1,0 +1,6 @@
+======== ABC command line "dsec build/map/risc8_baseline_A_gold.aig build/map/risc8_baseline_A_gate.aig"
+Warning: 1392 registers in this network have don't-care init values.
+The don't-care are assumed to be 0. The result may not verify.
+Use command "print_latch" to see the init values of registers.
+Use command "zero" to convert or "init" to change the values.
+Networks are equivalent.  Time =     2.64 sec

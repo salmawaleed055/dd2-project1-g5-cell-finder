@@ -1,4 +1,4 @@
-aag 941 10 82 13 849
+aag 941 10 82 0 849 13
 2
 4
 6
@@ -955,5 +955,5 @@ aag 941 10 82 13 849
 1882 1881 1879
 c
 build/aigs/cpu8_orig
-This file was written by ABC on Tue Oct 27 20:29:00 2026
+This file was written by ABC on Sat Oct 31 10:47:05 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger

@@ -1,0 +1,74 @@
+{
+  "cpu8": {
+    "A": {
+      "area": 4221.5488,
+      "comb_area": 2579.9744
+    },
+    "B": {
+      "area": 4259.0848,
+      "comb_area": 2617.5104
+    },
+    "best_script": "A",
+    "best_comb_area": 2579.9744
+  },
+  "dsp8": {
+    "A": {
+      "area": 5795.5584,
+      "comb_area": 4354.176
+    },
+    "B": {
+      "area": 6040.7936,
+      "comb_area": 4599.4112
+    },
+    "best_script": "A",
+    "best_comb_area": 4354.176
+  },
+  "arlet6502": {
+    "A": {
+      "area": 9330.1984,
+      "comb_area": 6436.1728
+    },
+    "B": {
+      "area": 9572.9312,
+      "comb_area": 6678.9056
+    },
+    "best_script": "A",
+    "best_comb_area": 6436.1728
+  },
+  "uart_apb": {
+    "A": {
+      "area": 12719.6992,
+      "comb_area": 4453.0208
+    },
+    "B": {
+      "area": 13057.5232,
+      "comb_area": 4790.8448
+    },
+    "best_script": "A",
+    "best_comb_area": 4453.0208
+  },
+  "risc8": {
+    "A": {
+      "area": 28146.9952,
+      "comb_area": 14213.632
+    },
+    "B": {
+      "area": 28133.232,
+      "comb_area": 14199.8688
+    },
+    "best_script": "B",
+    "best_comb_area": 14199.8688
+  },
+  "fir10": {
+    "A": {
+      "area": 26494.16,
+      "comb_area": 22970.7808
+    },
+    "B": {
+      "area": 29015.328,
+      "comb_area": 25491.9488
+    },
+    "best_script": "A",
+    "best_comb_area": 22970.7808
+  }
+}

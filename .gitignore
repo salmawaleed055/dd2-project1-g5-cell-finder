@@ -7,3 +7,9 @@ build/
 __pycache__/
 *.pyc
 # never commit files over 50 MB (overview, section 5.1)
+# files the test suite writes
+results/netlists/*_test_*
+results/netlists/*_brk_*
+results/logs/*_test_*
+results/logs/*_brk_*
+.DS_Store

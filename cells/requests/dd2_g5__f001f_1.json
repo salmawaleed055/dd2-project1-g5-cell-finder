@@ -1,0 +1,15 @@
+{
+  "request_id": "G5-003",
+  "name": "dd2_g5__f001f_1",
+  "inputs": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "output": "Y",
+  "expression": "!(D|(C&(A|B)))",
+  "truth_table": "0x001F",
+  "sizing": "hd",
+  "estimated_area_um2": 7.5072
+}

@@ -266,6 +266,10 @@ if __name__ == "__main__":
     elif cmd == "hd_classes":
         hdc = build_hd_class_table()
         write_hd_class_reports(hdc)
+    elif cmd in ("6", "7", "8", "9", "9b"):
+        from src import cp2_flow
+        {"6": cp2_flow.step_6, "7": cp2_flow.step_7, "8": cp2_flow.step_8,
+         "9": cp2_flow.step_9, "9b": cp2_flow.step_9_baseline}[cmd]()
     elif cmd == "demo":
         target = sys.argv[2] if len(sys.argv) > 2 else "cpu8"
         run_demo(target)

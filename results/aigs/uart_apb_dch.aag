@@ -1,4 +1,4 @@
-aag 2137 37 330 69 1770
+aag 2137 37 330 0 1770 69
 2
 4
 6
@@ -2207,5 +2207,5 @@ aag 2137 37 330 69 1770
 4274 4272 4271
 c
 build/aigs/uart_apb_orig
-This file was written by ABC on Tue Oct 27 20:29:03 2026
+This file was written by ABC on Sat Oct 31 10:47:08 2026
 For information about AIGER format, refer to http://fmv.jku.at/aiger

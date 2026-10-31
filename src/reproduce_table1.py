@@ -130,8 +130,18 @@ def write_table1_reports(results: List[Dict], csv_path: str = "results/table1.cs
                 f"{r['ref_B_usable']:,.1f} | {r['ref_B_reduced']:,.1f} |\n"
             )
 
+        worst = max(max(abs(r["diff_A_pct"]), abs(r["diff_B_pct"])) for r in results)
+        over = [f"{r['design']} {s}" for r in results for s in ("A", "B")
+                if abs(r[f"diff_{s}_pct"]) > 0.5]
         f.write("\n> [!NOTE]\n")
-        f.write("> Across all six required designs, the reduced HD library (`hd_reduced.lib`, 189 cells) costs at most **0.14%** in area compared to the usable HD library (`hd_usable.lib`, 307 cells), well within the handout's $\\le 0.5\\%$ threshold. This confirms that drive reduction does not penalize baseline area and establishes `hd_reduced.lib` as a clean baseline.\n")
+        f.write(f"> Largest difference between the reduced (189 cells) and usable (307 cells) library: "
+                f"**{worst:.2f}%** (handout threshold: 0.5%).")
+        if over:
+            f.write(f" Above the threshold: {', '.join(over)}.\n")
+        else:
+            f.write(" Every design and script is within the threshold.\n")
+        with open(os.path.join(os.path.dirname(md_path), "table1_versions.txt"), "w") as v:
+            v.write(runner.run_cmd(["yosys", "-V"]).stdout)
 
 
 if __name__ == "__main__":
