@@ -4,7 +4,7 @@ CSCE 3304 Digital Design II - Fall 2026
 Milestone 2 (Checkpoint 2, Tag `cp2`)
 
 ## 1. Group
-Salma Elmarakby (900232658), Mikhael Khalil (<student ID>), Marina Mikhael (<student ID>) · Option 2 · AI used as a development aid
+Salma Elmarakby (900232658), Mikhael Khalil (900232633), Marina Mikhael (900233146) · Option 2 · AI used as a development aid
 
 ## 2. Quick start
 Tools: Yosys 0.70+190 (with bundled ABC) for the numbers committed in `results/` (`results/table1_versions.txt`), Icarus Verilog 13.0, Python 3.11+. A rerun on Yosys 0.70+201 gives different areas: see Limitations.
