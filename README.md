@@ -4,16 +4,16 @@ CSCE 3304 Digital Design II - Fall 2026
 Milestone 2 (Checkpoint 2, Tag `cp2`)
 
 ## 1. Group
-Salma Elmarakby, Mikhael Khalil, Marina Mikhael · Option 2 · AI used as a development aid
+Salma Elmarakby (900232658), Mikhael Khalil (<student ID>), Marina Mikhael (<student ID>) · Option 2 · AI used as a development aid
 
 ## 2. Quick start
-Tools: Yosys 0.70+201 (with bundled ABC), Icarus Verilog 13.0, Python 3.11+
+Tools: Yosys 0.70+190 (with bundled ABC) for the numbers committed in `results/` (`results/table1_versions.txt`), Icarus Verilog 13.0, Python 3.11+. A rerun on Yosys 0.70+201 gives different areas: see Limitations.
 
 ```bash
 make setup     # < 1 min: creates directories and links PDK and given files
 make check     # < 1 min: verifies tool versions and required library availability
 make test      # < 1 min: runs unit tests, simulation cut verifier, Table 4 self-test, and broken cases
-make all       # ~ 6 min: Milestone 1 flow, then area model, ranking, extended Liberty, mapping with cec, Table 5
+make all       # ~ 6 min: Milestone 1 flow, then area model, ranking, extended Liberty, mapping with dsec, Table 5
 ```
 
 ## 3. What the tool does
@@ -23,15 +23,19 @@ The tool operates in structured, reproducible steps:
 2. Enumerates all non-dominated K-feasible cuts ($K \le 4$) in topological order, computes exact 16-bit truth tables, and exhaustively verifies 100% of cuts by gate-level simulation across all $2^k$ input valuations.
 3. Classifies truth tables into permutation + output inversion equivalence classes (P+$N_{\text{out}}$ classes), input permutation classes (P-classes), and NPN classes.
 4. Costs candidate classes by CMOS stage count, inverter count, and transistor count (with at most 3 transistors in series in any stage).
-5. Checks candidates against the full HD library, categorizing them into Table 3 redundancy classes (`Exists`, `Exists with an inverter`, `Contained`, `New`), and verifies the checker against all 264 combinational HD cells and all 9 reference counts of Table 4.
+5. Checks candidates against `hd_usable.lib`, categorizing them into Table 3 redundancy classes (`Exists`, `Exists with an inverter`, `Contained`, `New`), and verifies the checker against all 264 combinational HD cells and all 9 reference counts of Table 4. `src/check_full_hd.py` shows that the full HD Liberty gives the same classes (`results/full_hd_check.md`).
+6. Fits an area model to HD's x1 cells and reports its error.
+7. Ranks the candidates by estimated saving.
+8. Writes a cell request for each of the top candidates and the extended Liberty file.
+9. Maps every design with and without the new cells, using scripts A and B, checks each mapping with ABC `dsec`, and writes Table 5.
 
 ## 4. Commands
 | Command | Input | Output |
 |---|---|---|
 | `make setup` | None | Workspace directories, links to `pdk` and `given/` |
-| `make check` | Tool paths, PDK | Tool versions and library sanity validation |
+| `make check` | Tool paths, `given/` libraries | Tool versions and library sanity validation (does not check the PDK yet, see Limitations) |
 | `make test` | `tests/` and `tests/broken/` | Regression test results, broken case rejection checks |
-| `make all` | Benchmark designs in `given/designs/` | Complete Milestone 1 outputs in `results/` and `build/aigs/` |
+| `make all` | Benchmark designs in `given/designs/` | Complete Milestone 1 and 2 outputs in `results/`, `libs/`, `cells/requests/` and `build/aigs/` |
 | `make demo IN=<design>` | Design name, `.v` file, or `.aag` file | AIG extraction, cut enumeration, 100% simulation check, classification, and costing |
 | `python src/run_step.py 6` | `given/hd_usable.lib` | `results/area_model.md/.csv` (area model fitted to HD x1 cells) |
 | `python src/run_step.py 9b` | Designs, `given/hd_reduced.lib` | Baseline mappings + dsec, `results/table5_baseline.json`, `results/netlists/`, `results/logs/` |
@@ -47,16 +51,17 @@ The tool operates in structured, reproducible steps:
 | `python src/run_step.py cut_stats` | `build/aigs/*.aag` | `results/cut_stats.md`, `results/cut_stats.csv`, `results/redundancy_report.md` |
 | `python src/run_step.py table1` | Designs & Liberty libs | `results/table1.md`, `results/table1.csv` |
 | `python src/run_step.py hd_classes` | `given/hd_usable.lib` | `results/hd_classes.md`, `results/hd_classes.csv` |
+| `python src/check_full_hd.py` | `given/hd_usable.lib`, full HD Liberty from `PDK_ROOT` | `results/full_hd_check.md` (not part of `make all`) |
 
 ## 5. Layout
 - `src/`: Core Python tool implementation (AIG parser, cut enumerator, classification, CMOS cost & redundancy checker, runners)
-- `tests/`: Automated unit and integration tests (`test_aig.py`, `test_cuts.py`, `test_redundancy.py`)
+- `tests/`: Automated unit and integration tests (`test_aig.py`, `test_cuts.py`, `test_redundancy.py`, `test_cp2.py`)
 - `tests/broken/`: Deliberately broken test cases that the check scripts must reject
 - `results/`: Output markdown and CSV deliverables for all required milestone tables, logs, and extracted AIGs (`results/aigs/`)
 - `build/`: Working synthesis and restructured AIGER files (`_orig.aag`, `_dch.aag`) and temporary scripts
 - `libs/`: Extended Liberty files (for Checkpoints 2 and 3)
 - `cells/`: Cell response and request definitions
-- `ai/`: AI use logs (`use_log.md`) and caught mistakes logs (`mistakes_log.md`)
+- `ai/`: AI use logs (`use_log.md`, `use_log_cp2.md`) and caught mistakes logs (`mistakes_log.md`, `mistakes_log_cp2.md`)
 - `report/`: Technical report and AI report source files and PDFs
 
 ## 6. Results
@@ -69,7 +74,7 @@ The tool operates in structured, reproducible steps:
 
 - **Area model (CP2)**: `results/area_model.md` (sites = 1.985 + 0.451·T + 0.308·(stages−1); mean error 0.77 sites, 12.9%, over 61 HD x1 cells)
 - **Ranked candidates (CP2)**: `results/candidates.md` (393 classes from the restructured AIGs only, which both mapping scripts start from; 375 kept after Table 3 rules, 251 with positive estimated saving; top 10 in the Liberty)
-- **First Table 5, estimated areas (CP2)**: `results/table5_estimated.md` (24 mappings, all pass ABC `dsec`; best-of-both total −0.34%)
+- **First Table 5, estimated areas (CP2)**: `results/table5_estimated.md` (24 mappings, all pass ABC `dsec`; best-of-both total reduction +0.34% on Yosys 0.70+190, which does not hold across builds: +0.05% on 0.70+201, see Limitations)
 
 ## 7. Tests
 `make test` executes comprehensive automated tests and verifies all broken cases:
@@ -85,11 +90,21 @@ The tool operates in structured, reproducible steps:
 
 ## 8. AI use
 - Rules and constraints: `AGENTS.md`
-- AI prompts, tool assistance, and verification: `ai/use_log.md`
-- Caught errors and analysis: `ai/mistakes_log.md`
-- Detailed retrospective report: `report/ai_report.pdf`
+- AI prompts, tool assistance, and verification: `ai/use_log.md`, `ai/use_log_cp2.md`
+- Caught errors and analysis: `ai/mistakes_log.md`, `ai/mistakes_log_cp2.md`
+- Detailed retrospective report: `report/ai_report.pdf` (not written yet, due at tag `final`)
 
 ## 9. Limitations
 - Checkpoint 2 uses estimated areas; real cells (step 11), the greedy final set (step 10), the cell-by-cell curve and the 30% experiment are Checkpoint 3.
 - Yosys 0.70 writes some mapped cell pins under internal signal names; `src/netlist_repair.py` repairs them and `dsec` checks every repaired netlist.
 - On Yosys 0.70+190, script A on the reduced library costs up to 4.49% more than on the usable library (`results/table1.md`); script B stays within 0.15%.
+- Areas depend on the Yosys build. A clean rerun of tag `cp2` on Yosys 0.70+201 (`results/rerun_yosys_0.70_201/`) gives a best-of-both total reduction of +0.05% instead of +0.34%, a largest usable-to-reduced difference of 0.15% instead of 4.49%, and replaces cell `0x0009` with `0x28BE`. Three repeated runs of cpu8, fir10 and risc8 on one machine gave identical areas, so this is a difference between builds or platforms, not randomness. Treat the Table 5 reductions as being within this variation.
+- `make check` does not verify the PDK, although overview section 5.1 asks for it, and it treats Icarus Verilog as optional.
+- `make demo` runs steps 1 to 4 only. SPM and the multiplier are not mapped yet, and the flow has no gate-level testbench runs yet.
+
+## 10. Third-party files
+| File | Source | Licence |
+|---|---|---|
+| `libs/hd_extended_est.lib` (contains `given/hd_reduced.lib`) | Course student pack, built from the SkyWater `sky130_fd_sc_hd` Liberty | Apache-2.0 for the SkyWater library |
+| `results/netlists/`, `results/aigs/` (generated from `given/designs/`, which are not committed) | Course student pack, from the sift repository | Each design's own notice (BSD, GPL-2, LGPL-2.1 or the author's own, per handout section 3) |
+| `docs/interface/`, starting `Makefile`, README and log layouts | Course student pack, `repo_template/` | Course material |

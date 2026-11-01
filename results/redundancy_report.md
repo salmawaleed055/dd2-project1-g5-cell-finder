@@ -1,6 +1,6 @@
 # Candidate Redundancy Report Against SkyWater 130nm HD
 
-Classification of all **497 distinct 4-input P-classes** discovered across the 6 required benchmark designs against the full `sky130_fd_sc_hd` library (Table 3 classes).
+Classification of all **497 distinct 4-input P-classes** discovered across the 6 required benchmark designs against `hd_usable.lib` (Table 3 classes; `results/full_hd_check.md` shows the full HD Liberty gives the same classes).
 
 ## 1. Summary of Discovered 4-Input Candidate Classes
 

@@ -7,6 +7,11 @@ Usage:
   python src/run_step.py 3 [file]        # Step 3: Classify truth tables into P+N_out, P, and NPN classes
   python src/run_step.py 4 [file]        # Step 4: Cost classes by CMOS stages, inverters, and transistors
   python src/run_step.py 5               # Step 5: Check redundancy against HD & Table 4 self-test
+  python src/run_step.py 6               # Step 6: Area model fitted to HD x1 cells
+  python src/run_step.py 9b              # Step 9 (baseline): Map on hd_reduced.lib with the equivalence check
+  python src/run_step.py 7               # Step 7: Cost, check against HD and rank candidates (needs 9b)
+  python src/run_step.py 8               # Step 8: Cell requests and extended Liberty
+  python src/run_step.py 9               # Step 9: Map with new cells, equivalence check, Table 5
   python src/run_step.py table1          # Reproduce Table 1
   python src/run_step.py hd_classes      # Generate HD class table
   python src/run_step.py cut_stats       # Generate full cut/class/redundancy reports across all 6 designs

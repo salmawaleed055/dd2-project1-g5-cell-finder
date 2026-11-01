@@ -266,7 +266,7 @@ def write_cut_stats_reports(
 
     with open(redundancy_md, 'w', encoding='utf-8') as f:
         f.write("# Candidate Redundancy Report Against SkyWater 130nm HD\n\n")
-        f.write(f"Classification of all **{len(red_rows)} distinct 4-input P-classes** discovered across the 6 required benchmark designs against the full `sky130_fd_sc_hd` library (Table 3 classes).\n\n")
+        f.write(f"Classification of all **{len(red_rows)} distinct 4-input P-classes** discovered across the 6 required benchmark designs against `hd_usable.lib` (Table 3 classes; `results/full_hd_check.md` shows the full HD Liberty gives the same classes).\n\n")
         f.write("## 1. Summary of Discovered 4-Input Candidate Classes\n\n")
         f.write("| Redundancy Class (Table 3) | Discovered P-Classes | Universe Total (Table 4) | Action |\n")
         f.write("|---|---|---|---|\n")
