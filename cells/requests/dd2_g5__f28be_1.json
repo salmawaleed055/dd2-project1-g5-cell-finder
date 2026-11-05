@@ -1,0 +1,15 @@
+{
+  "request_id": "G5-010",
+  "name": "dd2_g5__f28be_1",
+  "inputs": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "output": "Y",
+  "expression": "!((!A&D)|((!A|D)&((B&C)|(!B&!C))))",
+  "truth_table": "0x28BE",
+  "sizing": "hd",
+  "estimated_area_um2": 16.2656
+}

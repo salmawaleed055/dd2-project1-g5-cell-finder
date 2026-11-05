@@ -3,101 +3,106 @@
   "design": "cpu8",
   "library": "extended",
   "script": "A",
-  "area": 4150.2304,
+  "area": 4199.0272,
   "seq_area": 1641.5744,
-  "comb_area": 2508.656,
-  "new_cell_instances": 4,
+  "comb_area": 2557.4528,
+  "new_cell_instances": 1,
   "new_cells": {
-   "dd2_g5__f001f_1": 4
+   "dd2_g5__f001f_1": 1
   },
-  "repaired_pins": 4,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "cpu8",
   "library": "extended",
   "script": "B",
-  "area": 4247.824,
+  "area": 4256.5824,
   "seq_area": 1641.5744,
-  "comb_area": 2606.2496,
-  "new_cell_instances": 2,
+  "comb_area": 2615.008,
+  "new_cell_instances": 5,
   "new_cells": {
-   "dd2_g5__f001f_1": 2
+   "dd2_g5__f001f_1": 5
   },
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "dsp8",
   "library": "extended",
   "script": "A",
-  "area": 5865.6256,
+  "area": 5815.5776,
   "seq_area": 1441.3824,
-  "comb_area": 4424.2432,
-  "new_cell_instances": 6,
+  "comb_area": 4374.1952,
+  "new_cell_instances": 10,
   "new_cells": {
-   "dd2_g5__f001f_1": 6
+   "dd2_g5__f000b_1": 1,
+   "dd2_g5__f001f_1": 9
   },
-  "repaired_pins": 5,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "dsp8",
   "library": "extended",
   "script": "B",
-  "area": 6005.76,
+  "area": 5997.0016,
   "seq_area": 1441.3824,
-  "comb_area": 4564.3776,
-  "new_cell_instances": 20,
+  "comb_area": 4555.6192,
+  "new_cell_instances": 26,
   "new_cells": {
-   "dd2_g5__f000b_1": 2,
-   "dd2_g5__f001f_1": 17,
-   "dd2_g5__f011f_1": 1
+   "dd2_g5__f000b_1": 3,
+   "dd2_g5__f001f_1": 19,
+   "dd2_g5__f00eb_1": 1,
+   "dd2_g5__f011f_1": 2,
+   "dd2_g5__fa8fe_1": 1
   },
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "arlet6502",
   "library": "extended",
   "script": "A",
-  "area": 9305.1744,
+  "area": 9326.4448,
   "seq_area": 2894.0256,
-  "comb_area": 6411.1488,
+  "comb_area": 6432.4192,
   "new_cell_instances": 12,
   "new_cells": {
-   "dd2_g5__f001f_1": 12
+   "dd2_g5__f000b_1": 1,
+   "dd2_g5__f001f_1": 11
   },
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "arlet6502",
   "library": "extended",
   "script": "B",
-  "area": 9560.4192,
+  "area": 9561.6704,
   "seq_area": 2894.0256,
-  "comb_area": 6666.3936,
+  "comb_area": 6667.6448,
   "new_cell_instances": 11,
   "new_cells": {
    "dd2_g5__f001f_1": 5,
    "dd2_g5__f00eb_1": 6
   },
-  "repaired_pins": 11,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "uart_apb",
   "library": "extended",
   "script": "A",
-  "area": 12663.3952,
+  "area": 12640.8736,
   "seq_area": 8266.6784,
-  "comb_area": 4396.7168,
-  "new_cell_instances": 6,
+  "comb_area": 4374.1952,
+  "new_cell_instances": 4,
   "new_cells": {
-   "dd2_g5__f001f_1": 6
+   "dd2_g5__f000b_1": 1,
+   "dd2_g5__f001f_1": 3
   },
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -111,71 +116,71 @@
   "new_cells": {
    "dd2_g5__f001f_1": 4
   },
-  "repaired_pins": 7,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "risc8",
   "library": "extended",
   "script": "A",
-  "area": 27906.7648,
+  "area": 28150.7488,
   "seq_area": 13933.3632,
-  "comb_area": 13973.4016,
-  "new_cell_instances": 22,
+  "comb_area": 14217.3856,
+  "new_cell_instances": 17,
   "new_cells": {
-   "dd2_g5__f001f_1": 22
+   "dd2_g5__f000b_1": 3,
+   "dd2_g5__f001f_1": 14
   },
-  "repaired_pins": 7,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "risc8",
   "library": "extended",
   "script": "B",
-  "area": 28282.1248,
+  "area": 28277.12,
   "seq_area": 13933.3632,
-  "comb_area": 14348.7616,
-  "new_cell_instances": 60,
+  "comb_area": 14343.7568,
+  "new_cell_instances": 64,
   "new_cells": {
-   "dd2_g5__f000b_1": 15,
-   "dd2_g5__f001f_1": 44,
+   "dd2_g5__f000b_1": 16,
+   "dd2_g5__f001f_1": 47,
    "dd2_g5__f011f_1": 1
   },
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "fir10",
   "library": "extended",
   "script": "A",
-  "area": 26509.1744,
+  "area": 25428.1376,
   "seq_area": 3523.3792,
-  "comb_area": 22985.7952,
-  "new_cell_instances": 10,
+  "comb_area": 21904.7584,
+  "new_cell_instances": 12,
   "new_cells": {
-   "dd2_g5__f001f_1": 9,
-   "dd2_g5__f00eb_1": 1
+   "dd2_g5__f001f_1": 12
   },
-  "repaired_pins": 4,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "fir10",
   "library": "extended",
   "script": "B",
-  "area": 28587.4176,
+  "area": 28578.6592,
   "seq_area": 3523.3792,
-  "comb_area": 25064.0384,
-  "new_cell_instances": 205,
+  "comb_area": 25055.28,
+  "new_cell_instances": 212,
   "new_cells": {
-   "dd2_g5__f000b_1": 161,
-   "dd2_g5__f001f_1": 16,
-   "dd2_g5__f002b_1": 1,
-   "dd2_g5__f011f_1": 15,
-   "dd2_g5__f80a8_1": 1,
-   "dd2_g5__fa8fe_1": 11
+   "dd2_g5__f000b_1": 156,
+   "dd2_g5__f001f_1": 21,
+   "dd2_g5__f011f_1": 12,
+   "dd2_g5__f28be_1": 7,
+   "dd2_g5__f82eb_1": 3,
+   "dd2_g5__fa8fe_1": 13
   },
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  }
 ]

@@ -103,8 +103,10 @@ def write_requests(cells: List[Dict], out_dir: str = "cells/requests") -> List[s
     os.makedirs(out_dir, exist_ok=True)
     paths = []
     for i, c in enumerate(cells, 1):
+        # The id follows the candidate's rank, so it stays the same when the
+        # greedy selection writes the requests of its final set.
         req = {
-            "request_id": f"G5-{i:03d}",
+            "request_id": f"G5-{int(c.get('rank') or i):03d}",
             "name": c["name"],
             "inputs": list(NAMES),
             "output": "Y",
@@ -139,8 +141,26 @@ def cells_from_candidates(csv_path: str, top_n: int) -> List[Dict]:
             cells.append({"name": cell_name(tt), "tt": tt,
                           "function": liberty_function(tt, r["structure"]),
                           "area": float(r["est_area_um2"]), "stages": int(r["stages"]),
-                          "transistors": int(r["transistors"]), "p_class": r["p_class"]})
+                          "transistors": int(r["transistors"]), "p_class": r["p_class"],
+                          "rank": int(r["rank"]), "occurrences": int(r["occurrences"]),
+                          "est_saving_um2": float(r["est_saving_um2"])})
     return cells
+
+
+def verilog_models(cells: List[Dict], out_path: str) -> None:
+    """
+    Behavioural Verilog model of every new cell, from its Liberty function,
+    for the gate-level testbenches (the HD cells come from the PDK models).
+    """
+    lines = ["// Behavioural models of the new cells, generated from their Liberty functions."]
+    for c in cells:
+        expr = c["function"].replace("!", "~")
+        lines += [f"module {c['name']} (A, B, C, D, Y);",
+                  "  input A, B, C, D;", "  output Y;",
+                  f"  assign Y = {expr};", "endmodule"]
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write("\n".join(lines) + "\n")
 
 
 def verify_liberty_cells(lib_path: str, cells: List[Dict]) -> List[str]:

@@ -24,23 +24,24 @@ from src.redundancy import parse_hd_library, eval_cell_truth_table
 
 ROW_HEIGHT_UM = 2.72
 SITE_WIDTH_UM = 0.46
-SITE_AREA_UM2 = ROW_HEIGHT_UM * SITE_WIDTH_UM  # 1.2512 um2
+SITE_AREA_UM2 = ROW_HEIGHT_UM * SITE_WIDTH_UM
 
 
+# Expand a Liberty cell's truth table to 16 bits over inputs A..D.
 def tt16_of_cell(cell: Dict) -> int:
-    """16-bit truth table of a Liberty cell with at most 4 inputs (pins in order = A..D)."""
     pins = tuple(cell['inputs'])
     k = len(pins)
     t = eval_cell_truth_table(cell['function'], pins)
     return sum(1 << i for i in range(16) if (t >> (i & ((1 << k) - 1))) & 1)
 
 
+# Build the regression row of a cost: intercept, transistors and extra stages.
 def _features(cost: Dict) -> List[float]:
     return [1.0, float(cost['transistors']), float(max(0, cost['stages'] - 1))]
 
 
+# Solve the normal equations by Gauss-Jordan elimination with pivoting.
 def _least_squares(X: List[List[float]], y: List[float]) -> List[float]:
-    """Solves the normal equations (X^T X) b = X^T y by Gauss-Jordan elimination."""
     n = len(X[0])
     A = [[sum(r[i] * r[j] for r in X) for j in range(n)] + [sum(r[i] * yy for r, yy in zip(X, y))]
          for i in range(n)]
@@ -54,9 +55,9 @@ def _least_squares(X: List[List[float]], y: List[float]) -> List[float]:
     return [A[i][n] / A[i][i] for i in range(n)]
 
 
+# Width-in-sites model fitted to the x1 HD cells of at most 4 inputs.
 class AreaModel:
-    """Width-in-sites model fitted to HD x1 cells."""
-
+    # Cost each x1 library cell, fit the coefficients and store the per-cell errors.
     def __init__(self, lib_path: str = "given/hd_usable.lib"):
         self.rows: List[Dict] = []
         for c in parse_hd_library(lib_path):
@@ -79,17 +80,17 @@ class AreaModel:
             r['predicted_sites'] = sum(a * b for a, b in zip(self.coef, x))
             r['error_sites'] = r['predicted_sites'] - r['sites']
 
+    # Estimate a cost's width, rounded up to whole sites.
     def sites(self, cost: Dict) -> int:
-        """Estimated width in whole sites (rounded up)."""
         raw = sum(a * b for a, b in zip(self.coef, _features(cost)))
         return max(1, math.ceil(raw - 1e-9))
 
+    # Estimate a cost's area in um2 as a whole number of sites.
     def area(self, cost: Dict) -> float:
-        """Estimated area in um2."""
         return round(self.sites(cost) * SITE_AREA_UM2, 4)
 
+    # Report mean and max absolute error per stage group, in sites and percent.
     def error_summary(self) -> Dict[str, Dict[str, float]]:
-        """Mean and max absolute error, in sites and %, per group."""
         out = {}
         groups = {"single-stage": [r for r in self.rows if r['stages'] == 1],
                   "multi-stage": [r for r in self.rows if r['stages'] > 1],
@@ -103,6 +104,7 @@ class AreaModel:
                       "max_sites": max(errs), "mape_pct": sum(pct) / len(pct)}
         return out
 
+    # Write the fit to the CSV and Markdown reports.
     def write_report(self, csv_path: str = "results/area_model.csv",
                      md_path: str = "results/area_model.md") -> None:
         os.makedirs(os.path.dirname(csv_path), exist_ok=True)

@@ -1,0 +1,13 @@
+design,library,script,area_um2,new_cell_instances,new_cells,cec,testbench,gls
+spm,baseline,A,2869.0016,0,,pass,SPM_tb,pass
+spm,baseline,B,2907.7888,0,,pass,SPM_tb,pass
+spm,final_est,A,2869.0016,0,,pass,SPM_tb,pass
+spm,final_est,B,2907.7888,0,,pass,SPM_tb,pass
+mul,baseline,A,1737.9168,0,,pass,mul_tb,pass
+mul,baseline,A,1737.9168,0,,pass,mul_exhaustive_tb,pass
+mul,baseline,B,1964.384,0,,pass,mul_tb,pass
+mul,baseline,B,1964.384,0,,pass,mul_exhaustive_tb,pass
+mul,final_est,A,1734.1632,0,,pass,mul_tb,pass
+mul,final_est,A,1734.1632,0,,pass,mul_exhaustive_tb,pass
+mul,final_est,B,1911.8336,0,,pass,mul_tb,pass
+mul,final_est,B,1911.8336,0,,pass,mul_exhaustive_tb,pass

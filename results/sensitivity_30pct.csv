@@ -1,0 +1,13 @@
+design,script,area_um2,area_30pct_um2,change_pct,instances,instances_30pct,cec,library,cell
+cpu8,A,4205.2832,4193.8975,-0.271,0,11,pass,estimated areas,dd2_g5__f000b_1
+cpu8,B,4244.0704,4233.9359,-0.239,0,11,pass,estimated areas,dd2_g5__f000b_1
+dsp8,A,5846.8576,5684.4534,-2.778,0,78,pass,estimated areas,dd2_g5__f000b_1
+dsp8,B,6065.8176,5973.4802,-1.522,1,58,pass,estimated areas,dd2_g5__f000b_1
+arlet6502,A,9301.4208,9279.9014,-0.231,1,62,pass,estimated areas,dd2_g5__f000b_1
+arlet6502,B,9549.1584,9524.6356,-0.257,1,36,pass,estimated areas,dd2_g5__f000b_1
+uart_apb,A,12648.3808,12653.3862,0.04,1,30,pass,estimated areas,dd2_g5__f000b_1
+uart_apb,B,13063.7792,13067.2826,0.027,0,2,pass,estimated areas,dd2_g5__f000b_1
+risc8,A,28153.2512,28109.8377,-0.154,0,157,pass,estimated areas,dd2_g5__f000b_1
+risc8,B,28313.4048,27851.0939,-1.633,29,375,pass,estimated areas,dd2_g5__f000b_1
+fir10,A,25380.592,25341.305,-0.155,0,34,pass,estimated areas,dd2_g5__f000b_1
+fir10,B,28543.6256,28110.2134,-1.518,160,174,pass,estimated areas,dd2_g5__f000b_1

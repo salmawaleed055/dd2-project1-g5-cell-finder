@@ -45,17 +45,26 @@ WORK_DIR = "build/map"
 
 
 def map_design(name: str, top: str, lib: str, lib_tag: str, script: str,
-               check: bool = True) -> Dict:
-    """Maps one design on one library with one script, then checks it."""
-    for d in (NETLIST_DIR, LOG_DIR, WORK_DIR):
+               check: bool = True, src: Optional[str] = None, sv: bool = False,
+               netlist_dir: str = NETLIST_DIR, log_dir: str = LOG_DIR) -> Dict:
+    """
+    Maps one design on one library with one script, then checks it.
+    src is the Verilog source (default given/designs/<name>.v); a design made
+    of several files is given as a space-separated list.  With check=False
+    the reference netlist and the equivalence check are skipped (used by the
+    greedy selection, which only needs areas).
+    """
+    for d in (netlist_dir, log_dir, WORK_DIR):
         os.makedirs(d, exist_ok=True)
+    src = src or f"given/designs/{name}.v"
+    read = f"read_verilog {'-sv ' if sv else ''}{src}"
     tag = f"{name}_{lib_tag}_{script}"
     pre_v = f"{WORK_DIR}/{tag}_pre.v"
     raw_v = f"{WORK_DIR}/{tag}_raw.v"
-    net_v = f"{NETLIST_DIR}/{tag}.v"
-    log = f"{LOG_DIR}/{tag}_map.log"
+    net_v = f"{netlist_dir}/{tag}.v"
+    log = f"{log_dir}/{tag}_map.log"
     ys = (
-        f"read_verilog given/designs/{name}.v\n"
+        f"{read}\n"
         f"synth -flatten -top {top}\n"
         f"dfflibmap -liberty {lib}\n"
         f"abc -liberty {lib} -script {SCRIPTS[script]}\n"
@@ -69,11 +78,12 @@ def map_design(name: str, top: str, lib: str, lib_tag: str, script: str,
     # The reference for the equivalence check comes from a separate run with
     # the same synth and dfflibmap: writing a netlist inside the mapping run,
     # before abc, renames internal signals and changes ABC's result.
-    res = runner.run_cmd(["yosys", "-q", "-p",
-                          f"read_verilog given/designs/{name}.v; synth -flatten -top {top}; "
-                          f"dfflibmap -liberty {lib}; write_verilog -noattr {pre_v}"])
-    if res.returncode != 0:
-        raise RuntimeError(f"reference netlist of {tag} failed:\n{res.stderr[-2000:]}")
+    if check:
+        res = runner.run_cmd(["yosys", "-q", "-p",
+                              f"{read}; synth -flatten -top {top}; "
+                              f"dfflibmap -liberty {lib}; write_verilog -noattr {pre_v}"])
+        if res.returncode != 0:
+            raise RuntimeError(f"reference netlist of {tag} failed:\n{res.stderr[-2000:]}")
     with open(f"{log}.stat", 'r', encoding='utf-8') as f:
         stat = f.read()
     os.remove(f"{log}.stat")
@@ -102,23 +112,40 @@ def map_design(name: str, top: str, lib: str, lib_tag: str, script: str,
         netlist_to_aig(pre_v, top, lib, ff_v, ff_cells, gold)
         netlist_to_aig(net_v, top, lib, ff_v, ff_cells, gate)
         ok, out = run_cec(gold, gate)
-        with open(f"{LOG_DIR}/{tag}_cec.log", 'w', encoding='utf-8') as f:
+        with open(f"{log_dir}/{tag}_cec.log", 'w', encoding='utf-8') as f:
             f.write(out)
         row["cec"] = "pass" if ok else "FAIL"
     return row
 
 
-def map_all(lib: str, lib_tag: str, check: bool = True, jobs: int = 4) -> List[Dict]:
-    """Maps every required design with both scripts on one library."""
+def map_all(lib: str, lib_tag: str, check: bool = True, jobs: int = 4,
+            designs: Optional[List[Dict]] = None, netlist_dir: str = NETLIST_DIR,
+            log_dir: str = LOG_DIR, quiet: bool = False) -> List[Dict]:
+    """
+    Maps every design (default: the required ones) with both scripts on one
+    library.  A design record has name and top, and optionally src and sv.
+    """
     os.makedirs(WORK_DIR, exist_ok=True)
     write_ff_models(lib, f"{WORK_DIR}/ff_models_{lib_tag}.v")
-    tasks = [(d["name"], d["top"], lib, lib_tag, s, check) for d in DESIGNS for s in SCRIPTS]
+    tasks = [dict(name=d["name"], top=d["top"], lib=lib, lib_tag=lib_tag, script=s,
+                  check=check, src=d.get("src"), sv=d.get("sv", False),
+                  netlist_dir=netlist_dir, log_dir=log_dir)
+             for d in (designs or DESIGNS) for s in SCRIPTS]
     with ThreadPoolExecutor(max_workers=jobs) as ex:
-        rows = list(ex.map(lambda t: map_design(*t), tasks))
-    for r in rows:
-        print(f"  {r['design']:10s} {lib_tag:9s} script {r['script']}: {r['area']:10.2f} um2, "
-              f"{r['new_cell_instances']} new-cell instances, cec {r['cec']}")
+        rows = list(ex.map(lambda t: map_design(**t), tasks))
+    if not quiet:
+        for r in rows:
+            print(f"  {r['design']:10s} {lib_tag:9s} script {r['script']}: {r['area']:10.2f} um2, "
+                  f"{r['new_cell_instances']} new-cell instances, cec {r['cec']}")
     return rows
+
+
+def best_of_both(rows: List[Dict]) -> Dict[str, float]:
+    """{design: smaller area of scripts A and B} of a list of mapping rows."""
+    best: Dict[str, float] = {}
+    for r in rows:
+        best[r["design"]] = min(best.get(r["design"], float("inf")), r["area"])
+    return best
 
 
 def write_baseline(rows: List[Dict], path: str = "results/table5_baseline.json") -> None:
@@ -137,7 +164,9 @@ def write_baseline(rows: List[Dict], path: str = "results/table5_baseline.json")
 
 def write_table5(base: List[Dict], ext: List[Dict], cells: List[Dict], title: str,
                  csv_path: str = "results/table5_estimated.csv",
-                 md_path: str = "results/table5_estimated.md") -> None:
+                 md_path: str = "results/table5_estimated.md",
+                 lib_desc: str = "new cells with estimated areas (`libs/hd_extended_est.lib`)",
+                 area_label: str = "Est. area (um2)") -> None:
     """Writes Table 5 with the same-script and best-of-both reductions."""
     idx = {(r["design"], r["script"]): r for r in base}
     rows = []
@@ -169,7 +198,7 @@ def write_table5(base: List[Dict], ext: List[Dict], cells: List[Dict], title: st
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(f"# {title}\n\n")
         f.write(f"Baseline: `given/hd_reduced.lib` (189 cells). Extended: the baseline plus "
-                f"{len(cells)} new cells with estimated areas (`libs/hd_extended_est.lib`). "
+                f"{len(cells)} {lib_desc}. "
                 "Commands of section 2; equivalence by ABC `dsec` of every mapped netlist "
                 "against the design before ABC (logs in `results/logs/`).\n\n")
         f.write("| Design | Script | Baseline (um2) | With new cells (um2) | Reduction | "
@@ -185,7 +214,7 @@ def write_table5(base: List[Dict], ext: List[Dict], cells: List[Dict], title: st
         f.write(f"| **Total (required designs)** | **{tb:,.1f}** | **{te:,.1f}** | "
                 f"**{(tb - te) / tb * 100:+.2f}%** |\n\n")
         f.write("## New cells in the extended library\n\n")
-        f.write("| Cell | Truth table | Function | Est. area (um2) | Instances (A) | Instances (B) |\n"
+        f.write(f"| Cell | Truth table | Function | {area_label} | Instances (A) | Instances (B) |\n"
                 "|---|---|---|---|---|---|\n")
         for c in cells:
             na = sum(e["new_cells"].get(c["name"], 0) for e in ext if e["script"] == "A")

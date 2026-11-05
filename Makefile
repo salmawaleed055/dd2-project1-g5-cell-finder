@@ -36,15 +36,17 @@ test:             ## run every test, including the broken cases in tests/broken/
 	$(PYTHON) tests/test_cuts.py
 	$(PYTHON) tests/test_redundancy.py
 	$(PYTHON) tests/test_cp2.py
+	$(PYTHON) tests/test_final.py
 	@echo "=== Running Test Suite: Deliberately Broken Cases ==="
 	$(PYTHON) tests/broken/test_broken_cut_tt.py
 	$(PYTHON) tests/broken/test_broken_redundancy.py
 	$(PYTHON) tests/broken/test_broken_liberty.py
 	$(PYTHON) tests/broken/test_broken_cec.py
 	$(PYTHON) tests/broken/test_broken_cp2.py
+	$(PYTHON) tests/broken/test_broken_final.py
 	@echo "All tests passed successfully (including all broken-case checks)."
 
-all:              ## run the whole flow (Milestones 1 and 2)
+all:              ## run the whole flow (Milestones 1, 2 and 3)
 	@echo "=== Step 1: Synthesizing Designs to AIG and Restructuring with ABC ==="
 	$(PYTHON) src/run_step.py 1
 	@echo "=== Steps 2, 3 & 4: Cut Enumeration, 100% Simulation Check, Classification & Costing ==="
@@ -65,7 +67,21 @@ all:              ## run the whole flow (Milestones 1 and 2)
 	$(PYTHON) src/run_step.py 8
 	@echo "=== Step 9: Mapping with New Cells, cec, Table 5 (estimated areas) ==="
 	$(PYTHON) src/run_step.py 9
-	@echo "=== Flow Complete (Milestones 1 and 2) ==="
+	@echo "=== Step 10: Greedy Selection of the Final Set, Table 5 (estimated areas) ==="
+	$(PYTHON) src/run_step.py 10
+	@echo "=== Step 11: Real Cells from Cell Responses, Table 5 (real cells) ==="
+	$(PYTHON) src/run_step.py 11
+	@echo "=== Cell-by-Cell Curve ==="
+	$(PYTHON) src/run_step.py curve
+	@echo "=== Step 12: The 30% Experiment ==="
+	$(PYTHON) src/run_step.py 12
+	@echo "=== SPM and the Multiplier: Mapping, dsec and Gate-Level Testbenches ==="
+	$(PYTHON) src/run_step.py gls
+	@echo "=== risc8, pic16 and p16c5x: the Same New Cells? ==="
+	$(PYTHON) src/run_step.py extra
+	@echo "=== Worst Delay of Every Mapping with OpenSTA ==="
+	$(PYTHON) src/run_step.py delay
+	@echo "=== Flow Complete (Milestones 1, 2 and 3) ==="
 	@echo "All deliverables generated in results/:"
 	@ls -la results/
 

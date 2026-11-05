@@ -242,13 +242,42 @@ class EDARunner:
             print("  [FAIL] aigtoaig not found")
             all_ok = False
 
-        # Check Icarus Verilog
+        # Check Icarus Verilog (the gate-level testbenches need it)
         res_iverilog = self.run_cmd(["iverilog", "-V"])
         if res_iverilog.returncode == 0:
             iv_ver = res_iverilog.stdout.strip().splitlines()[0]
             print(f"  [OK] Icarus Verilog: {iv_ver}")
         else:
-            print("  [WARN] Icarus Verilog not found (optional for gate simulation)")
+            print("  [FAIL] Icarus Verilog not found (needed for the gate-level testbenches)")
+            all_ok = False
+
+        # Check OpenSTA (worst delay of every mapping); a missing OpenSTA only
+        # leaves the delay table unmeasured, so it is a warning.  `make check`
+        # runs this file as a script, so the repository root is added first.
+        root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        if root not in sys.path:
+            sys.path.insert(0, root)
+        from src.sta import find_sta
+        sta = find_sta()
+        if sta:
+            res_sta = self.run_cmd([sta[0], "-version"])
+            ver = (res_sta.stdout + res_sta.stderr).strip().splitlines()
+            print(f"  [OK] OpenSTA: {sta[0]} {ver[0] if ver else ''}")
+        else:
+            print("  [WARN] OpenSTA (sta or openroad) not found: the delay table is not measured")
+
+        # Check the SKY130 PDK: the HD Liberty and the cell models the
+        # gate-level testbenches compile against, through the `pdk` link.
+        scl = os.path.join("pdk", "libs.ref", "sky130_fd_sc_hd")
+        for rel in (os.path.join("lib", "sky130_fd_sc_hd__tt_025C_1v80.lib"),
+                    os.path.join("verilog", "primitives.v"),
+                    os.path.join("verilog", "sky130_fd_sc_hd.v")):
+            path = os.path.join(scl, rel)
+            if os.path.exists(path):
+                print(f"  [OK] PDK: {path.replace(os.sep, '/')}")
+            else:
+                print(f"  [FAIL] PDK: {path.replace(os.sep, '/')} missing (run make setup with PDK_ROOT set)")
+                all_ok = False
 
         # Check libraries
         for lib in ["given/hd_reduced.lib", "given/hd_usable.lib"]:

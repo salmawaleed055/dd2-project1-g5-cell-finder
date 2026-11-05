@@ -4,7 +4,7 @@
  |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
  |  Distributed under an ISC-like license, type "license" to see terms        |
  \----------------------------------------------------------------------------/
- Yosys 0.70+190 (git sha1 485b63564, Release, Clang /usr/local/osxcross/target/bin/x86_64-apple-darwin25.5-clang++ 21.1.8)
+ Yosys 0.70+201 (git sha1 0ad867ab5, Release, Clang /usr/bin/clang++ 21.1.8)
 
 -- Running command `read_verilog given/designs/fir10.v; synth -flatten -top fir10; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -o results/logs/fir10_baseline_A_map.log.stat stat -liberty given/hd_reduced.lib; write_verilog -noattr build/map/fir10_baseline_A_raw.v; ' --
 
@@ -551,8 +551,8 @@ Optimizing module fir10.
 
 2.22. Executing TECHMAP pass (map to technology primitives).
 
-2.22.1. Executing Verilog-2005 frontend: /Users/mac/tools/oss-cad-suite/libexec/../share/yosys/techmap.v
-Parsing Verilog input from `/Users/mac/tools/oss-cad-suite/libexec/../share/yosys/techmap.v' to AST representation.
+2.22.1. Executing Verilog-2005 frontend: /home/salma_waleed/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/salma_waleed/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -643,7 +643,9 @@ Found matching posedge clock domain: \clk, enabled by \load, synchronously reset
 2.24.3.1. Executed ABC.
 Extracted 4144 gates and 4390 wires to a netlist network with 246 inputs and 16 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
 ABC: + read_library <abc-temp-dir>/stdcells.genlib 
 ABC: + strash 
@@ -660,6 +662,8 @@ ABC: + &dch -f
 ABC: + &nf 
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 2.24.3.2. Re-integrating ABC results.
 ABC RESULTS:               AND cells:      741
@@ -680,7 +684,9 @@ Removing temp directory.
 2.24.3.1. Executed ABC.
 Extracted 75 gates and 160 wires to a netlist network with 85 inputs and 75 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
 ABC: + read_library <abc-temp-dir>/stdcells.genlib 
 ABC: + strash 
@@ -697,6 +703,8 @@ ABC: + &dch -f
 ABC: + &nf 
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 2.24.3.2. Re-integrating ABC results.
 ABC RESULTS:               AND cells:       75
@@ -829,52 +837,56 @@ Mapping DFF/DLATCH cells in module `\fir10':
   4714 cells in clk={ }, en={ }, arst={ }, srst={ }
 
 4.2. Extracting gate netlist of module `\fir10' to `<abc-temp-dir>/input.blif'..
-ABC: using cached merged SCL: /var/folders/dj/z3n8zdr93_v8fb5fmg5jnhg00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_94e44232.scl (1 files)
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_a79c2e80.scl (1 files)
 No matching clock domain found. Not extracting any FF cells.
 
 4.2.1. Executed ABC.
 Extracted 4538 gates and 4725 wires to a netlist network with 186 inputs and 176 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_scl /var/folders/dj/z3n8zdr93_v8fb5fmg5jnhg00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_94e44232.scl 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_a79c2e80.scl 
 ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
 ABC: + strash 
 ABC: + dch -f 
 ABC: + amap 
 ABC: + topo 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 4.2.2. Re-integrating ABC results.
-ABC RESULTS:   sky130_fd_sc_hd__a21boi_1 cells:        4
-ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:      780
-ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      527
-ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:      138
-ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       40
-ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       83
-ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        6
-ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      284
-ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      449
-ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        7
-ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       19
-ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       12
-ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:     1689
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      599
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:      144
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a32o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      360
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:     1124
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      999
 ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        5
-ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       70
-ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:      243
-ABC RESULTS:   sky130_fd_sc_hd__o221a_1 cells:       27
-ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       98
-ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:       37
-ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:       11
-ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        5
-ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        6
-ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:      338
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:      769
+ABC RESULTS:   sky130_fd_sc_hd__o221a_1 cells:       23
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:      179
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:        2
 ABC RESULTS:        internal signals:     4363
 ABC RESULTS:           input signals:      186
 ABC RESULTS:          output signals:      176
@@ -893,46 +905,46 @@ Removed 0 unused cells and 4668 unused wires.
         +----------Local Count, excluding submodules.
         |        +-Local Area, excluding submodules.
         |        | 
-     4574        - wires
-     4736        - wire bits
+     4647        - wires
+     4809        - wire bits
        25        - public wires
       187        - public wire bits
         5        - ports
        27        - port bits
-     4725 2.65E+04 cells
-        4   30.029   sky130_fd_sc_hd__a21boi_1
-      780 5.86E+03   sky130_fd_sc_hd__a21o_1
-      527  2637.53   sky130_fd_sc_hd__a21oi_1
-      138 1.21E+03   sky130_fd_sc_hd__a221oi_1
-        1    8.758   sky130_fd_sc_hd__a22o_1
-       40  300.288   sky130_fd_sc_hd__a22oi_1
-       83  519.248   sky130_fd_sc_hd__a31oi_1
-        6   37.536   sky130_fd_sc_hd__and2_1
+     4798 2.54E+04 cells
+        1    7.507   sky130_fd_sc_hd__a211oi_1
+        1    7.507   sky130_fd_sc_hd__a21boi_1
+       15  112.608   sky130_fd_sc_hd__a21o_1
+      599    3E+03   sky130_fd_sc_hd__a21oi_1
+      144  1261.21   sky130_fd_sc_hd__a221oi_1
+       10   75.072   sky130_fd_sc_hd__a22oi_1
+        1    8.758   sky130_fd_sc_hd__a31o_1
+        6   37.536   sky130_fd_sc_hd__a31oi_1
+        1    10.01   sky130_fd_sc_hd__a32o_1
+        5    31.28   sky130_fd_sc_hd__and2_1
+        1    6.256   sky130_fd_sc_hd__and3_1
       176 3.52E+03   sky130_fd_sc_hd__dfxtp_1
-      284 1.07E+03   sky130_fd_sc_hd__inv_1
-      449 1.69E+03   sky130_fd_sc_hd__nand2_1
-        7   43.792   sky130_fd_sc_hd__nand2b_1
-       19   95.091   sky130_fd_sc_hd__nand3_1
-       12   75.072   sky130_fd_sc_hd__nand4_1
-     1689  6339.83   sky130_fd_sc_hd__nor2_1
+      360 1.35E+03   sky130_fd_sc_hd__inv_1
+     1124 4.22E+03   sky130_fd_sc_hd__nand2_1
+        1    6.256   sky130_fd_sc_hd__nand2b_1
+        7   35.034   sky130_fd_sc_hd__nand3_1
+      999 3.75E+03   sky130_fd_sc_hd__nor2_1
         5    31.28   sky130_fd_sc_hd__nor2b_1
-       70  350.336   sky130_fd_sc_hd__nor3_1
-        1    6.256   sky130_fd_sc_hd__nor4_1
-        1    7.507   sky130_fd_sc_hd__o211ai_1
-        1    7.507   sky130_fd_sc_hd__o21a_1
-      243 1.22E+03   sky130_fd_sc_hd__o21ai_1
-       27  304.042   sky130_fd_sc_hd__o221a_1
-       98  613.088   sky130_fd_sc_hd__o22ai_1
-        1    8.758   sky130_fd_sc_hd__o2bb2ai_1
-       37  324.061   sky130_fd_sc_hd__o31a_1
-        1    7.507   sky130_fd_sc_hd__o31ai_1
-       11   96.342   sky130_fd_sc_hd__o32ai_1
-        5    31.28   sky130_fd_sc_hd__or2_1
-        6   37.536   sky130_fd_sc_hd__or3_1
-        3   26.275   sky130_fd_sc_hd__xnor2_1
+       13   65.062   sky130_fd_sc_hd__nor3_1
+        2   12.512   sky130_fd_sc_hd__nor4_1
+      338 2.54E+03   sky130_fd_sc_hd__o21a_1
+      769 3.85E+03   sky130_fd_sc_hd__o21ai_1
+       23  258.998   sky130_fd_sc_hd__o221a_1
+      179 1.12E+03   sky130_fd_sc_hd__o22ai_1
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        5   43.792   sky130_fd_sc_hd__o32ai_1
+        6   37.536   sky130_fd_sc_hd__or2_1
+        2   12.512   sky130_fd_sc_hd__or3_1
+        1    8.758   sky130_fd_sc_hd__xnor2_1
+        2   17.517   sky130_fd_sc_hd__xor2_1
 
-   Chip area for module '\fir10': 26494.160000
-     of which used for sequential elements: 3523.379200 (13.30%)
+   Chip area for module '\fir10': 25449.408000
+     of which used for sequential elements: 3523.379200 (13.84%)
 
 7. Executing Verilog backend.
 
@@ -941,6 +953,6 @@ Removed 0 unused cells and 4668 unused wires.
 7.2. Executing DEMUXMAP pass.
 Dumping module `\fir10'.
 
-End of script. Logfile hash: c020972159, time: 5.01s, user: 0.75s, system: 0.10s, MEM: 35.81 MB peak
-Yosys 0.70+190 (git sha1 485b63564, Release, Clang /usr/local/osxcross/target/bin/x86_64-apple-darwin25.5-clang++ 21.1.8)
-Time spent: 79% 2x abc (2 sec), 4% 16x opt_clean (0 sec), ...
+End of script. Logfile hash: 54d764cd7e, time: 4.91s, user: 0.92s, system: 0.30s, MEM: 67.92 MB peak
+Yosys 0.70+201 (git sha1 0ad867ab5, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 69% 2x abc (2 sec), 4% 16x opt_clean (0 sec), ...

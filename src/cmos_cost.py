@@ -40,8 +40,8 @@ MAX_LITERALS = 8
 MAX_SERIES = 3
 
 
+# Return the indices of the inputs the 16-bit truth table depends on.
 def _support(tt: int) -> List[int]:
-    """Indices of the variables the 16-bit truth table depends on."""
     sup = []
     for v in range(4):
         s = 1 << v
@@ -51,17 +51,9 @@ def _support(tt: int) -> List[int]:
     return sup
 
 
+# Search all series-parallel networks for the cheapest single gate of each function.
 @functools.lru_cache(maxsize=1)
 def single_stage_table() -> Dict[int, Tuple[int, int, str]]:
-    """
-    Exhaustive search over series-parallel networks on the 8 literals
-    {A..D, !A..!D}.  Returns {T truth table: (literals, negated-var mask,
-    expression of T)} keeping, for each T, the network with the fewest
-    literals and, among those, the fewest inverted inputs.  Every network kept
-    has at most MAX_SERIES transistors in series in both the NMOS and the PMOS
-    network.
-    """
-    # level[L] : {(tt, n_series, p_series, negmask): expr}
     level: Dict[int, Dict[Tuple[int, int, int, int], str]] = {1: {}}
     for v in range(4):
         level[1][(VAR_TT[v], 1, 1, 0)] = NAMES[v]
@@ -69,6 +61,7 @@ def single_stage_table() -> Dict[int, Tuple[int, int, str]]:
 
     best: Dict[int, Tuple[int, int, str]] = {}
 
+    # Record a network if it beats the current best: fewest literals, then fewest inverted inputs.
     def keep(tt, lits, neg, expr):
         cur = best.get(tt)
         cand = (lits, bin(neg).count('1'))
@@ -84,13 +77,11 @@ def single_stage_table() -> Dict[int, Tuple[int, int, str]]:
             l2 = L - l1
             for (t1, n1, p1, g1), e1 in level[l1].items():
                 for (t2, n2, p2, g2), e2 in level[l2].items():
-                    # AND: NMOS in series, PMOS in parallel
                     n, p = n1 + n2, max(p1, p2)
                     if n <= MAX_SERIES:
                         key = (t1 & t2, n, p, g1 | g2)
                         if key not in cur:
                             cur[key] = f"({e1}&{e2})"
-                    # OR: NMOS in parallel, PMOS in series
                     n, p = max(n1, n2), p1 + p2
                     if p <= MAX_SERIES:
                         key = (t1 | t2, n, p, g1 | g2)
@@ -102,12 +93,8 @@ def single_stage_table() -> Dict[int, Tuple[int, int, str]]:
     return best
 
 
+# Drop networks whose NMOS and PMOS stacks are dominated by an equivalent network.
 def _thin(nets: Dict[Tuple[int, int, int, int], str]) -> Dict[Tuple[int, int, int, int], str]:
-    """
-    Keeps, for each (tt, negmask), only the networks not dominated in
-    (n_series, p_series): a sub-network with more series transistors and the
-    same function and inputs is never better when combined further.
-    """
     groups: Dict[Tuple[int, int], List[Tuple[int, int, str]]] = {}
     for (tt, n, p, neg), e in nets.items():
         groups.setdefault((tt, neg), []).append((n, p, e))
@@ -119,12 +106,8 @@ def _thin(nets: Dict[Tuple[int, int, int, int], str]) -> Dict[Tuple[int, int, in
     return out
 
 
+# Return a minimum sum of products using Quine-McCluskey with an exact cover.
 def _sop_cubes(tt: int) -> List[Tuple[int, int]]:
-    """
-    Minimum sum of products of a 4-input function (Quine-McCluskey with an
-    exact cover by exhaustive search; at most 16 minterms).
-    A cube is (care mask, value): the minterms i with i & care == value.
-    """
     minterms = [i for i in range(16) if (tt >> i) & 1]
     if not minterms:
         return []
@@ -156,14 +139,8 @@ def _sop_cubes(tt: int) -> List[Tuple[int, int]]:
     return primes
 
 
+# Cost a function as AOI gates over its minimum SOP, joined by a NAND or an inverter.
 def _two_level_cost(tt: int) -> Tuple[int, int, int, str]:
-    """
-    Construction 3 for f = OR of the cubes of a minimum SOP of f.
-    Each AOI gate computes !(up to 3 cubes); a NAND of the AOI outputs (at
-    most 3: a minimum SOP of 4 inputs has at most 8 cubes) gives f, or an
-    inverter when there is a single AOI.
-    Returns (transistors, stages, inverters, expression).
-    """
     cubes = _sop_cubes(tt)
     tx, inv, neg_vars, has_split = 0, 0, 0, False
     terms = []
@@ -173,8 +150,6 @@ def _two_level_cost(tt: int) -> Tuple[int, int, int, str]:
             if not (val >> v & 1):
                 neg_vars |= 1 << v
         if len(lits) == 4:
-            # 4 literals would put 4 NMOS in series: two of them are first
-            # combined by a nand2 and an inverter (6 transistors, 2 stages)
             tx += 6
             inv += 1
             has_split = True
@@ -184,10 +159,10 @@ def _two_level_cost(tt: int) -> Tuple[int, int, int, str]:
         terms.append("&".join(("" if val >> v & 1 else "!") + NAMES[v] for v in lits))
     n_aoi = (len(cubes) + MAX_SERIES - 1) // MAX_SERIES
     if n_aoi == 1:
-        tx += 2          # output inverter
+        tx += 2
         inv += 1
     else:
-        tx += 2 * n_aoi  # final NAND
+        tx += 2 * n_aoi
     n_neg = bin(neg_vars).count('1')
     tx += 2 * n_neg
     inv += n_neg
@@ -195,12 +170,9 @@ def _two_level_cost(tt: int) -> Tuple[int, int, int, str]:
     return tx, front + 2, inv, " | ".join(f"({t})" for t in terms)
 
 
+# Cost every function built from two gates feeding a final NAND2 or NOR2.
 @functools.lru_cache(maxsize=1)
 def two_gate_table() -> Dict[int, Tuple[int, int, int, str]]:
-    """
-    Construction 4: {f: (transistors, stages, inverters, expression)} for
-    f = !(g1 & g2) and f = !(g1 | g2).
-    """
     gates: Dict[int, Tuple[int, int, int, str]] = {}
     for v in range(4):
         gates[VAR_TT[v]] = (0, 0, 0, NAMES[v])
@@ -217,7 +189,7 @@ def two_gate_table() -> Dict[int, Tuple[int, int, int, str]]:
     for i, (g1, c1) in enumerate(items):
         for g2, c2 in items[i + 1:]:
             if c1[1] == 0 and c2[1] == 0:
-                continue  # a plain nand2/nor2 is construction 1
+                continue
             base = (c1[0] + c2[0] + 4, max(c1[1], c2[1]) + 1, c1[2] + c2[2])
             for f, op in (((~(g1 & g2)) & MASK, "&"), ((~(g1 | g2)) & MASK, "|")):
                 if f not in out or base[:2] < out[f][:2]:
@@ -225,39 +197,31 @@ def two_gate_table() -> Dict[int, Tuple[int, int, int, str]]:
     return out
 
 
+# Return the cheapest CMOS construction of a 16-bit truth table, by transistors then stages.
 @functools.lru_cache(maxsize=None)
 def cmos_cost(tt: int) -> Dict[str, object]:
-    """
-    Cost of the function with 16-bit truth table tt (inputs A=bit0 .. D=bit3).
-    Returns a dict with stages, inverters, transistors, max_series, construction
-    and a Liberty-style expression of the structure.
-    """
     tt &= MASK
     if tt in (0, MASK):
         return {"stages": 0, "inverters": 0, "transistors": 0, "max_series": 0,
                 "construction": "constant", "expression": "1" if tt else "0"}
     table = single_stage_table()
     cands = []
-    # 1. f = !T
     t = (~tt) & MASK
     if t in table:
         lits, neg, e = table[t]
         n_neg = bin(neg).count('1')
         cands.append((2 * lits + 2 * n_neg, 1 + (1 if n_neg else 0), n_neg,
                       "one complex gate", f"!{e}"))
-    # 2. f = !(!T): complex gate then output inverter
     if tt in table:
         lits, neg, e = table[tt]
         n_neg = bin(neg).count('1')
         cands.append((2 * lits + 2 * n_neg + 2, 2 + (1 if n_neg else 0), n_neg + 1,
                       "complex gate + output inverter", f"!(!{e})"))
-    # 3. two levels, on f and on !f with an output inverter
     tx, st, inv, e = _two_level_cost(tt)
     cands.append((tx, st, inv, "two-level", e))
     tx, st, inv, e = _two_level_cost((~tt) & MASK)
     cands.append((tx + 2, st + 1, inv + 1, "two-level + output inverter", f"!({e})"))
 
-    # 4. two gates into a NAND2/NOR2, without and with an output inverter
     two = two_gate_table()
     if tt in two:
         tx, st, inv, e = two[tt]

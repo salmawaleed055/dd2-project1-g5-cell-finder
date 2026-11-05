@@ -1,0 +1,2 @@
+PASS: all 65536 signed input pairs correct
+designs/tutorials/mul/mul_exhaustive_tb.v:42: $finish called at 65536000 (1ps)

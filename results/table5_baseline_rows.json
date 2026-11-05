@@ -3,12 +3,12 @@
   "design": "cpu8",
   "library": "baseline",
   "script": "A",
-  "area": 4221.5488,
+  "area": 4206.5344,
   "seq_area": 1641.5744,
-  "comb_area": 2579.9744,
+  "comb_area": 2564.96,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 5,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -20,19 +20,19 @@
   "comb_area": 2617.5104,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "dsp8",
   "library": "baseline",
   "script": "A",
-  "area": 5795.5584,
+  "area": 5846.8576,
   "seq_area": 1441.3824,
-  "comb_area": 4354.176,
+  "comb_area": 4405.4752,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -44,19 +44,19 @@
   "comb_area": 4599.4112,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "arlet6502",
   "library": "baseline",
   "script": "A",
-  "area": 9330.1984,
+  "area": 9310.1792,
   "seq_area": 2894.0256,
-  "comb_area": 6436.1728,
+  "comb_area": 6416.1536,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -68,19 +68,19 @@
   "comb_area": 6678.9056,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 9,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "uart_apb",
   "library": "baseline",
   "script": "A",
-  "area": 12719.6992,
+  "area": 12655.888,
   "seq_area": 8266.6784,
-  "comb_area": 4453.0208,
+  "comb_area": 4389.2096,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -92,19 +92,19 @@
   "comb_area": 4790.8448,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 9,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "risc8",
   "library": "baseline",
   "script": "A",
-  "area": 28146.9952,
+  "area": 28170.768,
   "seq_area": 13933.3632,
-  "comb_area": 14213.632,
+  "comb_area": 14237.4048,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 8,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -116,19 +116,19 @@
   "comb_area": 14199.8688,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 9,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
   "design": "fir10",
   "library": "baseline",
   "script": "A",
-  "area": 26494.16,
+  "area": 25449.408,
   "seq_area": 3523.3792,
-  "comb_area": 22970.7808,
+  "comb_area": 21926.0288,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  },
  {
@@ -140,7 +140,7 @@
   "comb_area": 25491.9488,
   "new_cell_instances": 0,
   "new_cells": {},
-  "repaired_pins": 6,
+  "repaired_pins": 0,
   "cec": "pass"
  }
 ]

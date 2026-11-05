@@ -11,6 +11,7 @@ Step 7 needs the baseline areas, so `make all` runs 9b before 7.
 """
 
 import json
+import os
 import sys
 
 from src.area_model import AreaModel
@@ -56,6 +57,12 @@ def step_7() -> None:
 def step_8() -> None:
     cells = cells_from_candidates("results/candidates.csv", TOP_N)
     write_liberty(BASE_LIB, cells, EXT_LIB)
+    # Requests from an earlier ranking would otherwise stay next to the new ones.
+    req_dir = "cells/requests"
+    if os.path.isdir(req_dir):
+        for f in os.listdir(req_dir):
+            if f.endswith(".json"):
+                os.remove(os.path.join(req_dir, f))
     write_requests(cells)
     problems = verify_liberty_cells(EXT_LIB, cells)
     res = runner.run_cmd(["yosys", "-p", f"read_liberty -lib {EXT_LIB}"])

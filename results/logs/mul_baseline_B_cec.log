@@ -1,0 +1,4 @@
+======== ABC command line "dsec build/map/mul_baseline_B_gold.aig build/map/mul_baseline_B_gate.aig"
+Error: The network has no latches. Used combinational command "cec".
+======== ABC command line "cec build/map/mul_baseline_B_gold.aig build/map/mul_baseline_B_gate.aig"
+Networks are equivalent.  Time =     0.20 sec

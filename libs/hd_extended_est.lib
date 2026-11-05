@@ -85853,49 +85853,6 @@ library ("sky130_fd_sc_hd__tt_025C_1v80") {
       }
     }
   }
-  cell ("dd2_g5__f000b_1") {
-    area : 8.7584;
-    pin ("A") { direction : "input"; capacitance : 0.0024; }
-    pin ("B") { direction : "input"; capacitance : 0.0024; }
-    pin ("C") { direction : "input"; capacitance : 0.0024; }
-    pin ("D") { direction : "input"; capacitance : 0.0024; }
-    pin ("Y") {
-      direction : "output";
-      function : "!(C|(D|(!A&B)))";
-      timing () {
-        related_pin : "A";
-        timing_sense : "positive_unate";
-        cell_rise (scalar) { values ("0.094"); }
-        cell_fall (scalar) { values ("0.075"); }
-        rise_transition (scalar) { values ("0.094"); }
-        fall_transition (scalar) { values ("0.075"); }
-      }
-      timing () {
-        related_pin : "B";
-        timing_sense : "negative_unate";
-        cell_rise (scalar) { values ("0.094"); }
-        cell_fall (scalar) { values ("0.075"); }
-        rise_transition (scalar) { values ("0.094"); }
-        fall_transition (scalar) { values ("0.075"); }
-      }
-      timing () {
-        related_pin : "C";
-        timing_sense : "negative_unate";
-        cell_rise (scalar) { values ("0.094"); }
-        cell_fall (scalar) { values ("0.075"); }
-        rise_transition (scalar) { values ("0.094"); }
-        fall_transition (scalar) { values ("0.075"); }
-      }
-      timing () {
-        related_pin : "D";
-        timing_sense : "negative_unate";
-        cell_rise (scalar) { values ("0.094"); }
-        cell_fall (scalar) { values ("0.075"); }
-        rise_transition (scalar) { values ("0.094"); }
-        fall_transition (scalar) { values ("0.075"); }
-      }
-    }
-  }
   cell ("dd2_g5__f001f_1") {
     area : 7.5072;
     pin ("A") { direction : "input"; capacitance : 0.0024; }
@@ -85936,6 +85893,49 @@ library ("sky130_fd_sc_hd__tt_025C_1v80") {
         cell_fall (scalar) { values ("0.050"); }
         rise_transition (scalar) { values ("0.062"); }
         fall_transition (scalar) { values ("0.050"); }
+      }
+    }
+  }
+  cell ("dd2_g5__f000b_1") {
+    area : 8.7584;
+    pin ("A") { direction : "input"; capacitance : 0.0024; }
+    pin ("B") { direction : "input"; capacitance : 0.0024; }
+    pin ("C") { direction : "input"; capacitance : 0.0024; }
+    pin ("D") { direction : "input"; capacitance : 0.0024; }
+    pin ("Y") {
+      direction : "output";
+      function : "!(C|(D|(!A&B)))";
+      timing () {
+        related_pin : "A";
+        timing_sense : "positive_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
+      }
+      timing () {
+        related_pin : "C";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
+      }
+      timing () {
+        related_pin : "D";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
       }
     }
   }
@@ -86068,49 +86068,6 @@ library ("sky130_fd_sc_hd__tt_025C_1v80") {
       }
     }
   }
-  cell ("dd2_g5__f0ee0_1") {
-    area : 13.7632;
-    pin ("A") { direction : "input"; capacitance : 0.0024; }
-    pin ("B") { direction : "input"; capacitance : 0.0024; }
-    pin ("C") { direction : "input"; capacitance : 0.0024; }
-    pin ("D") { direction : "input"; capacitance : 0.0024; }
-    pin ("Y") {
-      direction : "output";
-      function : "!(!((A|B)&((C|D)&(!C|!D))))";
-      timing () {
-        related_pin : "A";
-        timing_sense : "positive_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
-      }
-      timing () {
-        related_pin : "B";
-        timing_sense : "positive_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
-      }
-      timing () {
-        related_pin : "C";
-        timing_sense : "non_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
-      }
-      timing () {
-        related_pin : "D";
-        timing_sense : "non_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
-      }
-    }
-  }
   cell ("dd2_g5__fa8fe_1") {
     area : 12.5120;
     pin ("A") { direction : "input"; capacitance : 0.0024; }
@@ -86147,6 +86104,49 @@ library ("sky130_fd_sc_hd__tt_025C_1v80") {
       timing () {
         related_pin : "D";
         timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.125"); }
+        cell_fall (scalar) { values ("0.100"); }
+        rise_transition (scalar) { values ("0.125"); }
+        fall_transition (scalar) { values ("0.100"); }
+      }
+    }
+  }
+  cell ("dd2_g5__f0ee0_1") {
+    area : 13.7632;
+    pin ("A") { direction : "input"; capacitance : 0.0024; }
+    pin ("B") { direction : "input"; capacitance : 0.0024; }
+    pin ("C") { direction : "input"; capacitance : 0.0024; }
+    pin ("D") { direction : "input"; capacitance : 0.0024; }
+    pin ("Y") {
+      direction : "output";
+      function : "!(!((A|B)&((C|D)&(!C|!D))))";
+      timing () {
+        related_pin : "A";
+        timing_sense : "positive_unate";
+        cell_rise (scalar) { values ("0.125"); }
+        cell_fall (scalar) { values ("0.100"); }
+        rise_transition (scalar) { values ("0.125"); }
+        fall_transition (scalar) { values ("0.100"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : "positive_unate";
+        cell_rise (scalar) { values ("0.125"); }
+        cell_fall (scalar) { values ("0.100"); }
+        rise_transition (scalar) { values ("0.125"); }
+        fall_transition (scalar) { values ("0.100"); }
+      }
+      timing () {
+        related_pin : "C";
+        timing_sense : "non_unate";
+        cell_rise (scalar) { values ("0.125"); }
+        cell_fall (scalar) { values ("0.100"); }
+        rise_transition (scalar) { values ("0.125"); }
+        fall_transition (scalar) { values ("0.100"); }
+      }
+      timing () {
+        related_pin : "D";
+        timing_sense : "non_unate";
         cell_rise (scalar) { values ("0.125"); }
         cell_fall (scalar) { values ("0.100"); }
         rise_transition (scalar) { values ("0.125"); }
@@ -86197,46 +86197,46 @@ library ("sky130_fd_sc_hd__tt_025C_1v80") {
       }
     }
   }
-  cell ("dd2_g5__f0009_1") {
-    area : 15.0144;
+  cell ("dd2_g5__f28be_1") {
+    area : 16.2656;
     pin ("A") { direction : "input"; capacitance : 0.0024; }
     pin ("B") { direction : "input"; capacitance : 0.0024; }
     pin ("C") { direction : "input"; capacitance : 0.0024; }
     pin ("D") { direction : "input"; capacitance : 0.0024; }
     pin ("Y") {
       direction : "output";
-      function : "!(C|!(!D&((A&B)|(!A&!B))))";
+      function : "!((!A&D)|((!A|D)&((B&C)|(!B&!C))))";
       timing () {
         related_pin : "A";
-        timing_sense : "non_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
+        timing_sense : "positive_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
       }
       timing () {
         related_pin : "B";
         timing_sense : "non_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
       }
       timing () {
         related_pin : "C";
-        timing_sense : "negative_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
+        timing_sense : "non_unate";
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
       }
       timing () {
         related_pin : "D";
         timing_sense : "negative_unate";
-        cell_rise (scalar) { values ("0.125"); }
-        cell_fall (scalar) { values ("0.100"); }
-        rise_transition (scalar) { values ("0.125"); }
-        fall_transition (scalar) { values ("0.100"); }
+        cell_rise (scalar) { values ("0.094"); }
+        cell_fall (scalar) { values ("0.075"); }
+        rise_transition (scalar) { values ("0.094"); }
+        fall_transition (scalar) { values ("0.075"); }
       }
     }
   }

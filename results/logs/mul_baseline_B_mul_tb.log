@@ -1,0 +1,10 @@
+VCD info: dumpfile mul.vcd opened for output.
+  ok: 10 x 20 = 200
+  ok: 20 x 20 = 400
+  ok: 20 x -5 = -100
+  ok: -128 x -128 = 16384
+  ok: -128 x 1 = -128
+  ok: 127 x 127 = 16129
+  ok: 0 x -128 = 0
+PASS: 7/7 tests passed
+designs/tutorials/mul/mul_tb.v:62: $finish called at 7000 (1ps)

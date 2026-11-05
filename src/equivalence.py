@@ -118,7 +118,14 @@ def netlist_to_aig(netlist: str, top: str, lib_path: str, ff_models: str,
 
 
 def run_cec(gold_aig: str, gate_aig: str) -> Tuple[bool, str]:
-    """Runs ABC `dsec` and returns (equivalent, ABC output)."""
+    """
+    Runs ABC `dsec` and returns (equivalent, ABC output).  dsec refuses a
+    design without flip-flops (the multiplier); that one is checked with the
+    combinational `cec`, which pairs inputs and outputs by position.
+    """
     res = runner.run_cmd(["yosys-abc", "-c", f"dsec {gold_aig} {gate_aig}"])
     out = res.stdout + res.stderr
+    if "has no latches" in out:
+        res = runner.run_cmd(["yosys-abc", "-c", f"cec {gold_aig} {gate_aig}"])
+        out += res.stdout + res.stderr
     return ("Networks are equivalent" in out and "NOT" not in out), out

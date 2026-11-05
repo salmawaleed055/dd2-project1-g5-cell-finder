@@ -4,7 +4,7 @@
  |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
  |  Distributed under an ISC-like license, type "license" to see terms        |
  \----------------------------------------------------------------------------/
- Yosys 0.70+190 (git sha1 485b63564, Release, Clang /usr/local/osxcross/target/bin/x86_64-apple-darwin25.5-clang++ 21.1.8)
+ Yosys 0.70+201 (git sha1 0ad867ab5, Release, Clang /usr/bin/clang++ 21.1.8)
 
 -- Running command `read_verilog given/designs/fir10.v; synth -flatten -top fir10; dfflibmap -liberty libs/hd_extended_est.lib; abc -liberty libs/hd_extended_est.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -o results/logs/fir10_extended_B_map.log.stat stat -liberty libs/hd_extended_est.lib; write_verilog -noattr build/map/fir10_extended_B_raw.v; ' --
 
@@ -551,8 +551,8 @@ Optimizing module fir10.
 
 2.22. Executing TECHMAP pass (map to technology primitives).
 
-2.22.1. Executing Verilog-2005 frontend: /Users/mac/tools/oss-cad-suite/libexec/../share/yosys/techmap.v
-Parsing Verilog input from `/Users/mac/tools/oss-cad-suite/libexec/../share/yosys/techmap.v' to AST representation.
+2.22.1. Executing Verilog-2005 frontend: /home/salma_waleed/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/salma_waleed/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -643,7 +643,9 @@ Found matching posedge clock domain: \clk, enabled by \load, synchronously reset
 2.24.3.1. Executed ABC.
 Extracted 4144 gates and 4390 wires to a netlist network with 246 inputs and 16 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
 ABC: + read_library <abc-temp-dir>/stdcells.genlib 
 ABC: + strash 
@@ -660,6 +662,8 @@ ABC: + &dch -f
 ABC: + &nf 
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 2.24.3.2. Re-integrating ABC results.
 ABC RESULTS:               AND cells:      741
@@ -680,7 +684,9 @@ Removing temp directory.
 2.24.3.1. Executed ABC.
 Extracted 75 gates and 160 wires to a netlist network with 85 inputs and 75 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
 ABC: + read_library <abc-temp-dir>/stdcells.genlib 
 ABC: + strash 
@@ -697,6 +703,8 @@ ABC: + &dch -f
 ABC: + &nf 
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 2.24.3.2. Re-integrating ABC results.
 ABC RESULTS:               AND cells:       75
@@ -829,15 +837,17 @@ Mapping DFF/DLATCH cells in module `\fir10':
   4714 cells in clk={ }, en={ }, arst={ }, srst={ }
 
 4.2. Extracting gate netlist of module `\fir10' to `<abc-temp-dir>/input.blif'..
-ABC: using cached merged SCL: /var/folders/dj/z3n8zdr93_v8fb5fmg5jnhg00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_85b9033d.scl (1 files)
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_5538b68b.scl (1 files)
 No matching clock domain found. Not extracting any FF cells.
 
 4.2.1. Executed ABC.
 Extracted 4538 gates and 4725 wires to a netlist network with 186 inputs and 176 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
-ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 23 2026 05:17:32)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_scl /var/folders/dj/z3n8zdr93_v8fb5fmg5jnhg00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_85b9033d.scl 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_5538b68b.scl 
 ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
 ABC: + strash 
 ABC: + &get -n 
@@ -845,51 +855,55 @@ ABC: + &dch -f
 ABC: + &nf -R 1000 
 ABC: + &put 
 ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
 
 4.2.2. Re-integrating ABC results.
-ABC RESULTS:   dd2_g5__f000b_1 cells:      161
-ABC RESULTS:   dd2_g5__f001f_1 cells:       16
-ABC RESULTS:   dd2_g5__f002b_1 cells:        1
-ABC RESULTS:   dd2_g5__f011f_1 cells:       15
-ABC RESULTS:   dd2_g5__f80a8_1 cells:        1
-ABC RESULTS:   dd2_g5__fa8fe_1 cells:       11
-ABC RESULTS:   sky130_fd_sc_hd__a21bo_1 cells:        1
+ABC RESULTS:   dd2_g5__f000b_1 cells:      156
+ABC RESULTS:   dd2_g5__f001f_1 cells:       21
+ABC RESULTS:   dd2_g5__f011f_1 cells:       12
+ABC RESULTS:   dd2_g5__f28be_1 cells:        7
+ABC RESULTS:   dd2_g5__f82eb_1 cells:        3
+ABC RESULTS:   dd2_g5__fa8fe_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        3
 ABC RESULTS:   sky130_fd_sc_hd__a21boi_1 cells:        5
-ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        9
-ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       84
-ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:       24
-ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      117
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       35
 ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       16
 ABC RESULTS:   sky130_fd_sc_hd__a32o_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:       22
-ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       20
+ABC RESULTS:   sky130_fd_sc_hd__and3b_1 cells:        1
 ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:        3
-ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      156
-ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:      372
-ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      698
-ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       51
-ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       42
-ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       36
-ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      349
-ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:       39
-ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        6
-ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      148
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:      320
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      652
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       39
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       42
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      399
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:       71
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        2
 ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       95
-ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       92
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        3
 ABC RESULTS:   sky130_fd_sc_hd__o22a_1 cells:        6
-ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       12
-ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        3
-ABC RESULTS:   sky130_fd_sc_hd__o41ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        7
 ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        3
-ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      876
-ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:        5
-ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:      455
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      825
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:      481
 ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:        5
 ABC RESULTS:        internal signals:     4363
 ABC RESULTS:           input signals:      186
@@ -909,61 +923,63 @@ Removed 0 unused cells and 4668 unused wires.
         +----------Local Count, excluding submodules.
         |        +-Local Area, excluding submodules.
         |        | 
-     3659        - wires
-     3821        - wire bits
+     3690        - wires
+     3852        - wire bits
        25        - public wires
       187        - public wire bits
         5        - ports
        27        - port bits
-     3810 2.86E+04 cells
-      161 1.41E+03   dd2_g5__f000b_1
-       16  120.115   dd2_g5__f001f_1
-        1   11.261   dd2_g5__f002b_1
-       15  150.144   dd2_g5__f011f_1
-        1   12.512   dd2_g5__f80a8_1
-       11  137.632   dd2_g5__fa8fe_1
-        1    10.01   sky130_fd_sc_hd__a21bo_1
+     3841 2.86E+04 cells
+      156  1366.31   dd2_g5__f000b_1
+       21  157.651   dd2_g5__f001f_1
+       12  120.115   dd2_g5__f011f_1
+        7  113.859   dd2_g5__f28be_1
+        3   48.797   dd2_g5__f82eb_1
+       13  162.656   dd2_g5__fa8fe_1
+        3   22.522   sky130_fd_sc_hd__a211oi_1
         5   37.536   sky130_fd_sc_hd__a21boi_1
-        9   67.565   sky130_fd_sc_hd__a21o_1
-       84  420.403   sky130_fd_sc_hd__a21oi_1
-       24  210.202   sky130_fd_sc_hd__a22o_1
-       31  232.723   sky130_fd_sc_hd__a22oi_1
+        8   60.058   sky130_fd_sc_hd__a21o_1
+      117  585.562   sky130_fd_sc_hd__a21oi_1
+       33  289.027   sky130_fd_sc_hd__a22o_1
+       35  262.752   sky130_fd_sc_hd__a22oi_1
         1    8.758   sky130_fd_sc_hd__a31o_1
-       12   75.072   sky130_fd_sc_hd__a31oi_1
+       16  100.096   sky130_fd_sc_hd__a31oi_1
         2   20.019   sky130_fd_sc_hd__a32o_1
-       22  137.632   sky130_fd_sc_hd__and2_1
-       10    62.56   sky130_fd_sc_hd__and3_1
+        1    8.758   sky130_fd_sc_hd__a32oi_1
+       34  212.704   sky130_fd_sc_hd__and2_1
+       20   125.12   sky130_fd_sc_hd__and3_1
+        1    8.758   sky130_fd_sc_hd__and3b_1
         3   26.275   sky130_fd_sc_hd__and4_1
       176 3.52E+03   sky130_fd_sc_hd__dfxtp_1
-      156  585.562   sky130_fd_sc_hd__inv_1
-      372 3.72E+03   sky130_fd_sc_hd__maj3_1
-      698 2.62E+03   sky130_fd_sc_hd__nand2_1
-       51  319.056   sky130_fd_sc_hd__nand2b_1
-       42  210.202   sky130_fd_sc_hd__nand3_1
-       36  225.216   sky130_fd_sc_hd__nand4_1
-      349 1.31E+03   sky130_fd_sc_hd__nor2_1
-       39  243.984   sky130_fd_sc_hd__nor2b_1
-        6   30.029   sky130_fd_sc_hd__nor3_1
-        1    7.507   sky130_fd_sc_hd__nor3b_1
+      148  555.533   sky130_fd_sc_hd__inv_1
+      320  3.2E+03   sky130_fd_sc_hd__maj3_1
+      652 2.45E+03   sky130_fd_sc_hd__nand2_1
+       39  243.984   sky130_fd_sc_hd__nand2b_1
+       34  170.163   sky130_fd_sc_hd__nand3_1
+        1    7.507   sky130_fd_sc_hd__nand3b_1
+       42  262.752   sky130_fd_sc_hd__nand4_1
+      399  1.5E+03   sky130_fd_sc_hd__nor2_1
+       71  444.176   sky130_fd_sc_hd__nor2b_1
+       14   70.067   sky130_fd_sc_hd__nor3_1
+        2   12.512   sky130_fd_sc_hd__nor4_1
         1    8.758   sky130_fd_sc_hd__o2111ai_1
-        1    7.507   sky130_fd_sc_hd__o211ai_1
-        1    7.507   sky130_fd_sc_hd__o21a_1
-       95  475.456   sky130_fd_sc_hd__o21ai_1
-        1    7.507   sky130_fd_sc_hd__o21bai_1
+        2   15.014   sky130_fd_sc_hd__o211ai_1
+       11   82.579   sky130_fd_sc_hd__o21a_1
+       92  460.442   sky130_fd_sc_hd__o21ai_1
+        3   22.522   sky130_fd_sc_hd__o21bai_1
         6    52.55   sky130_fd_sc_hd__o22a_1
-       12   75.072   sky130_fd_sc_hd__o22ai_1
-        1    8.758   sky130_fd_sc_hd__o2bb2ai_1
-        3   22.522   sky130_fd_sc_hd__o31ai_1
-        1    8.758   sky130_fd_sc_hd__o41ai_1
-        9   56.304   sky130_fd_sc_hd__or2_1
+       10    62.56   sky130_fd_sc_hd__o22ai_1
+        1    7.507   sky130_fd_sc_hd__o31ai_1
+        3   26.275   sky130_fd_sc_hd__o32ai_1
+        7   43.792   sky130_fd_sc_hd__or2_1
         3   18.768   sky130_fd_sc_hd__or3_1
-      876 7.67E+03   sky130_fd_sc_hd__xnor2_1
-        5  112.608   sky130_fd_sc_hd__xnor3_1
-      455 3.99E+03   sky130_fd_sc_hd__xor2_1
+      825  7225.68   sky130_fd_sc_hd__xnor2_1
+        2   45.043   sky130_fd_sc_hd__xnor3_1
+      481  4212.79   sky130_fd_sc_hd__xor2_1
         5  118.864   sky130_fd_sc_hd__xor3_1
 
-   Chip area for module '\fir10': 28587.417600
-     of which used for sequential elements: 3523.379200 (12.32%)
+   Chip area for module '\fir10': 28578.659200
+     of which used for sequential elements: 3523.379200 (12.33%)
 
 7. Executing Verilog backend.
 
@@ -972,6 +988,6 @@ Removed 0 unused cells and 4668 unused wires.
 7.2. Executing DEMUXMAP pass.
 Dumping module `\fir10'.
 
-End of script. Logfile hash: f620ff2294, time: 3.24s, user: 0.68s, system: 0.09s, MEM: 36.21 MB peak
-Yosys 0.70+190 (git sha1 485b63564, Release, Clang /usr/local/osxcross/target/bin/x86_64-apple-darwin25.5-clang++ 21.1.8)
-Time spent: 74% 2x abc (1 sec), 5% 16x opt_clean (0 sec), ...
+End of script. Logfile hash: 6060cf3f66, time: 4.40s, user: 1.02s, system: 0.27s, MEM: 67.71 MB peak
+Yosys 0.70+201 (git sha1 0ad867ab5, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 66% 2x abc (2 sec), 5% 16x opt_expr (0 sec), ...

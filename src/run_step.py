@@ -12,6 +12,13 @@ Usage:
   python src/run_step.py 7               # Step 7: Cost, check against HD and rank candidates (needs 9b)
   python src/run_step.py 8               # Step 8: Cell requests and extended Liberty
   python src/run_step.py 9               # Step 9: Map with new cells, equivalence check, Table 5
+  python src/run_step.py 10              # Step 10: Greedy selection of the final set, Table 5 (estimated)
+  python src/run_step.py 11              # Step 11: Real cells from cell responses, Table 5 (real)
+  python src/run_step.py 12              # Step 12: The 30% experiment
+  python src/run_step.py curve           # Cell-by-cell curve (CSV, markdown, PNG)
+  python src/run_step.py delay           # Worst delay of every mapping with OpenSTA
+  python src/run_step.py gls             # SPM and the multiplier: mapping, dsec, gate-level testbenches
+  python src/run_step.py extra           # pic16 and p16c5x against risc8: the same new cells?
   python src/run_step.py table1          # Reproduce Table 1
   python src/run_step.py hd_classes      # Generate HD class table
   python src/run_step.py cut_stats       # Generate full cut/class/redundancy reports across all 6 designs
@@ -240,6 +247,11 @@ def run_demo(target: str):
         step_2(dch_aag)
         step_3(dch_aag)
 
+    # Steps 5 to 9 on this design: its classes against HD, and the design
+    # mapped with and without the final cells, with dsec and OpenSTA.
+    from src import final_flow
+    final_flow.demo(target, dch_aag)
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -275,6 +287,11 @@ if __name__ == "__main__":
         from src import cp2_flow
         {"6": cp2_flow.step_6, "7": cp2_flow.step_7, "8": cp2_flow.step_8,
          "9": cp2_flow.step_9, "9b": cp2_flow.step_9_baseline}[cmd]()
+    elif cmd in ("10", "11", "12", "curve", "delay", "gls", "extra"):
+        from src import final_flow
+        {"10": final_flow.step_10, "11": final_flow.step_11, "12": final_flow.step_12,
+         "curve": final_flow.step_curve, "delay": final_flow.step_delay,
+         "gls": final_flow.step_gls, "extra": final_flow.step_extra}[cmd]()
     elif cmd == "demo":
         target = sys.argv[2] if len(sys.argv) > 2 else "cpu8"
         run_demo(target)
